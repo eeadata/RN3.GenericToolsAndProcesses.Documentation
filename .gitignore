@@ -1,0 +1,5 @@
+_build
+Documentation/_build/
+tmp
+.vscode
+thumbs.db
