@@ -5,6 +5,9 @@
 
 import sys, os
 
+# Check if this is on ReadTheDocs, which sets a specific environment variable
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
