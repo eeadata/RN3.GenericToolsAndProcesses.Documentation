@@ -1,17 +1,19 @@
-.. RN3 Generic Processes - Documentation documentation master file, created by
+.. RN3 Generic Processes - Documentation master file, created by
    sphinx-quickstart on Wed Aug 19 13:26:28 2026.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-RN3 Generic Processes - Documentation documentation
-===================================================
+:html_theme.sidebar_secondary.remove:
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+RN3 Generic Processes - Documentation
+=====================================
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :hidden:
+
+   RN3ExternalIntegrations/index
+   RN3Harvesting/index
 
