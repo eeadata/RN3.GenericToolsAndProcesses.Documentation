@@ -3,28 +3,22 @@
 ___
 
 **Description:**  
-This external integration adds an Import dataset data option to the RN3 dataset, allowing the data provider to prefill the whole dataset with selected data from an MS SQL database (or databases).  
+This external integration adds an **Import dataset data** option to the RN3 dataset, allowing the data provider to prefill the whole dataset (***target dataset***) with selected data (usually the provider specific data) from specified tables or views in an MS SQL database (or databases) (***prefill data sources***).  
 
 It requires the presence of a custom SQL table - ***prefill parameters table***. This table contains:
-- references of the RN3 dataset tables that the process should prefill (***target tables***),  
-- the corresponding ***prefill data sources*** - tables or views in an MS SQL database(s) containing prefill data,  
-- and other pertinent information.  
-
-The external integration FME workspace accesses the relevant information from the specified *prefill parameters table*, uses it to read data from the referred *prefill data sources*, applies specified filters if provided (usually the data provider code), and imports the results into the *target tables*.  
+- References of the RN3 dataset tables that the process should prefill (***target tables***).  
+- The corresponding ***prefill data sources*** - tables or views in an MS SQL database(s) containing prefill data.  
+- Other relevant information.  
+   > See {ref}`RN3_Generic_Update_prefill_dataset.md-prefill-parameters-table` for structure reference, detailed explanation, and how to create and fill it.
 
 >**WARNING**  
 >Any existing records in the *target tables* will be automatically deleted before the import.  
 
-The process transforms and saves the selected *prefill data sources* data into a series of CSV files (one per target table), zips the CSV files into one ZIP file, which it then imports to the RN3 reporting dataset using the '/dataset/v2/importFileData/{datasetId}' RN3 API endpoint.  
-
 >**WARNING**  
->The process doesn't check if the selected *prefill data sources* data match the constraints of the *target tables* fields (e.g., data type) before the import. The discrepancies will be identified during the RN3 Validation.  
+>The process doesn't check if data in the selected *prefill data sources* matches the constraints of the *target tables* fields (e.g., data type) before the import. The discrepancies will be identified during the RN3 Validation.  
 
 **Operation type:**  
 IMPORT FROM OTHER SYSTEM  
-
-**Latest version:**  
-<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Update_prefillDataset.fmw>
 
 
 ## External integration setup - example
@@ -84,6 +78,7 @@ IMPORT FROM OTHER SYSTEM
 - Select appropriate permission options in the Membership page
 - If you don't have permissions to add users to the database, ask EEA Service desk to add it
 
+(RN3_Generic_Update_prefill_dataset.md-prefill-parameters-table)=
 ## Prefill parameters table
 
 This is an MS SQL Server database table with a defined structure that should contain a record for each RN3 dataset table the process should prefill.  
@@ -113,6 +108,8 @@ It doesn't have to be located in the same database as the *prefill data sources*
 
 - The individual ***table prefill data sources*** should be created in cooperation with the **responsible dataflow owner** (e.g., data steward).
 - The FME connection referred to in the **ps_databaseConnection** field must exist in the EEA's FME Flow server. The connection can be either non-JDBC or JDBC. If it's JDBC, the connection name must end with '_JDBC'. The FME Flow server needs at least *db_datareader* permissions in the linked database to access and read the *table prefill data source*. 
+    > See {ref}`RN3_Generic_Update_prefill_dataset.md-how-to-1` for more details.
+	
 - The process will import values only from those columns in the *table prefill data source* that have the **same name** as the fields in the *target table*. Any additional columns in the *table prefill data source* will be ignored. The *target table* fields that do not have a corresponding column in the *table prefill data source* will be imported empty. 
 - If the *target table* contains any **geometry fields**, and the prefill action should prefill those too, the *table prefill data source* needs to contain the geometry values formatted as Extended GeoJSON string, not as SQL geometry! 
 
@@ -195,3 +192,16 @@ VALUES
         ,'countryCode'
     )
 ~~~~
+
+## FME workspace
+
+The external integration FME workspace does the following: 
+- Accesses the relevant information from the *prefill parameters table*.  
+- Reads data from the referred *prefill data sources*.  
+- Applies specified filters if provided.  
+- Imports the results into the *target dataset*.  
+
+It transforms and saves the selected *prefill data sources* data into a series of CSV files (one per target table), zips the CSV files into one ZIP file, which it then imports to the RN3 reporting dataset using the '/dataset/v2/importFileData/{datasetId}' RN3 API endpoint.  
+
+**Latest version:**  
+<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Update_prefillDataset.fmw>

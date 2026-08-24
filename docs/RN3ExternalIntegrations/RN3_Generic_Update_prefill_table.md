@@ -3,23 +3,16 @@
 ___
 
 **Description:**  
-This external integration adds an Import dataset data option to the RN3 dataset, allowing the data provider to prefill a specific dataset table with selected data from an MS SQL database.  
-
-The External integration FME workspace reads data from a defined ***prefill data source*** - a table or a view in an MS SQL database - applies specified filters if provided (usually the data provider code), and imports the result into a selected RN3 reporting dataset table (the ***target table***).
+This external integration adds an **Import dataset data** option to the RN3 dataset, allowing the data provider to prefill a specific dataset table (***target table***) with selected data (usualy the provider specific data) from a specifc table or view in an MS SQL database (***prefill data source***).  
 
 >**WARNING**  
 >Any existing records in the *target table* will be automatically deleted before the import.  
 
-The process transforms and saves the selected *prefill data source* data into a single CSV file, which it then imports to the *target table* using the '/dataset/v2/importFileData/{datasetId}' RN3 API endpoint.
-
 >**WARNING**  
->The process doesn't check if the selected *prefill data source* data matches the constraints of the *target table* fields (e.g., data type) before the import. The discrepancies will be identified during the RN3 Validation.
+>The process doesn't check if data in the selected *prefill data source* matches the constraints of the *target table* fields (e.g., data type) before the import. The discrepancies will be identified during the RN3 Validation.
 
 **Operation type:**  
 IMPORT FROM OTHER SYSTEM  
-
-**Latest version:**  
-<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Update_prefillTable.fmw>
 
 
 ## External integration setup - example
@@ -99,3 +92,16 @@ IMPORT FROM OTHER SYSTEM
 - Add a user with eeadmz1\fmeservice as the user name and login name
 - Select appropriate permission options on the Membership page
 - If you don't have permissions to add users to the database, ask EEA Service Desk to add it
+
+
+## FME workspace
+
+The external integration FME workspace does the following: 
+- Reads data from a defined *prefill data source*.  
+- Applies specified filters if provided.  
+- Imports the result into the *target table*.  
+
+It transforms and saves the selected *prefill data source* data into a single CSV file, which it then imports to the *target table* using the '/dataset/v2/importFileData/{datasetId}' RN3 API endpoint.
+
+**Latest version:**  
+<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Update_prefillTable.fmw>
