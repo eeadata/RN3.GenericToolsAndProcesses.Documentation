@@ -23,6 +23,16 @@ In this documentation, you will find information on how to set-up and use these 
 The documentation is intended for Data custodians and their consultants, or Data stewards confident in their technical skills (see {ref}`gtaps-index.md-requirements` for more details).
 ```
 
+The main reason for choosing a generic tool or procedure is to save resources that would otherwise be spent on developing and maintaining custom solutions.  
+
+While generic solutions can't cover all possible situations, they cover the most common ones and often provide sufficient customisation options.  
+
+By using them, dataflow managers are also steered towards standard approaches to the design and handling of dataflows and related workflows, which may translate into additional resource savings.  
+
+```{important}
+All documented tools and processes were designed and tested on Dataflows created in the DLH version of the Reportnet 3 platform.  
+They should not be used in dataflows on the original PostgreSQL version of the platform.
+```
 
 ## Categories
 
