@@ -2,6 +2,9 @@
 
 ___
 
+**Complexity:**  
+<span class="stars">★☆☆☆☆</span>
+
 **Description:**  
 This external integration adds an **Import dataset data** option to the RN3 dataset, allowing the data provider to bulk upload attachment files into a single RN3 reporting dataset table (***attachment table***).  
 The main use case is RN3 datasets where the data provider may need to upload a large number of attachment files, which they would otherwise need to upload one by one to the ***attachment field*** of each record in the *attachment table*.  
@@ -102,7 +105,7 @@ IMPORT FROM OTHER SYSTEM
 The external integration FME workspace does the following:  
 - Checks validity of the supplied user parameters.  
 - Downloads the *attachment table* data.  
-- Wxtracts a list of URLs from the *attachment url field*.  
+- Extracts URLs from the *attachment url field*.  
 - Checks if the URLs are valid and lead to files that match the *attachment file field* criteria (extension, size).  
 - Downloads the valid files.  
 - Creates an attachment table package with the attachment files and updated *attachment table* content, and imports it to the reporting dataset.  

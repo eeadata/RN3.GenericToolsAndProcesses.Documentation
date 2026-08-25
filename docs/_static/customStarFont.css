@@ -1,0 +1,9 @@
+/* Source: https://kvibber.com/tech-tips/half-stars/ */
+
+@font-face {
+  font-family: "Noto Sans Symbols 2";
+  font-display: swap;
+  src: url("NotoSansSymbols2-Regular.woff2");
+}
+
+.stars {font-family: "Noto Sans Symbols 2"};

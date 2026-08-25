@@ -2,6 +2,10 @@
 
 ___
 
+**Complexity:**  
+<span class="stars">⯪☆☆☆☆</span>
+
+
 **Description:**  
 This external integration adds an **Import dataset data** option to the RN3 dataset, allowing the data provider to import data in MS Excel format.  
 
