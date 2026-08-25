@@ -11,7 +11,7 @@ on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'RN3 Generic Processes - Documentation'
+project = 'RN3 Generic Tools and Processes - Documentation'
 copyright = '2026, Marek Staron, EEA'
 author = 'Marek Staron, EEA'
 release = '0.1'
@@ -96,8 +96,8 @@ html_js_files = [
 
 html_theme_options = {
     "logo": {
-        "alt_text": "RN3 Generic Processes Documentation",
-        "text": "RN3 Generic Processes Documentation"},
+        "alt_text": "RN3 Generic Tools and Processes Documentation",
+        "text": "RN3 GTaPs Documentation"},
     "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
     "show_toc_level": 3, 
     "use_edit_page_button": True,

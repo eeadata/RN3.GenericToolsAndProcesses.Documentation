@@ -1,2 +1,3 @@
-# RN3.GenericProcesses
-Repository for FME workspaces and other files used in generic dataflow processes.
+# RN3.GenericToolasAndProcesses.Documentation
+
+Repository for combined, user-oriented documentation of generic tools and processes designed for use in RN3 dataflows.

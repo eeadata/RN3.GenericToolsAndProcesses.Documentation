@@ -7,15 +7,20 @@ This external integration adds an **Import dataset data** option to the RN3 data
 
 It requires the presence of a custom SQL table - ***prefill parameters table***. This table contains:
 - References of the RN3 dataset tables that the process should prefill (***target tables***).  
-- The corresponding ***prefill data sources*** - tables or views in an MS SQL database(s) containing prefill data.  
+- References of the corresponding ***prefill data sources*** - tables or views in an MS SQL database(s) containing prefill data.  
 - Other relevant information.  
-   > See {ref}`RN3_Generic_Update_prefill_dataset.md-prefill-parameters-table` for structure reference, detailed explanation, and how to create and fill it.
 
->**WARNING**  
->Any existing records in the *target tables* will be automatically deleted before the import.  
+    ```{seealso}
+   See {ref}`RN3_Generic_Update_prefill_dataset.md-prefill-parameters-table` for structure reference, detailed explanation, and how to create and fill it.
+   ```
 
->**WARNING**  
->The process doesn't check if data in the selected *prefill data sources* matches the constraints of the *target tables* fields (e.g., data type) before the import. The discrepancies will be identified during the RN3 Validation.  
+```{warning}
+Any existing records in the *target tables* will be automatically deleted before the import.  
+```
+
+```{warning}
+The process doesn't check if data in the selected *prefill data sources* matches the constraints of the *target tables* fields (e.g., data type) before the import. The discrepancies will be identified during the RN3 Validation.  
+```
 
 **Operation type:**  
 IMPORT FROM OTHER SYSTEM  
@@ -61,16 +66,21 @@ IMPORT FROM OTHER SYSTEM
 ### Explanation
 
 - The FME connection referred to in the **DPP_databaseConnection** parameter must exist in the EEA's FME Flow server. The connection can be either non-JDBC or JDBC. If it's JDBC, the connection name must end with '_JDBC'. The FME Flow server needs at least *db_datareader* permissions in the linked database to access and read the *prefill parameters table*. 
-    > See {ref}`RN3_Generic_Update_prefill_dataset.md-how-to-1` for more details.
 
-(RN3_Generic_Update_prefill_dataset.md-how-to-1)=
+    ```{seealso}
+	How to {ref}`RN3_Generic_Update_prefill_dataset.md-how-to-create-database-connection`  
+	How to {ref}`RN3_Generic_Update_prefill_dataset.md-how-to-add-fme-database-user`  
+	```
+	
 ### How to
 
+(RN3_Generic_Update_prefill_dataset.md-how-to-create-database-connection)=
 #### Create a database connection on FME Flow
 
 - Follow <https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow>
 - If you don't have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you
 
+(RN3_Generic_Update_prefill_dataset.md-how-to-add-fme-database-user)=
 #### Add FME Flow server as a user to an MS SQL database
 
 - Follow <https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms>
@@ -102,21 +112,33 @@ It doesn't have to be located in the same database as the *prefill data sources*
 ### Explanation
 - The value for the **rn3_tableSchemaId** field can be extracted from the RN3 dataset URL when a specific RN3 table is selected. It is the value of the 'tab' parameter.   
 
-	> **EXAMPLE**  
-	> ***URL:*** https://sandbox.reportnet.europa.eu/dataflow/13110/datasetSchema/46012?tab=6a452708c2c277000148527d  
-	> ***rn3_tableSchemaId:*** 6a452708c2c277000148527d  
+	```{admonition} Example
+	:class: dropdown
+	***URL:*** https://sandbox.reportnet.europa.eu/dataflow/13110/datasetSchema/46012?tab=6a452708c2c277000148527d  
+	***rn3_tableSchemaId:*** 6a452708c2c277000148527d  
+	```
 
 - The individual ***table prefill data sources*** should be created in cooperation with the **responsible dataflow owner** (e.g., data steward).
 - The FME connection referred to in the **ps_databaseConnection** field must exist in the EEA's FME Flow server. The connection can be either non-JDBC or JDBC. If it's JDBC, the connection name must end with '_JDBC'. The FME Flow server needs at least *db_datareader* permissions in the linked database to access and read the *table prefill data source*. 
-    > See {ref}`RN3_Generic_Update_prefill_dataset.md-how-to-1` for more details.
+
+    ```{seealso}
+	How to {ref}`RN3_Generic_Update_prefill_dataset.md-how-to-create-database-connection`  
+	How to {ref}`RN3_Generic_Update_prefill_dataset.md-how-to-add-fme-database-user`  
+	```
 	
 - The process will import values only from those columns in the *table prefill data source* that have the **same name** as the fields in the *target table*. Any additional columns in the *table prefill data source* will be ignored. The *target table* fields that do not have a corresponding column in the *table prefill data source* will be imported empty. 
-- If the *target table* contains any **geometry fields**, and the prefill action should prefill those too, the *table prefill data source* needs to contain the geometry values formatted as Extended GeoJSON string, not as SQL geometry! 
+	
+	```{important}
+	If the *target table* contains any **geometry fields**, and the prefill action should prefill those too, the *table prefill data source* needs to contain the geometry values formatted as **Extended GeoJSON** string, not as SQL geometry!  
+	This may change in future versions.  
+	```
 
-	> **NOTE**  
-	> This may change in future versions of the FME workspace.  
+- If the **ps_fieldName_provider** value is provided, it's used to select only those *table prefill data source* records where the value in the specified field is the same as the RN3 dataset's data provider code value (RN3 supplies the data provider code value to the FME workspace automatically, as the countryCode user parameter).  
 
-- If the **ps_fieldName_provider** value is provided, it's used to select only those *table prefill data source* records where the value in the specified field is the same as the RN3 dataset's data provider code value (RN3 supplies the data provider code value to the FME workspace automatically, as the countryCode user parameter). If the *table prefill data source* doesn't contain a column with the name matching the **ps_fieldName_provider** value, the import process will fail.  
+	```{warning}
+	If the *table prefill data source* doesn't contain a column with the name matching the **ps_fieldName_provider** value, the import process will fail!  
+	```
+
 - If the **ps_fieldName_provider** value is not provided, the process selects and imports all records from the *table prefill data source* to the *target table*.  
 
 ### How to

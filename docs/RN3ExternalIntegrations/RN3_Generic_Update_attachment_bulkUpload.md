@@ -5,16 +5,24 @@ ___
 **Description:**  
 This external integration adds an **Import dataset data** option to the RN3 dataset, allowing the data provider to bulk upload attachment files into a single RN3 reporting dataset table (***attachment table***).  
 The main use case is RN3 datasets where the data provider may need to upload a large number of attachment files, which they would otherwise need to upload one by one to the ***attachment field*** of each record in the *attachment table*.  
-Instead of uploading files to the RN3, the providers upload them to a publicly accessible location. They then add download URLs of these files to a dedicated ***url field*** of the corresponding records in the *attachment table*.  
-The external integration process attempts to download the files and, if successful, uploads them to the *attachment field* of the records in the *attachment table*.  
+Instead of uploading files to the RN3, the providers upload them to a publicly accessible location. They then add download URLs of these files to a dedicated ***url field*** of the corresponding records in the *attachment table* (or use one of the import options to import the whole table).  
+The external integration process attempts to us the supplied URLs and download the files. If successful, it uploads them to the *attachment field* of the records in the *attachment table*.  
 
-If configured as such, the process can also import the text of the upload job summary log into a dedicated dataset table (***log table***). The text in the ***log field*** gives the data provider information about the level of success of the file upload, or the reason it failed, or why it wasn't complete.
+To give the data provider information on how successful the upload job was, or why it failed, the process can be configured to import job summary log into a field (***log field***) in a dedicated dataset table (***log table***).
 
->**WARNING**  
->Any existing attachments will be removed from the table during the upload process!  
+```{warning}
+Any existing attachments will be removed from the table during the upload process!  
+```
 
->**NOTE**  
->Data providers can use the same download URL in multiple records. The same file will be attached to each of the records.  
+```{warning}
+The data providers must supply download URLs that point directly to the publicly accessible files!  
+The files must have one of the allowed file extensions and be within the specified size limit!  
+URLs and files that fail this criteria will not be used and the attachment field of the corresponding record will be left empty.
+```
+
+```{note}
+Data providers can use the same download URL in multiple records. The same file will be attached to each of the records.  
+```
 
 **Operation type:**  
 IMPORT FROM OTHER SYSTEM  
@@ -38,12 +46,14 @@ Optionally, if data providers should be able to see the upload job summary log:
 - The upload process doesn't delete existing *log table* data. The log text is inserted to the table as a new record. This means the table can be used as a *log table* for multiple bulk upload (or other) external integrations.  
 - If the reporting dataset contains any additional tables besides the *attachment table* and the *log table*, they will not be affected by the upload process.  
 
->**Pro tip**  
->If dataflow contains multiple tables in multiple datasets where attachment files may be included besides other data, or there's a high possibility that the data providers attach the same file to multiple records, it may be advantageous to rather collect all attachment files in a single dedicated table in a separate reporting dataset schema.  
->The attachment table, besides the *attachment* field, *url* field, and other fields like, for example, description, will also contain a custom UID field, assigned as the Primary key.  
->Data providers give each attachment record its own UID.  
-> The attachment fields in the other tables are then replaced with a LINK field linked to the UID field in the attachment table (and potentially with the description field as the label), thus serving as the foreign key, and assuring consistency of the information.  
-
+```{tip}
+:class: dropdown, toggle-shown
+- If the RN3 dataflow contains multiple tables in multiple datasets where attachment files may be included besides other data, or there's a high possibility that the data providers attach the same file to multiple records, it may be advantageous to rather collect all attachment files in a single dedicated table in a separate reporting dataset schema.  
+- The attachment table, besides the *attachment* field, *url* field, and other fields like, for example, description, will also contain a custom UID field, assigned as the Primary key.  
+- Data providers give each attachment record its own UID.  
+- The attachment fields in the other tables are then replaced with a LINK field linked to the UID field in the attachment table (and potentially with the description field as the label), thus serving as the foreign key, and assuring consistency of the information.  
+- This way the data providers need to upload each file, or its URL, only once.
+```
 
 ## External integration setup - example  
 

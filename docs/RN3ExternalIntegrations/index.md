@@ -1,3 +1,4 @@
+(rn3-external-integrations)=
 # RN3 External integrations
 
 ```{toctree}
