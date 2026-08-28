@@ -7,12 +7,19 @@ ___
 
 
 **Description:**  
-This external integration adds an **Import dataset data** option to the RN3 dataset, allowing the data provider to import data in MS Excel format.  
+This external integration adds an **Import dataset data** option to the RN3 dataset.  
+It allows the data provider to import data from MS Excel files.  
 
-The names of the worksheets in the Excel file must correspond to the names of the tables in the RN3 dataset. Worksheets with non-matching names will be ignored. RN3 tables with missing worksheets will not be updated.
+The structure of the Excel file should match the structure of the RN3 dataset.  
+- The names of worksheets in the file should match the names of the RN3 tables. For exceptions see **'renameTables'** in the {ref}`RN3_Generic_Import_Excel.md-external-integration-custom-parameters`. The process ignores letter case differences between the worksheet aand RN3 table names.
+- The names of the worksheet columns must match the names of the fields in the corresponding RN3 tables.  
+- Worksheets with non-matching names will be ignored. RN3 tables with missing worksheets will not be updated.  
+- Additional or misnamed worksheet columns will be ignored. RN3 fields with missing worksheet columns will be empty after the import.  
 
-```{warning}
-If an RN3 table name is longer than the maximum allowed length of an Excel worksheet name, such a table can't be imported using this generic external integration.
+```{important}
+If an RN3 table name is longer than the maximum allowed length of an Excel worksheet name (31 characters), add the **'renameTables'** parameter to the external integration setup, where you provide the mapping key between the actual worksheet name and the corresponding RN3 table name.  
+
+*(The renameTable parameter is available from v3 of the FME workspace.)*  
 ```
 
 ```{note}
@@ -23,9 +30,13 @@ The data provider decides whether they want to replace existing data in the init
 If the data provider chooses to replace the data, all existing data across all dataset tables will be deleted immediately. If the import fails for whatever reason, the dataset tables will remain empty.
 ```
 
-```{warning}
-With some exceptions, the process doesn't prevent import of values that do not match the constraints of the dataset table fields (e.g., data type). The discrepancies will be identified during the RN3 Validation.  
+```{note}
+With some exceptions, the process doesn't prevent import of values that do not match the constraints of the dataset table fields (e.g., data types). The discrepancies will be identified during the RN3 Validation.  
 See {ref}`RN3_Generic_Import_Excel.md-data-transformations` for details on the exceptions.
+```
+
+```{caution}
+Excel file is not a suitable format for importing **geometry data**. A different external integration should be used for that purpose. 
 ```
 
 
@@ -45,7 +56,7 @@ Import Excel file (generic)
 Dataflows_RN3_Generic_Processes  
 
 **Workspace name:**  
-RN3_Generic_Import_Excel.fmw
+RN3_Generic_Import_Excel_v3.fmw
 
 **Operation:**  
 IMPORT
@@ -58,19 +69,26 @@ xls,xlsx
 | **Parameter key** | **Parameter value** |
 | --- | --- |
 | **flexiDateFields** | *eionetChangeDate* |
+| **renameTables** | *BiologyEQRClassificationProcedu,BiologyEQRClassificationProcedure* |
 
-
+(RN3_Generic_Import_Excel.md-external-integration-custom-parameters)=
 ## External integration custom parameters
 
 ### Reference
 
 **Optional parameters:**  
 - **flexiDateFields** - Comma-separated list of 'flexible' date field names.
+- **renameTables** - A mapping key between the worksheet names and matching RN3 table names, where the two names are different. (The parameter is available from v3 of the FME workspace).
+	```{admonition} renameTables syntax
+	``WorksheetName,RN3_tableName;WorksheetName,RN3_tableName;...``
+	```
 
 
 ### Explanation
 
 - The 'flexible' date fields are RN3 fields, which are of Date type (YYYY-MM-DD format), but it's acceptable if a data provider reports only year (YYYY) or only year and month (YYYY-MM) values in the corresponding Excel worksheet fields. The import procedures convert such values to the full date format by adding '-01' to fill in the missing parts.  
+- The main purpose of the **renameTables** parameter is to solve situations where the name of an RN3 table is longer than 31 characters, which is the limit for the name of an Excel worksheet. The parameter thus gives the import process a key for mapping the shorter worksheet name to the longer RN3 table name, ensuring the worksheet data ends in the correct table. The solution, however, can be used in any situation where the worksheet name differs from the name of the corresponding RN3 table (e.g., if the data providers obtain the Excel files from an unaligned system and their editing is not feasible, allowed or recommended).  
+
 
 (RN3_Generic_Import_Excel.md-data-transformations)=
 ## Data transformations
@@ -107,10 +125,11 @@ To avoid the most common of these issues, to make the data provider's life easie
 
 The external integration FME workspace does the following:  
 - Reads data from the supplied Excel file.  
+- Change the letter case of the worksheet name attributes if they differ from the RN3 table names.  
 - Transforms selected data values if needed and possible.  
 - Imports the result into the dataset.  
 
 It transforms and saves the data into a series of CSV files (one per valid worksheet table), zips the CSV files into one ZIP file, which it then imports to the RN3 reporting dataset using the '/dataset/v2/importFileData/{datasetId}' RN3 API endpoint.  
 
 **Latest version:**  
-<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Import_Excel.fmw>
+<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Import_Excel_v3.fmw>

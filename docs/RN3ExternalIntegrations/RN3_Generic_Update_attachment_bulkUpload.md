@@ -6,7 +6,9 @@ ___
 <span class="stars">★☆☆☆☆</span>
 
 **Description:**  
-This external integration adds an **Import dataset data** option to the RN3 dataset, allowing the data provider to bulk upload attachment files into a single RN3 reporting dataset table (***attachment table***).  
+This external integration adds an **Import dataset data** option to the RN3 dataset.  
+It allows the data provider to bulk upload attachment files into a single RN3 reporting dataset table (***attachment table***).  
+
 The main use case is RN3 datasets where the data provider may need to upload a large number of attachment files, which they would otherwise need to upload one by one to the ***attachment field*** of each record in the *attachment table*.  
 Instead of uploading files to the RN3, the providers upload them to a publicly accessible location. They then add download URLs of these files to a dedicated ***url field*** of the corresponding records in the *attachment table* (or use one of the import options to import the whole table).  
 The external integration process attempts to us the supplied URLs and download the files. If successful, it uploads them to the *attachment field* of the records in the *attachment table*.  
@@ -17,7 +19,7 @@ To give the data provider information on how successful the upload job was, or w
 Any existing attachments will be removed from the table during the upload process!  
 ```
 
-```{warning}
+```{important}
 The data providers must supply download URLs that point directly to the publicly accessible files!  
 The files must have one of the allowed file extensions and be within the specified size limit!  
 URLs and files that fail this criteria will not be used and the attachment field of the corresponding record will be left empty.

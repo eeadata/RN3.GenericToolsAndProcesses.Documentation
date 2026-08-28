@@ -7,6 +7,7 @@
 :hidden:
 
 RN3_Generic_Import_Excel
+RN3_Generic_Export_Excel
 RN3_Generic_Update_prefill_table
 RN3_Generic_Update_prefill_dataset
 RN3_Generic_Update_attachment_bulkUpload
