@@ -11,7 +11,7 @@ This external integration adds an **Import dataset data** option to the RN3 data
 It allows the data provider to import data from MS Excel files.  
 
 The structure of the Excel file should match the structure of the RN3 dataset.  
-- The names of worksheets in the file should match the names of the RN3 tables. For exceptions see **'renameTables'** in the {ref}`RN3_Generic_Import_Excel.md-external-integration-custom-parameters`. The process ignores letter case differences between the worksheet aand RN3 table names.
+- The names of worksheets in the file should match the names of the RN3 tables. For exceptions see **'renameTables'** in the {ref}`RN3_Generic_Import_Excel.md-external-integration-custom-parameters`. The process ignores letter case differences between the worksheet and RN3 table names.
 - The names of the worksheet columns must match the names of the fields in the corresponding RN3 tables.  
 - Worksheets with non-matching names will be ignored. RN3 tables with missing worksheets will not be updated.  
 - Additional or misnamed worksheet columns will be ignored. RN3 fields with missing worksheet columns will be empty after the import.  

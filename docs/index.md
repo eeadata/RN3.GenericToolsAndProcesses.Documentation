@@ -6,7 +6,7 @@ html_theme.sidebar_secondary.remove: true
 
 ```{toctree}
 :maxdepth: 2
-:caption: Contents:
+:caption: Table of Contents
 :hidden:
 
 RN3ExternalIntegrations/index
