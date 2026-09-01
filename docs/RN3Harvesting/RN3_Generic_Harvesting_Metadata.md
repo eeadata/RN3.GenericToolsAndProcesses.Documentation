@@ -1,0 +1,246 @@
+# RN3 Generic Harvesting - Metadata
+
+___
+
+**Complexity:**  
+<span class="stars">★★⯪☆☆</span>
+
+
+**Description:**  
+Metadata harvesting is an FME-based process that downloads **metadata of selected Reportnet 3 dataflows** and stores it in a **series of tables** in an **MS SQL database**.
+
+The process can be triggered manually or, more traditionally, scheduled to run regularly.
+
+The harvested dataflow metadata can be used for multiple purposes, but the main one is for use in RN3 data harvesting. It's actually a **prerequisite** for the **RN3 Generic Harvesting - Data** process.
+
+## Database
+
+The MS SQL database where the harvesting process stores the metadata of RN3 dataflows is traditionally a dedicated database named **RN3**.   
+It can, however, be any database.
+
+What database the harvesting process should use is specified in the {ref}`RN3_Generic_Harvesting_Metadata.md-fme-workspace-user-parameters` of the FME workspace.
+
+*In this documentation, we will continue referring to this database as the **RN3** database.*
+
+```{important}
+Please contact EEA Service Desk if you want to create a new MS SQL database.
+```
+```{important}
+If harvested metadata are to be used in the generic data harvesting process, the RN3 database must be on the same MS SQL Server as the database for the harvested data (traditionally referred to as the **Import** database).  
+```
+If the MS SQL Server is used by multiple dataflows managed by different data managers (data custodians), they can all use the same RN3 database.  
+In such situations, data managers must take care not to affect the metadata of other dataflows when setting up their metadata harvesting. They should also appoint one of them to manage the metadata harvesting schedule, since the process only requires a single schedule to run for all dataflows with metadata in the RN3 database.
+
+## Tables
+
+By default, the harvesting process stores RN3 dataflow metadata in the RN3 database in the following tables under the **[metadata]** table schema:  
+- **[Dataflow]**  
+- **[DataCollection]**  
+- **[DesignDataset]**  
+- **[EUDataset]**  
+- **[HistoricRelease]**  
+- **[HistoricRelease_statusLog]**  
+- **[ReferenceDataset]**  
+- **[ReportingDataset]**  
+
+If needed, the default table schema and table names can be changed by modifying the respective {ref}`RN3_Generic_Harvesting_Metadata.md-fme-workspace-user-parameters` of the FME workspace.  
+
+*In this documentation, we will continue using the default table schema and table names.*  
+
+All tables, except the [metadata].[Dataflow] table, are created by the harvesting process when it runs in the RN3 database for the first time.  
+The **[metadata].[Dataflow]** table, if it doesn't exist yet, must be created by the data manager.  
+
+```{seealso}
+See How to {ref}`RN3_Generic_Harvesting_Metadata.md-tables-how-to-create-metadata-dataflow-table`  
+```
+
+The responsible data manager must also insert a new record into the [metadata].[Dataflow] table, with a few key values for each RN3 dataflow they want to harvest metadata from.  
+
+```{seealso}
+See How to {ref}`RN3_Generic_Harvesting_Metadata.md-tables-how-to-populate-metadata-dataflow-table`  
+```
+The content of all tables is updated every time the harvesting process is executed. The new records are added, and existing records are overwritten. The exception is [HistoricRelease_statusLog] table (see Tables - {ref}`RN3_Generic_Harvesting_Metadata.md-tables-explanation` for clarification).
+
+### Reference
+
+#### [Dataflow]
+
+Besides the harvested metadata of the RN3 dataflow, the table contains a few columns that need to be prefilled before the harvesting can start.  
+Description of selected columns:  
+- **[dataflowId]** - The primary key. Must be prefilled.  
+- **[harvestMetadata]** - A boolean value indicating whether the dataflow metadata should actually be harvested (1=yes, 0=no). Must be prefilled.  
+- **[apiKey]** - The API-key of the dataflow. Must be prefilled.  
+
+#### [DesignDataset]
+
+Contains harvested metadata of all dataflow's design datasets.  
+Description of selected columns:  
+- **[datasetId]** - The primary key.  
+- **[dataflowId]** - The foreign key linking the [DesignDataset] record to the corresponding [Dataflow] record.  
+- **[datasetSchema]** - The unique identifier of the dataset schema.   It's the same for all datasets created from the same schema.  
+- **[datasetSchemaJson]** - A JSON string containing all design dataset metadata which is not extracted by the harvesting process. This includes a list of all dataset fields and their metadata.  
+
+#### [ReferenceDataset]
+
+Contains harvested metadata of all dataflow's reference datasets.  
+Description of selected columns:  
+- **[datasetId]** - The primary key.  
+- **[dataflowId]** - The foreign key linking the [DesignDataset] record to the corresponding [Dataflow] record.  
+- **[datasetSchema]** - The unique identifier of the dataset schema.   It's the same for all datasets created from the same schema.  
+
+#### [ReportingDataset]
+
+Contains harvested metadata of all dataflow's reporting datasets (the data provider's datasets).  
+Description of selected columns:  
+- **[datasetId]** - The primary key.   
+- **[dataflowId]** - The foreign key linking the [ReportingDataset] record to the corresponding [Dataflow] record.  
+- **[datasetSchema]** - The unique identifier of the dataset schema.   It's the same for all datasets created from the same schema.  
+- **[isReleased]** - A boolean field indicating whether the data provider has released their data.  
+- **[dataProviderId]** - A numeric identifier of the data provider.  
+- **[status]** - Status of the latest data provider release.  
+
+ #### [DataCollection]
+
+Contains harvested metadata of all dataflow's data collections.  
+Description of selected columns:  
+- **[dataCollectionId]** - The primary key.  
+- **[dataflowId]** - The foreign key linking the [DataCollection] record to the corresponding [Dataflow] record.  
+- **[datasetSchema]** - The unique identifier of the dataset schema.   It's the same for all datasets created from the same schema.  
+
+#### [EUDataset]
+
+Contains harvested metadata of all dataflow's EU datasets.  
+Description of selected columns:  
+- **[datasetId]** - The primary key.  
+- **[dataflowId]** - The foreign key linking the [EUDataset] record to the corresponding [Dataflow] record.  
+- **[datasetSchema]** - The unique identifier of the dataset schema.  
+
+#### [HistoricRelease]
+
+Contains harvested metadata of dataset release snapshots.  
+Description of selected columns:  
+- **[snapshotId]** - The primary key.  
+- **[datasetId]** - The foreign key linking the [HistoricRelease] record to the corresponding [ReportingDataset] record.  
+- **[dataCollectionId]** - The foreign key linking the [HistoricRelease] record to the corresponding [DataCollection] record.  
+- **[dataflowId]** - The foreign key linking the [HistoricRelease] record to the corresponding [Dataflow] record.  
+- **[dataProviderCode]** - A code of the data provider (e.g., a two-letter country code).  
+- **[dateReleased]** - A timestamp of the corresponding dataset release.  
+- **[dcrelease]** - A boolean value indicating if this release snapshot is the latest release snapshot from the reporting dataset of the given data provider (1) or if it's one from the older releases (0). The latest snapshot is the one currently used in the corresponding Data collection.  
+- **[eurelease]** - A boolean value indicating if this release snapshot is the one currently used in the corresponding EU dataset.  
+- **[restrictFromPublic]** - A boolean value indicating if this release snapshot was restricted by the data provider from public view at its release.  
+
+#### [HistoricRelease_statusLog]
+
+Combines time-specific information of release snapshot with the information on release status from the corresponding Reporting dataset.  
+Description of selected columns:  
+- **[snapshotId]** - The foreign key linking the record to the corresponding [HistoricRelease] record.  
+- **[status]** - The latest status of the data provider release the release snapshot is part of.  
+
+(RN3_Generic_Harvesting_Metadata.md-tables-explanation)=
+### Explanation
+
+- The value in the **apiKey** column of the **[Dataflow]** table is constructed by prefixing the dataflow API-key with the 'ApiKey ' string (including the space!).  
+  
+	The dataflow's **API key** can be obtained from the dataflow page by following the instructions at <https://eea.github.io/eea.help.reportnet3/rest-api/>.  
+
+- The **[HistoricRelease_statusLog]** table has been designed as a workaround to solve a problem caused by a faulty architecture of the RN3 metadata database. In this architecture, the release status is not an attribute of the release itself, but of the reporting dataset.  
+
+	The release status, which is very important for the further use of the data, is the status assigned to the dataset by the data requester at the end of the **Final Feedback** process. This status indicates if the release has been technically accepted or a correction has been requested.  
+	
+	But because a data provider can release their data many times, the final feedback status may be replaced by a new status when a new release is made. This made it difficult to identify release snapshots that were technically accepted.  
+	
+	The [HistoricRelease_statusLog] table has been designed to preserve the latest release status for each release snapshot. The metadata harvesting process updates the record as long as the corresponding [HistoricRelease] record has [dcrelease] = 1 (meaning it's the latest release snapshot). When the data provider makes a new release, the [dcrelease] value of the [HistoricRelease] record changes to 0, and the corresponding [HistoricRelease_statusLog] record is no longer updated by the metadata harvesting process.  
+
+
+### How to
+
+(RN3_Generic_Harvesting_Metadata.md-tables-how-to-create-metadata-dataflow-table)=
+#### Create [metadata].[Dataflow] table
+
+**SQL - example:**  
+
+```{warning}
+Run this only if the table doesn't exist yet, or you are the only data manager using the RN3 database.
+```
+~~~~sql
+USE [RN3]
+
+-- DROP TABLE [metadata].[Dataflow]
+
+CREATE TABLE [metadata].[Dataflow](
+	[dataflowId] [bigint] NOT NULL,
+	[name] [nvarchar](4000) NULL,
+	[description] [nvarchar](4000) NULL,
+	[deadlineDate] [datetime] NULL,
+	[releasable] [bit] NULL,
+	[obligationId] [int] NOT NULL,
+	[harvestMetadata] [bit] NOT NULL,
+	[apiKey] [nvarchar](100) NOT NULL,
+	[json] [nvarchar](max) NULL,
+	[recordLastModified] [datetime] NULL,
+	[obligationScope] [nvarchar](100) NULL,
+	[obligationAlias] [nvarchar](100) NULL,
+	[obligationDisclaimerText] [nvarchar](max) NULL,
+	[manualAcceptance] [bit] NULL,
+ CONSTRAINT [PK_Dataflow] PRIMARY KEY CLUSTERED 
+(
+	[dataflowId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+~~~~
+
+(RN3_Generic_Harvesting_Metadata.md-tables-how-to-populate-metadata-dataflow-table)=
+#### Populate [metadata].[Dataflow] table
+
+**SQL - example:**  
+
+~~~~sql
+USE [RN3]
+
+-- DELETE FROM [metadata].[Dataflow] WHERE [dataflowId] = <dataflowId>
+
+INSERT INTO [metadata].[Dataflow] (
+	[dataflowId]
+	,[obligationId]
+	,[harvestMetadata]
+	,[apikey]
+	) 
+VALUES
+	(<dataflowId>,<obligationId>,1,'ApiKey <dataflow API Key>'),
+	(<dataflowId>,<obligationId>,1,'ApiKey <dataflow API Key>'),
+	(...)
+~~~~
+
+## FME workspace 
+
+The metadata harvesting FME workspace does the following: 
+
+
+**Latest version:**  
+<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Harvesting_Metadata_v2.fmw>
+
+(RN3_Generic_Harvesting_Metadata.md-fme-workspace-user-parameters)=
+### User parameters
+
+
+#### Explanation
+
+
+
+### How to
+
+(RN3_Generic_Harvesting_Metadata.md-how-to-create-database-connection)=
+#### Create a database connection on FME Flow
+
+- Follow <https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow>
+- If you don't have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you
+
+(RN3_Generic_Harvesting_Metadata.md-how-to-add-fme-database-user)=
+#### Add FME Flow server as a user to an MS SQL database
+
+- Follow <https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms>
+- Add a user with eeadmz1\fmeservice as the user name and login name
+- Select appropriate permission options on the Membership page
+- If you don't have permissions to add users to the database, ask EEA Service Desk to add it
+
+
