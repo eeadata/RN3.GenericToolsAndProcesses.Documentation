@@ -7,9 +7,9 @@ ___
 
 
 **Description:**  
-Metadata harvesting is an FME-based process that downloads **metadata of selected Reportnet 3 dataflows** and stores it in a **series of tables** in an **MS SQL database**.
+Metadata harvesting is an FME-orchestrated process that downloads **metadata** of selected **Reportnet 3 dataflows** and stores it in a **series of tables** in an **MS SQL database**.
 
-The process can be triggered manually or, more traditionally, scheduled to run regularly.
+The process can be triggered manually or, more commonly, scheduled to run regularly.
 
 The harvested dataflow metadata can be used for multiple purposes, but the main one is for use in RN3 data harvesting. It's actually a **prerequisite** for the **RN3 Generic Harvesting - Data** process.
 
@@ -29,7 +29,7 @@ Please contact EEA Service Desk if you want to create a new MS SQL database.
 If harvested metadata are to be used in the generic data harvesting process, the RN3 database must be on the same MS SQL Server as the database for the harvested data (traditionally referred to as the **Import** database).  
 ```
 If the MS SQL Server is used by multiple dataflows managed by different data managers (data custodians), they can all use the same RN3 database.  
-In such situations, data managers must take care not to affect the metadata of other dataflows when setting up their metadata harvesting. They should also appoint one of them to manage the metadata harvesting schedule, since the process only requires a single schedule to run for all dataflows with metadata in the RN3 database.
+In such situations, data managers must take care not to affect the metadata of other dataflows when setting up their metadata harvesting. They should also appoint one of them to manage the metadata harvesting schedule, since the process requires only a single schedule to run for all dataflows with metadata in the RN3 database.
 
 ## Tables
 
@@ -47,27 +47,32 @@ If needed, the default table schema and table names can be changed by modifying 
 
 *In this documentation, we will continue using the default table schema and table names.*  
 
-All tables, except the [metadata].[Dataflow] table, are created by the harvesting process when it runs in the RN3 database for the first time.  
-The **[metadata].[Dataflow]** table, if it doesn't exist yet, must be created by the data manager.  
+The table schema and all the tables are created by the harvesting process when it runs in the RN3 database for the first time.  
+No metadata tables will be populated during this first execution because the process doesn't yet know what to harvest.  
+This information must first be provided by the data manager in the **[metadata].[Dataflow]** table.  
+
+The data manager can skip the initial execution of the harvesting process and create the **[metadata]** schema and the **[metadata].[Dataflow]** table themselves.  
 
 ```{seealso}
 See How to {ref}`RN3_Generic_Harvesting_Metadata.md-tables-how-to-create-metadata-dataflow-table`  
 ```
 
-The responsible data manager must also insert a new record into the [metadata].[Dataflow] table, with a few key values for each RN3 dataflow they want to harvest metadata from.  
+Once the [metadata].[Dataflow] table has been created, the responsible data manager must insert a new record for each RN3 dataflow they want to harvest metadata from. Only four values need to be provided in each record. The harvesting process will fill the rest.  
 
 ```{seealso}
 See How to {ref}`RN3_Generic_Harvesting_Metadata.md-tables-how-to-populate-metadata-dataflow-table`  
 ```
-The content of all tables is updated every time the harvesting process is executed. The new records are added, and existing records are overwritten. The exception is [HistoricRelease_statusLog] table (see Tables - {ref}`RN3_Generic_Harvesting_Metadata.md-tables-explanation` for clarification).
+
+The content of all tables is updated every time the harvesting process is executed. The new records are added, and existing records are overwritten. The exception is [HistoricRelease_statusLog] table (see Tables - {ref}`RN3_Generic_Harvesting_Metadata.md-tables-explanation` for clarification).  
 
 ### Reference
 
 #### [Dataflow]
 
-Besides the harvested metadata of the RN3 dataflow, the table contains a few columns that need to be prefilled before the harvesting can start.  
+Besides the harvested metadata of the RN3 dataflow itself, the table contains a few columns that need to be prefilled before harvesting can start.  
 Description of selected columns:  
 - **[dataflowId]** - The primary key. Must be prefilled.  
+- **[obligationId]** - Reporting obligation identifier. Must be prefilled.  
 - **[harvestMetadata]** - A boolean value indicating whether the dataflow metadata should actually be harvested (1=yes, 0=no). Must be prefilled.  
 - **[apiKey]** - The API-key of the dataflow. Must be prefilled.  
 
@@ -214,7 +219,11 @@ VALUES
 ## FME workspace 
 
 The metadata harvesting FME workspace does the following: 
-
+- Creates [metadata] table schema if it doesn't exist.
+- Creates the [metadata] tables if they don't exist.
+- Selects [metadata].[Dataflow] records where [harvestMetadata] = 1.
+- Uses the selected values to get the dataflow metadata from Reportnet 3 as JSON strings
+- Parses the JSON, extracts relevant metadata values and writes them in the corresponding tables using the Upsert action.
 
 **Latest version:**  
 <https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Harvesting_Metadata_v2.fmw>
@@ -222,25 +231,59 @@ The metadata harvesting FME workspace does the following:
 (RN3_Generic_Harvesting_Metadata.md-fme-workspace-user-parameters)=
 ### User parameters
 
+#### Reference
+
+**Mandatory parameters:**  
+- **ApiUrl** - The base URL of the specific Reportnet 3 platform's API service (e.g., https://api.reportnet.europa.eu).  
+- **RN3_metadata_databaseConnection** - Name of the FME Database connection linked to **RN3 database**.   
+- **RN3_metadata_database** - Name of the RN3 database (default value is 'RN3').  
+- **RN3_metadata_schema** - Name of the table schema for the metadata tables (default value is 'metadata').  
+- **RN3_metadata_table_Dataflow** - Name of the table for dataflow metadata (default value is 'Dataflow').  
+- **RN3_metadata_table_DataCollection** - Name of the table for data collection metadata (default value is 'DataCollection').  
+- **RN3_metadata_table_HistoricRelease** - Name of the table for release snapshot metadata (default value is 'HistoricRelease').  
+- **RN3_metadata_table_ReportingDataset** - Name of the table for reporting dataset metadata (default value is 'ReportingDataset').  
+
+**Optional parameters:**  
+- **RN3_metadata_table_DesignDataset** -  Name of the table for design dataset metadata (default value is 'DesignDataset').  
+- **RN3_metadata_table_ReferenceDataset** - Name of the table for reference dataset metadata (default value is 'ReferenceDataset').  
+- **RN3_metadata_table_EUDataset** - Name of the table for EU dataset metadata (default value is 'EUDataset').  
 
 #### Explanation
+- The **optional parameters** represent tables that were added to the metadata harvesting in later versions of the FME workspace. Making them optional was intended to ensure that data managers do not have to change user parameter values in existing schedules and automations. If optional parameters are not provided, the harvesting process uses default names for the respective metadata tables.   
+- The FME connection referred to in the **RN3_metadata_databaseConnection** parameter must exist in the EEA's FME Flow server. The connection must be non-JDBC. The FME Flow server needs *db_ddladmin* or *db_owner* permissions on the linked database to access it and write to the metadata tables.  
 
+    ```{seealso}
+	How to {ref}`RN3_Generic_Update_prefill_table.md-how-to-create-database-connection`  
+	How to {ref}`RN3_Generic_Update_prefill_table.md-how-to-add-fme-database-user`  
+	``` 
 
+### Schedule
+
+The metadata harvesting processes are commonly run on a regular schedule. This can be achieved by creating an FME Schedule (or Automation) that triggers the FME workspace at specified intervals and supplies it with corresponding user parameters.  
+The most commonly used frequency for RN3 metadata harvesting is two times a day. It's highly recommended that one of the times runs late at night.  
+If a scheduled generic data harvesting process depends on the harvested metadata, the metadata harvesting should run about 10-15 minutes before to allow it to finish.
+
+```{seealso}
+How to {ref}`RN3_Generic_Update_prefill_table.md-how-to-create-fme-schedule`  
+``` 
 
 ### How to
 
 (RN3_Generic_Harvesting_Metadata.md-how-to-create-database-connection)=
 #### Create a database connection on FME Flow
 
-- Follow <https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow>
-- If you don't have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you
+- Follow <https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow>.
+- If you don't have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you.
 
 (RN3_Generic_Harvesting_Metadata.md-how-to-add-fme-database-user)=
 #### Add FME Flow server as a user to an MS SQL database
 
-- Follow <https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms>
-- Add a user with eeadmz1\fmeservice as the user name and login name
-- Select appropriate permission options on the Membership page
-- If you don't have permissions to add users to the database, ask EEA Service Desk to add it
+- Follow <https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms>.
+- Add a user with eeadmz1\fmeservice as the user name and login name.
+- Select appropriate permission options on the Membership page.
+- If you don't have permissions to add users to the database, ask EEA Service Desk to add it.
 
-
+(RN3_Generic_Update_prefill_table.md-how-to-create-fme-schedule)=
+#### Create a Schedule on FME Flow.
+- Follow <https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm>.
+- If you don't have permissions to create a Schedule, or are not confident enough to create it, ask EEA Service Desk, or a colleague with appropriate permissions and experience, to create it for you.
