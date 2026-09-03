@@ -56,7 +56,7 @@ There's currently no option to create external integrations directly on dataflow
 
 The external integrations are divided based on the type of operation they perform. The RN3 Generic tools and procedures use the following operation types:  
 - Import  
-- Import from other source  
+- Import from other system  
 - Export  
 
 
@@ -77,9 +77,9 @@ The purpose of this external integration type is to allow data providers to impo
 After selecting this operation type, an additional setup attribute field - File extension/s - is added to the external integration setup window.  
 The dataflow designer must specify which extensions are allowed. This must match the extensions that the corresponding FME workspace can handle.  
 
-### IMPORT FROM OTHER SOURCE
+### IMPORT FROM OTHER SYSTEM
 
-An external integration with the IMPORT FROM OTHER SOURCE operation adds an option to the **Import dataset data** menu, under the **Other custom imports** section.  
+An external integration with the IMPORT FROM OTHER SYSTEM operation adds an option to the **Import dataset data** menu, under the **Other custom imports** section.  
 
 The purpose is to give data providers an option to import data from specific external sources, e.g., EEA SQL databases. It's traditionally used to prefill dataset tables.  
 
