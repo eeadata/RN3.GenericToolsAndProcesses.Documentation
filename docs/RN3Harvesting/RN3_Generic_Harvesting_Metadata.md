@@ -1,3 +1,4 @@
+(rn3-generic-harvesting-metadata)=
 # RN3 Generic Harvesting - Metadata
 
 ___
@@ -6,7 +7,8 @@ ___
 <span class="stars">★★⯪☆☆</span>
 
 
-**Description:**  
+## Introduction
+
 Metadata harvesting is an FME-orchestrated process that downloads **metadata** of selected **Reportnet 3 dataflows** and stores it in a **series of tables** in an **MS SQL database**.
 
 The process can be triggered manually or, more commonly, scheduled to run regularly.
