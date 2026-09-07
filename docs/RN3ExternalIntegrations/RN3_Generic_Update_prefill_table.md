@@ -5,9 +5,12 @@ ___
 **Complexity:**  
 <span class="stars">★★☆☆☆</span>
 
-**Description:**  
-This external integration adds an **Import dataset data** option to the RN3 dataset.  
-I allows the data provider to prefill a specific dataset table (***target table***) with selected data (usualy the provider specific data) from a specifc table or view in an MS SQL database (***prefill data source***).  
+**Operation type:**  
+IMPORT FROM OTHER SYSTEM  
+
+## Introduction
+
+This external integration allows an authorised data reporter user to prefill a singular RN3 dataset table (***target table***) with selected data (usually the provider-specific data) from a table or view in an MS SQL database (***prefill data source***).  
 
 ```{warning}
 Any existing records in the *target table* will be automatically deleted before the import.  
@@ -16,10 +19,6 @@ Any existing records in the *target table* will be automatically deleted before 
 ```{note}
 The process doesn't check if data in the selected *prefill data source* matches the constraints of the *target table* fields (e.g., data type) before the import. The discrepancies will be identified during the RN3 Validation.
 ```
-
-
-**Operation type:**  
-IMPORT FROM OTHER SYSTEM  
 
 
 ## External integration setup - example

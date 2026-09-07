@@ -5,10 +5,12 @@ ___
 **Complexity:**  
 <span class="stars">⯪☆☆☆☆</span>
 
+**Operation type:**  
+IMPORT  
 
-**Description:**  
-This external integration adds an **Import dataset data** option to the RN3 dataset.  
-It allows the data provider to import data from MS Excel files.  
+## Introduction
+
+This external integration allows an authorised data reporter user to import data from an MS Excel file into an RN3 dataset.  
 
 The structure of the Excel file should match the structure of the RN3 dataset.  
 - The names of worksheets in the file should match the names of the RN3 tables. For exceptions see **'renameTables'** in the {ref}`RN3_Generic_Import_Excel.md-external-integration-custom-parameters`. The process ignores letter case differences between the worksheet and RN3 table names.
@@ -38,10 +40,6 @@ See {ref}`RN3_Generic_Import_Excel.md-data-transformations` for details on the e
 ```{caution}
 Excel file is not a suitable format for importing **geometry data**. A different external integration should be used for that purpose. 
 ```
-
-
-**Operation type:**  
-IMPORT  
 
 
 ## External integration setup - example

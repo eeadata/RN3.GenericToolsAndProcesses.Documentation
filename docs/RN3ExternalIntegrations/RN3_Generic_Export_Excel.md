@@ -5,10 +5,12 @@ ___
 **Complexity:**  
 <span class="stars">⯪☆☆☆☆</span>
 
+**Operation type:**  
+EXPORT  
 
-**Description:**  
-This external integration adds an **Export dataset data** option to the RN3 dataset.  
-It allows the data provider to Export dataset data into an MS Excel file.  
+## Introduction
+
+This external integration allows an authenticated user to export data from an RN3 dataset into an MS Excel file.  
 
 By default, the process exports data from all RN3 dataset tables to an Excel file, creating one worksheet per table.  
 The worksheet names will match the names of the corresponding RN3 tables.  
@@ -36,9 +38,6 @@ If any tables should be excluded from the export, add their names to the **'excl
 
 *(The excludeTables parameter is available from v3 of the FME workspace.)*  
 ```
-
-**Operation type:**  
-IMPORT  
 
 
 ## External integration setup - example
@@ -101,7 +100,7 @@ The generic export doesn't change the RN3 data, with the following exceptions:
 The external integration FME workspace does the following:  
 - Downloads and reads data from the RN3 dataset tables, except the data from RN3 tables set for exclusion in the **excludeTables** parameter.  
 - Transforms or removes selected data values if needed and possible.  
-- Writes data into an Excel file, with worksheet names matching the table names, or the names supplied in the ***renameTables** parameter.  
+- Writes data into an Excel file, with worksheet names matching the table names, or the names supplied in the **renameTables** parameter.  
 
 It downloads the data from RN3 as a ZIP file containing a set of CSV files, one per RN3 dataset table, using the asynchronous request starting with '/dataset/v4/etlExport/{datasetId}' RN3 API endpoint.  
 It is not possible to specify which tables to exclude from the download; therefore, the ZIP file contains data from all tables. The 'table' exclusion is done during the data reading step.  
