@@ -313,4 +313,4 @@ How to {ref}`RN3_Generic_Harvesting_Metadata.md-how-to-create-fme-schedule`
 (RN3_Generic_Harvesting_Metadata.md-how-to-create-fme-schedule)=
 #### Create a Schedule on FME Flow.
 - Follow <https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm>.
-- If you don't have permissions to create a Schedule, or are not confident enough to create it, ask EEA Service Desk, or a colleague with appropriate permissions and experience, to create it for you.
+- If you don't have permissions to create a Schedule, or are not confident enough to create it, ask the EEA Service Desk or a colleague with appropriate permissions and experience to create it for you.
