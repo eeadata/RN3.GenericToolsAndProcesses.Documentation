@@ -35,8 +35,8 @@ extensions = ['sphinx.ext.autodoc',
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '*.txt']
-
 source_suffix = ['.rst', '.md']
+
 
 # NUMBERING
 # The separator must defined in a custom.css :-(
@@ -88,7 +88,8 @@ html_show_copyright = False
 html_static_path = ['_static']
 html_css_files = [
    'customTable.css',
-   'customStarFont.css'
+   'customStarFont.css',
+   'customHR.css'   
 ]
 
 html_js_files = [

@@ -1,7 +1,7 @@
 (rn3-generic-harvesting-metadata)=
 # RN3 Generic Harvesting - Metadata
 
-___
+<hr class="double">
 
 **Complexity:**  
 <span class="stars">★★⯪☆☆</span>
@@ -15,6 +15,8 @@ The process can be triggered manually or, more commonly, scheduled to run regula
 
 The harvested dataflow metadata can be used for multiple purposes, but the main one is for use in RN3 data harvesting. 
 It is a **prerequisite** for the **RN3 Generic Harvesting - Data** process.  
+
+<hr class="thick">
 
 ## Quick setup
 
@@ -36,6 +38,8 @@ It is a **prerequisite** for the **RN3 Generic Harvesting - Data** process.
 	- See {ref}`RN3_Generic_Harvesting_Metadata.md-fme-workspace-schedule` for the details.  
 	- See {ref}`RN3_Generic_Harvesting_Metadata.md-fme-workspace` for the details on the FME workspace.  
 
+<hr class="thick">
+
 (RN3_Generic_Harvesting_Metadata.md-database)=
 ## Database
 
@@ -54,6 +58,8 @@ If harvested metadata are to be used in the generic data harvesting process, the
 ```
 If more data managers (data custodians) use the same MS SQL Server to manage different dataflows, they can all use the same RN3 database.  
 In such situations, data managers must take care not to affect the metadata of other dataflows when setting up their metadata harvesting. They should also appoint one of them to manage the metadata harvesting schedule, since the process requires only a single schedule to run for all dataflows with metadata in the RN3 database.
+
+<hr class="thick">
 
 (RN3_Generic_Harvesting_Metadata.md-tables)=
 ## Tables
@@ -240,6 +246,8 @@ VALUES
 	(<dataflowId>,<obligationId>,1,'ApiKey <dataflow API Key>'),
 	(...)
 ~~~~
+
+<hr class="thick">
 
 (RN3_Generic_Harvesting_Metadata.md-fme-workspace)=
 ## FME workspace 
