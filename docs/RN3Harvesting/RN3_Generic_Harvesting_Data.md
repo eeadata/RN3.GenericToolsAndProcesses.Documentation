@@ -40,7 +40,7 @@ In addition to the **RN3 dataflow metadata** tables, the process uses additional
 - harvested data **template** tables  
 - table containing metadata of the individual **harvesting jobs**  
 - table containing list of **dataflow tables** included in the harvesting process  
-- table containing a list of **geometry fields**, used to specify how the geometry data should be harvested
+- table containing a list of **geometry fields**, used to specify how the geometry data should be harvested  
 - table containing the required dataflow **harvesting parameters**  
 
 With the exception of the *templates* tables, all other tables must be located in databases on the same MS SQL Server.  
@@ -59,29 +59,29 @@ The data harvesting setup is flexible regarding the names and number of database
 ### Import
 
 This is a dataflow-specific database.  
-In a standard EEA dataflow database model, the Import database name consists of the abbreviation of the dataflow or the dataflow group, and the suffix '_Import' (e.g., NatDA_Import, WISE_SoE_Import).
-The data manager may use a different database, or even multiple databases if needed.
+In a standard EEA dataflow database model, the Import database name consists of the abbreviation of the dataflow or the dataflow group, and the suffix '_Import' (e.g., NatDA_Import, WISE_SoE_Import).  
+The data manager may use a different database, or even multiple databases if needed.  
   
 The Import database contains the following **tables** involved in the data harvesting process:  
-- **Template** tables 
+- **Template** tables  
 	- Must be created manually.  
-- **Harvested data** tables 
+- **Harvested Data** tables  
 	- Are created automatically.  
-- **Harvesting jobs** table 
+- **Harvesting Jobs** table  
 	- Is created automatically.  
 
 ### RN3
 
 This is a generic, server-wide metadata database.  
 In the standard setup, this metadata database contains the following **tables** involved in the data harvesting process:  
-- **RN3 dataflow metadata** tables 
+- **RN3 Dataflow Metadata** tables  
 	- Must be present.  
-- **Dataflow tables** table 
-	- Must be created manually, if it doesn't exist yet, and populated with dataflow specific data.  
-- **Geometry fields** table 
-	- Must be created manually, if it doesn't exist yet and reported geometry data is to be harvested, and must be populated with dataflow specific data.  
-- **Harvesting parameters** table 
-	- Must be created manually, if it doesn't exist yes, and populated with the dataflow specific data.  
+- **Dataflow Tables** table  
+	- Must be created manually if it doesn't exist yet.  
+- **Geometry Fields** table  
+	- Must be created manually if it doesn't exist yet and if reported geometry data is to be harvested.  
+- **Harvesting Parameters** table  
+	- Must be created manually if it doesn't exist yet.  
 
 Because metadata harvesting is a prerequisite for data harvesting, this database should already be present when we start setting up the data harvesting process.  
 See Metadata harvesting {ref}`RN3_Generic_Harvesting_Metadata.md-database` for more details.  
@@ -91,68 +91,58 @@ See Metadata harvesting {ref}`RN3_Generic_Harvesting_Metadata.md-database` for m
 
 ## Tables
 
-This documentation uses standard names for tables and schemas involved in the data harvesting process. The responsible data manager may, however, use different names if needed.
+This documentation uses standard names for tables and schemas involved in the data harvesting process. The responsible data manager may, however, use different names if needed.  
 
 
 (RN3_Generic_Harvesting_Data.md-tables-templates)=
 ### Template tables
 
-Creating template tables should be the first step in the setup.  
-Each RN3 dataflow table that should have its data harvested must have a template table in the Import database.  
+In the standard model, the Template tables are placed in the **Import database**.  
 
-The template tables must be left empty.  
+Creating Template tables should be the first step in setting up the data harvesting process.  
+Each RN3 dataflow table that should have its data harvested must have a Template table in the database.  
 
-The harvesting process uses the template tables as the source of dynamic schemas when writing the data to the database.  
-When it runs for the first time for a specific dataflow, it also uses them to create the harvested data tables (see {ref}`RN3_Generic_Harvesting_Data.md-tables-harvested-data`).
+The Template tables must be left empty.  
+
+The harvesting process uses the Template tables as the source of dynamic schemas when writing the data to the database.  
+When it runs for the first time for a specific dataflow, it also uses them to create the Harvested Data tables (see {ref}`RN3_Generic_Harvesting_Data.md-tables-harvested-data`).  
 
 <ins>**Schema and names**</ins>  
 
-The standard name for the template table schema is **[template]**.
+The standard name for the Template table schema is **[template]**.  
 
-Template table names should match the RN3 table names. 
-If the dataflow, however, contains multiple tables with the same names, just in different datasets, and their data are harvested to the same Import database, the template table names need to be differentiated. The standard approach is to prefix the RN3 table name with an abbreviation of the specific RN3 dataset schema.
+Template table names should match the RN3 table names.  
+If the dataflow, however, contains multiple tables with the same names, just in different datasets, and their data are harvested to the same Import database, the Template table names need to be differentiated. The standard approach is to prefix the RN3 table name with an abbreviation of the specific RN3 dataset schema.  
 
 ```{admonition} Example
 :class: dropdown
-The Habitatas directive reporting dataflow contains tables with the same names in its reporting dataset schemas. 
-For example, the table *Maps* is present in both the *Reporting data - Habitats* and *Reporting data - Species* datasets. In the NatureArt17_Import database, the corresponding template tables are named *Habitats_Maps* and *Species_Maps*. 
-For consistency, all template table names were prefixed with an abbreviation of their dataset schema.
+The Habitatas directive reporting dataflow contains tables with the same names in its reporting dataset schemas.  
+For example, the table *Maps* is present in both the *Reporting data - Habitats* and *Reporting data - Species* datasets. In the NatureArt17_Import database, the corresponding Template tables are named *Habitats_Maps* and *Species_Maps*.  
+For consistency, all Template table names were prefixed with an abbreviation of their dataset schema.  
 ```
 
 Another, relatively simple option for handling tables with the same names is to use different table schemas for tables from different datasets.  
-(There may be other options, like different dataset-specific import databases or data-collection-specific harvesting processes, but these may be unnecessarily complex, and we are not going to describe them.)
+(There may be other options, like different dataset-specific import databases or data-collection-specific harvesting processes, but these may be unnecessarily complex, and we are not going to describe them.)  
 
 <ins>**Structure**</ins>
 
-The template table structure should match that of the RN3 dataset table. The table columns must have the same names as the RN3 table fields (including the same letter case). 
+The Template table structure should match that of the **RN3 dataset table**. The table columns must have the same names as the RN3 table fields (including the same letter case).  
 
-In addition to the data columns, each template table must contain these 3 **metadata columns**:
+In addition to the data columns, each Template table must contain these 3 **metadata columns**:
 - **[rn3_dataProviderCode]**
 - **[rn3_snapshotId]**
 - **[rn3_recordId]**
 ```{seealso}
-See {ref}`RN3_Generic_Harvesting_Data.md-tables-templates-reference` for the details
-```
-The harvesting process will fail if any metadata column is missing.
-
-The harvesting process will not fail if a template table contains misnamed data columns or is missing columns for any RN3 table field.  
-The misnamed columns will not be populated.  
-If any RN3 table fields should not, or need not, be harvested, excluding the respective column from the template table is a way to achieve that.
-
-Each data column in the template table needs a **data type** appropriate for the values reported in the corresponding RN3 fields.
-
-```{warning}
-The harvesting process will fail if the template table column has an inappropriate data type. This includes text columns (nvarachar) with an insufficient character limit.  
-To continue harvesting from the RN3 dataflow, correct the data type in both the affected template and the corresponding harvested data table, or disable harvesting for the specific release.
+See {ref}`RN3_Generic_Harvesting_Data.md-tables-templates-reference` for the details.  
 ```
 
 <ins>**Geometry data**</ins>  
 
-If an RN3 table contains geometry fields, the data manager must decide how to handle the geometry and configure the template tables accordingly. By default, the geometry is not imported even if the template table contains columns with matching names. By choosing the appropriate format of the RN3 data download file and supplying the relevant values in the **dataflow tables** table and the **geometry fields** table, they can decide to:
+If an RN3 table contains geometry fields, the data manager must decide how to handle the geometry and configure the Template tables accordingly. By default, the geometry is not imported even if the Template table contains columns with matching names. By choosing the appropriate format of the RN3 data download file and supplying the relevant values in the **dataflow tables** table and the **geometry fields** table, they can decide to:  
 - Store the geometry in an SQL Geometry column of the same or different name as the RN3 field name.  
 - Keep the GeoJSON string and import it to an appropriate column of the same name, or drop it.  
 - Store the geometry data from different RN3 geometry fields in different SQL geometry columns, or in the same column if every RN3 record will have geometry in just one of the fields.  
-- Reproject the reported geometry to a specific Coordinate reference system (CRS) before storing it.
+- Reproject the reported geometry to a specific Coordinate Reference System (CRS) before storing it.  
 
 ```{seealso}
 See {ref}`RN3_Generic_Harvesting_Data.md-tables-geomfields` for details about the configuration of the geometry data harvesting.  
@@ -162,11 +152,24 @@ See {ref}`RN3_Generic_Harvesting_Data.md-tables-geomfields` for details about th
 (RN3_Generic_Harvesting_Data.md-tables-templates-reference)=
 #### Reference
 
-Each template table must include the following metadata columns. It's recommended to add them to the front of the table.  
+Each Template table must include the following metadata columns. It's recommended to add them to the front of the table.  
 
 - **[rn3_dataProviderCode]** -  The code of the RN3 data provider (e.g., two-letter country code). Recommended data type: **nvarchar** of sufficient length.  
 - **[rn3_snapshotId]** - The identifier of the release snapshot the data is part of. Recommended data type: **bigint**.  
 - **[rn3_recordId]** - The unique identifier of the RN3 record. Recommended data type: **nvarchar(100)**.  
+
+(RN3_Generic_Harvesting_Data.md-tables-templates-explanation)=
+#### Explanation
+
+- The harvesting process will fail if a Template table misses any **metadata column**.  
+- The harvesting process will not fail if a Template table contains misnamed data columns or is missing columns for any RN3 table field. The misnamed columns will not be populated.  
+- If any RN3 table fields should not, or need not, be harvested, excluding the respective column from the Template table is a way to achieve that.  
+- Each data column in the Template table needs a **data type** appropriate for the values reported in the corresponding RN3 fields.  
+
+	```{warning}
+	The harvesting process will fail if the Template table column has an inappropriate data type. This includes text columns (nvarachar) with an insufficient character limit.  
+	To continue harvesting from the RN3 dataflow, correct the data type in both the affected Template and the corresponding Harvested Data table, or disable harvesting for the specific release.  
+	```
 
 
 #### How to
@@ -202,51 +205,56 @@ CREATE TABLE [NatDA_Import].[template].[ProtectedSite](
 <hr>
 
 (RN3_Generic_Harvesting_Data.md-tables-harvested-data)=
-### Harvested data tables
+### Harvested Data tables
 
-These Import database tables store the harvested data.  
+In the standard model, the Harvested Data tables are placed in the **Import database**.  
+
+They store the data harvested from the corresponding RN3 tables.  
 
 <ins>**Schema and names**</ins>  
 
-The standard name for the harvested data table schema is **[harvestedData]**.  
+The standard name for the Harvested Data table schema is **[harvestedData]**.  
 
-When the harvesting process runs for the first time for a specific dataflow, it creates the table schema and harvested data tables by copying the corresponding template tables. The harvested data tables will have the same names as the template tables.  
+When the harvesting process runs for the first time for a specific dataflow, it creates the table schema and Harvested Data tables by copying the corresponding Template tables. The Harvested Data tables will have the same names as the **Template tables**.  
 
 ```{warning}
-It's not recommended to create the harvested data tables manually.
+It's not recommended to create the Harvested Data tables manually.  
 ```
 
 <ins>**Structure**</ins>  
 
-The harvested data tables' structure matches the structure of the corresponding template tables.
+The Harvested Data tables' structure matches the structure of the corresponding **Template tables**.  
 
-Any change made in a template table must be made in the corresponding harvested data table, if it already exists.  
-You can also delete the harvested data table if it's empty or the data it already contains doesn't need to be preserved. The data harvesting process will create the table again next time it runs. 
+#### Explanation
+
+- Any change made in a Template table must be made in the corresponding Harvested Data table, if it already exists.  
+- You can also delete the Harvested Data table if it's empty or the data it already contains doesn't need to be preserved. The data harvesting process will create the table again next time it runs.  
 
 <hr>
 
 (RN3_Generic_Harvesting_Data.md-tables-harvesting-jobs)=
-### Harvesting jobs table
+### Harvesting Jobs table
 
-This Import database table contains a list of the harvesting jobs and their metadata.  
+In the standard model, the Harvesting Jobs table is placed in the **Import database**.  
 
-The data harvesting process adds to the table a harvesting job record for each viable release snapshot when it runs.  
+The table contains a list of the harvesting jobs and their metadata.  
 
-The process uses the table to identify which release snapshots have already been harvested, and adds new records when it detects new releases. At the end, it documents whether the specific release snapshot was successfully harvested, when it was harvested, or why it failed.  
+The process uses the table to identify which release snapshots have already been harvested, and adds new records when it detects new releases - one record for each viable release snapshot.  
+At the end, it documents whether the specific release snapshot was successfully harvested, when it was harvested, or why it failed.  
 
 <ins>**Schema and name**</ins>  
 
 The standard table name is **[HarvestingJobs]** and the standard schema is **[metadata]**.  
 
-When the harvesting process runs for the first time for a specific dataflow, it creates the table schema if it doesn't exist yet. It then also creates the table by copying the relevant content from the [RN3].[metadata].[HistoricalRelease] table. 
+When the harvesting process runs for a specific dataflow for the first time, it creates the table schema if it doesn't exist yet. It then also creates the table by copying the relevant content from the [RN3].[metadata].[HistoricalRelease] table.  
 
 ```{warning}
-It's not recommended to create the harvesting jobs tables manually.
+It's not recommended to create the Harvesting Jobs tables manually.  
 ```
 
 <ins>**Structure**</ins>  
 
-The harvested data table structure matches the structure of the **[RN3].[metadata].[HistoricalRelease]** table, with a few **additional columns** (see {ref}`RN3_Generic_Harvesting_Data.md-tables-harvesting-jobs-reference` for the details).
+The Harvested Data table structure matches the structure of the **[RN3].[metadata].[HistoricalRelease]** table, with a few **additional columns** (see {ref}`RN3_Generic_Harvesting_Data.md-tables-harvesting-jobs-reference` for the details).  
 
 ```{seealso}
 See **[HistoricalRelease]** table entry in the **Metadata tables {ref}`RN3_Generic_Harvesting_Metadata.md-tables-reference`** for more details.
@@ -255,34 +263,34 @@ See **[HistoricalRelease]** table entry in the **Metadata tables {ref}`RN3_Gener
 (RN3_Generic_Harvesting_Data.md-tables-harvesting-jobs-reference)=
 #### Reference
 
-In addition to the columns from the [RN3].[metadata].[HistoricalRelease] table, the harvesting jobs table contains these additional columns:
-- **[harvestDate]** - A timestamp when the release snapshot data was successfully harvested.
-- **[jobId]** - An identifier of the data harvesting FME job that harvested the release snapshot.
-- **[jobSummary]** - A summary of the harvesting job in JSON format.
+In addition to the columns from the [RN3].[metadata].[HistoricalRelease] table, the Harvesting Jobs table contains these additional columns:  
+- **[harvestDate]** - A timestamp when the release snapshot data was successfully harvested.  
+- **[jobId]** - An identifier of the data harvesting FME job that harvested the release snapshot.  
+- **[jobSummary]** - A summary of the harvesting job in JSON format.  
 
 (RN3_Generic_Harvesting_Data.md-tables-harvesting-jobs-explanation)=
 #### Explanation
 
-- At the beginning of the data harvesting, the process finds the release snapshots metadata in the [RN3].[metadata].[HistoricalRelease] that match the specific harvesting parameters and are not already in the harvesting jobs table. It then copies those with **[dcrelease] = 1** to the table. It also adds the **[jobId]** value to the record at that time.  
-- The process then selects any harvesting jobs records with an empty **[harvestDate]** field, attempts to download the corresponding data from the data collection datasets, to process it and to import it into the harvested data tables.  
+- At the beginning of the data harvesting, the process finds the release snapshots metadata in the **[RN3].[metadata].[HistoricalRelease]** that match the specific harvesting parameters and are not already in the Harvesting Jobs table. It then copies those with **[dcrelease] = 1** to the table. It also adds the **[jobId]** value to the record at that time.  
+- The process then selects any harvesting jobs records with an empty **[harvestDate]** field and attempts to download the corresponding data from the data collection datasets. It then tries to process it and import it into the Harvested Data tables.  
 - The process adds the **[harvestDate]** value to the harvesting jobs record only if the harvesting was fully successful. This means it tries to harvest data from failed jobs next time it runs.  
-- By manipulating the **[harvestDate]** value manually,  we can either prevent the process from harvesting specific release snapshots or force it to re-harvest them.
+- By manipulating the **[harvestDate]** value manually, we can either prevent the process from harvesting specific release snapshots or force it to re-harvest them.
     ```{seealso}
     How to {ref}`RN3_Generic_Harvesting_Data.md-how-to-prevent-harvesting`.  
     How to {ref}`RN3_Generic_Harvesting_Data.md-how-to-reharvest-snapshot`.  
     ```
-- The "status" in the **[jobSummary]** JSON will be "success" for successful harvesting jobs and "failure" for failed jobs. The "summary" will, for each table in the specific release snapshot, contain the final number of harvested records and other relevant numbers. Because a harvesting failure may be caused by a mismatch between the records entering a specific step and the number of records in the step's output, the summary numbers may help identify the concrete failure reason.
+- The "status" in the **[jobSummary]** JSON will be "success" for successful harvesting jobs and "failure" for failed jobs. The "summary" will, for each table in the specific release snapshot, contain the final number of harvested records and other relevant numbers. Because a harvesting failure may be caused by a mismatch between the records entering a specific processing step and the number of records in the step's output, the summary numbers may help identify the concrete failure reason.  
 
 #### How to
 
 (RN3_Generic_Harvesting_Data.md-how-to-prevent-harvesting)=
 ##### Prevent snapshot harvesting
 
-When the harvesting process repeatedly fails to harvest a certain snapshot, and it can't be fixed otherwise, we may need to stop it from trying.
+When the harvesting process repeatedly fails to harvest a certain snapshot, and it can't be fixed otherwise, we may need to stop it from trying.  
 
-To prevent harvesting of a specific release snapshot that has a record in the harvesting jobs table, we manually add a [harvestDate] value to the record.  
+To prevent harvesting of a specific release snapshot that has a record in the Harvesting Jobs table, we manually add a [harvestDate] value to the record.  
 
-We recommend adding a text value to the record's [jobSummary] field that explains why we're excluding the snapshot.
+We recommend adding a text value to the record's [jobSummary] field that explains why we're excluding the snapshot.  
 
 **SQL - example:**  
 
@@ -311,31 +319,34 @@ FROM [NatDA_Import].[metadata].[HarvestingJobs] as a
 WHERE snapshotId IN ('105195', '105193', '105194')
 ~~~~
 
-To reharvest just a single release snapshot, we can also run the process with the record's [snapshotId] value in the snapshotId user parameter. The [harvestDate] value will be automatically deleted at the start of the process.
+To reharvest just a single release snapshot, we can also run the process with the record's [snapshotId] value in the snapshotId user parameter. The [harvestDate] value will be automatically deleted at the start of the process.  
+This method is mostly viable only when we execute the harvesting process manually, e.g., during testing.  
 
 <hr>
 
 (RN3_Generic_Harvesting_Data.md-tables-rn3-dataflow-metadata-tables)=
-### RN3 dataflow metadata tables
+### RN3 Dataflow Metadata tables
 
-The RN3 dataflow metadata tables are described in the {ref}`RN3_Generic_Harvesting_Metadata.md-tables` section of the RN3 Generic Harvesting - metadata document.
+The RN3 Dataflow Metadata tables are described in the **{ref}`RN3_Generic_Harvesting_Metadata.md-tables`** section of the **RN3 Generic Harvesting - metadata** document.  
 
-As mentioned previously, the tables must exist and be regularly updated for the data harvesting process to function.
+As mentioned previously, the tables must exist and be regularly updated for the data harvesting process to function.  
  
-The data harvesting process uses the following RN3 metadata tables:
-- **[Dataflow]**
-- **[HistoricRelease]**
+The data harvesting process uses the following RN3 metadata tables:  
+- **[Dataflow]**  
+- **[HistoricRelease]**  
 
-The **[Dataflow]** table provides the RN3 dataflow ApiKey value the process uses to authorise the data download request.
+The **[Dataflow]** table provides the RN3 dataflow ApiKey value the process uses to authorise the data download request.  
 
-The **[HistoricRelease]** table is the source of the information on release snapshots that need to be harvested.
+The **[HistoricRelease]** table is the source of the information on release snapshots that need to be harvested, as explained in the {ref}`RN3_Generic_Harvesting_Data.md-tables-harvesting-jobs` part.  
 
 <hr>
 
 (RN3_Generic_Harvesting_Data.md-tables-dataflow-tables)=
-### Dataflow tables table
+### Dataflow Tables table
 
-This RN3 database table contains a list of **RN3 dataflow tables** to be harvested, parameters of the corresponding **template** and **harvested data** tables, and other related parameters.
+In the standard model, the Dataflow Tables table is placed in the **RN3 database**.  
+
+It contains a list of **RN3 dataflow tables** to be harvested, parameters of the corresponding **template** and **harvested data** tables, and other relevant parameters.  
 
 <ins>**Schema and name**</ins>  
 
@@ -351,10 +362,10 @@ The [RN3].[metadata].[DataflowTables] table contains columns for five parameter 
 2. **RN3 table** parameters
 	- [table_RN3_Name]
 
-3. The **harvested data table** parameters  
+3. The **Harvested Data table** parameters  
 	- [table_SQL_data_DatabaseConnection], [table_SQL_data_Database], [table_SQL_data_Schema], [table_SQL_data_Name]  
 
-4. The **template table** parameters  
+4. The **Template table** parameters  
 	- [table_SQL_template_DatabaseConnection], [table_SQL_template_Database], [table_SQL_template_Schema], [table_SQL_template_Name]  
 
 5. The **geometry data** related parameters  
@@ -370,16 +381,16 @@ The [RN3].[metadata].[DataflowTables] table contains columns for five parameter 
 - **[dataflowName]**  - Optional. The name of the RN3 dataflow.
 - **[dataCollectionId]**  - The RN3 data collection identifier.  
 - **[table_RN3_Name]** - The name of the RN3 table.  
-- **[table_SQL_data_DatabaseConnection]**  - Name of the FME Database connection linked to the MS SQL database containing the harvested data table.  
-- **[table_SQL_data_Database]**  -  Name of the MS SQL database containing the harvested data table.  
-- **[table_SQL_data_Schema]**  - Name of the harvested data table schema (standard is 'harvestedData').  
-- **[table_SQL_data_Name]**  - Name of the harvested data table to store data from the RN3 table.  
-- **[table_SQL_template_DatabaseConnection]**  - Name of the FME Database connection linked to the MS SQL database containing the template table.  
-- **[table_SQL_template_Database]** - Name of the MS SQL database containing the template table.    
-- **[table_SQL_template_Schema]** - Name of the template table schema (standard is 'template').  
-- **[table_SQL_template_Name]** - Name of the template table that is the source for the harvested data table.  
+- **[table_SQL_data_DatabaseConnection]**  - Name of the FME Database connection linked to the MS SQL database containing the Harvested Data table.  
+- **[table_SQL_data_Database]**  -  Name of the MS SQL database containing the Harvested Data table.  
+- **[table_SQL_data_Schema]**  - Name of the Harvested Data table schema (standard is 'harvestedData').  
+- **[table_SQL_data_Name]**  - Name of the Harvested Data table to store data from the RN3 table.  
+- **[table_SQL_template_DatabaseConnection]**  - Name of the FME Database connection linked to the MS SQL database containing the Template table.  
+- **[table_SQL_template_Database]** - Name of the MS SQL database containing the Template table.    
+- **[table_SQL_template_Schema]** - Name of the Template table schema (standard is 'template').  
+- **[table_SQL_template_Name]** - Name of the Template table that is the source for the Harvested Data table.  
 - **[flag_keep_geojson]** - Optional. A boolean value indicates whether the GeoJSON, harvested from geometry field(s) in the RN3 table, should be stored in the field(s) of the same name in the SQL table (1 = yes, 0 = no).
-- **[flag_update_geometry]**  - Optional. A boolean value indicates whether the harvested data table geometry field should be updated using the data extracted from the corresponding RN3 geometry field (1 = yes, 0 = no).
+- **[flag_update_geometry]**  - Optional. A boolean value indicates whether the Harvested Data table geometry field should be updated using the data extracted from the corresponding RN3 geometry field (1 = yes, 0 = no).
 - **[SQL_geometry_reproject_srid]** - Optional. Integer part of the EPSG notation of the specific CRS to which the SQL geometry should be reprojected (e.g., 4326).
 
 
@@ -394,27 +405,25 @@ The [RN3].[metadata].[DataflowTables] table contains columns for five parameter 
 	```{seealso}
 	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-populate-dataflow-tables-table` for an example.
 	```
-- It is in this table that the data manager specifies whether the template and harvested data tables are located in different databases or have non-standard schemas and names. As mentioned before, the template tables can even be in a database located on a different MS SQL server than the other tables.
+- It is in this table that the data manager specifies whether the template and Harvested Data tables are located in different databases or have non-standard schemas and names. As mentioned before, the Template tables can even be in a database located on a different MS SQL server than the other tables.
 
 ```{warning}
 Be careful not to delete the [RN3].[metadata].[DataflowTables] table if it already exists, or delete or change records for other dataflows that may be using the same table. 
 ```
 
-
-
 -  The **[flag_keep_geojson]**, **[flag_update_geometry]**, **[SQL_geometry_reproject_srid]** values must be NULL for RN3 tables without geometry fields. 
 
--  The **[flag_keep_geojson]** value can be 1 only if the data is to be downloaded from RN3 as JSON or CSV files. Only in these formats is the geometry present as GeoJSON. If the download format is parquet, the geometry is present as WKB, and there is no valid reason for trying to store it in the database in that format. The harvesting process also won't convert WKB to GeoJSON.
+-  The **[flag_keep_geojson]** value can be 1 only if the data is to be downloaded from RN3 as JSON or CSV files. Only in these formats is the geometry present as GeoJSON. If the download format is parquet, it contains geometry data in extended WKB format. There is no valid reason for trying to store it in the database in that format. The harvesting process also won't convert WKB to GeoJSON.
  	```{seealso}
 	See **etlExportVersion** in FME workspace {ref}`RN3_Generic_Harvesting_Data.md-fme-workspace-user-parameters` for how to decide and specify the download file format.
 	```
 
-- If the **[flag_update_geometry]** is 1, the Geometry fields table must exist and contain information about the relation between the geometry fields in the RN3 and the harvested data table.
+- If the **[flag_update_geometry]** is 1, the Geometry Fields table must exist and contain information about the relation between the geometry fields in the RN3 and the Harvested Data table.
 	```{seealso}
 	See {ref}`RN3_Generic_Harvesting_Data.md-tables-geomfields`
 	```
 
-- The **[SQL_geometry_reproject_srid]** must be left empty if the geometry should be stored in the harvested data table in its original CRS. 
+- The **[SQL_geometry_reproject_srid]** must be left empty if the geometry should be stored in the Harvested Data table in its original CRS. 
 
 
 
@@ -495,9 +504,24 @@ VALUES
 <hr>
 
 (RN3_Generic_Harvesting_Data.md-tables-geomfields)=
-### Geometry fields table
+### Geometry Fields table
 
-text
+The Geometry Fields table must be placed in the same database as the **{ref}`RN3_Generic_Harvesting_Data.md-tables-dataflow-tables`**.
+
+If the table doesn't exist yet, the data manager must create it if they want to harvest geometry data from the geometry fields in the dataflow.
+
+The table is basically an extension of the Dataflow Tables table.
+
+<ins>**Schema and name**</ins>  
+
+The table must have the name of the Dataflow Tables table suffixed with '_GeometryFields'. It must use the same table schema.  
+So, in the standard model, it is **[metadata].[DataflowTables_GeometryFields]**.   
+
+<ins>**Structure**</ins>  
+
+The table contains selected columns from the Dataflow Tables table and these additional fields:
+- **[field_RN3_Geometry]**
+- **[field_SQL_Geometry]**
 
 (RN3_Generic_Harvesting_Data.md-tables-geomfields-reference)=
 #### Reference
@@ -558,7 +582,7 @@ VALUES
 <hr>
 
 (RN3_Generic_Harvesting_Data.md-tables-harvesting-parameters)=
-### Harvesting parameters table
+### Harvesting Parameters table
 
 text
 
