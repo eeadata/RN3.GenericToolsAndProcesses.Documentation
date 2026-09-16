@@ -14,7 +14,7 @@ This external integration allows an authorised data reporter user to import data
 
 The structure of the Excel file should match the structure of the RN3 dataset.  
 - The names of worksheets in the file should match the names of the RN3 tables. For exceptions see **'renameTables'** in the {ref}`RN3_Generic_Import_Excel.md-external-integration-custom-parameters`. The process ignores letter case differences between the worksheet and RN3 table names.
-- The names of the worksheet columns must match the names of the fields in the corresponding RN3 tables.  
+- The names of the worksheet columns must match the names of the fields in the corresponding RN3 tables, but they don't need to follow the same letter case.  
 - Worksheets with non-matching names will be ignored. RN3 tables with missing worksheets will not be updated.  
 - Additional or misnamed worksheet columns will be ignored. RN3 fields with missing worksheet columns will be empty after the import.  
 
@@ -124,6 +124,7 @@ To avoid the most common of these issues, to make the data provider's life easie
 The external integration FME workspace does the following:  
 - Reads data from the supplied Excel file.  
 - Change the letter case of the worksheet name attributes if they differ from the RN3 table names.  
+- Change the letter case of the column attribute names if they differ from the RN3 field names.  
 - Transforms selected data values if needed and possible.  
 - Imports the result into the dataset.  
 

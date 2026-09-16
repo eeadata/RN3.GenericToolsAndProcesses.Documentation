@@ -100,7 +100,7 @@ This documentation uses standard names for tables and schemas involved in the da
 In the standard model, the Template tables are placed in the **Import database**.  
 
 Creating Template tables should be the first step in setting up the data harvesting process.  
-Each RN3 dataflow table that should have its data harvested must have a Template table in the database.  
+Each RN3 dataflow table that the data manager wants to harvest must have a Template table in the database.  
 
 The Template tables must be left empty.  
 
@@ -117,7 +117,7 @@ If the dataflow, however, contains multiple tables with the same names, just in 
 ```{admonition} Example
 :class: dropdown
 The Habitatas directive reporting dataflow contains tables with the same names in its reporting dataset schemas.  
-For example, the table *Maps* is present in both the *Reporting data - Habitats* and *Reporting data - Species* datasets. In the NatureArt17_Import database, the corresponding Template tables are named *Habitats_Maps* and *Species_Maps*.  
+For example, the *Maps* table appears in both the *Reporting data - Habitats* and *Reporting data - Species* datasets. In the NatureArt17_Import database, the corresponding Template tables are named *Habitats_Maps* and *Species_Maps*.  
 For consistency, all Template table names were prefixed with an abbreviation of their dataset schema.  
 ```
 
@@ -408,7 +408,7 @@ The [RN3].[metadata].[DataflowTables] table contains columns for five parameter 
 - It is in this table that the data manager specifies whether the template and Harvested Data tables are located in different databases or have non-standard schemas and names. As mentioned before, the Template tables can even be in a database located on a different MS SQL server than the other tables.
 
 ```{warning}
-Be careful not to delete the [RN3].[metadata].[DataflowTables] table if it already exists, or delete or change records for other dataflows that may be using the same table. 
+Be careful not to delete the [RN3].[metadata].[DataflowTables] table if it already exists, or delete or change records for other dataflows that use the same table.  
 ```
 
 -  The **[flag_keep_geojson]**, **[flag_update_geometry]**, **[SQL_geometry_reproject_srid]** values must be NULL for RN3 tables without geometry fields. 
@@ -424,8 +424,7 @@ Be careful not to delete the [RN3].[metadata].[DataflowTables] table if it alrea
 	```
 
 - The **[SQL_geometry_reproject_srid]** must be left empty if the geometry should be stored in the Harvested Data table in its original CRS. 
-
-
+- If the **[flag_update_geometry]** = 1, the harvesting process automatically creates an auxiliary table **[NatDA_Import].[harvestedData].[auxGeom]**. It uses it as temporary storage for geometry before inserting it into the Harvested Data table. You can ignore the table, or safely delete it once the data harvesting period has ended.
 
 #### How to
 
@@ -433,7 +432,6 @@ Be careful not to delete the [RN3].[metadata].[DataflowTables] table if it alrea
 ##### Create [metadata].[DataflowTables] table
 
 **SQL - example:**  
-
 
 ~~~~sql
 DROP TABLE [RN3].[metadata].[DataflowTables]
@@ -526,12 +524,19 @@ The table contains selected columns from the Dataflow Tables table and these add
 (RN3_Generic_Harvesting_Data.md-tables-geomfields-reference)=
 #### Reference
 
-text
+- **[dataflowId]** - Optional. The RN3 dataflow identifier.  
+- **[dataflowName]** - Optional. The name of the RN3 dataflow.  
+- **[dataCollectionId]**  - The RN3 data collection identifier.  
+- **[table_RN3_Name]** - The name of the RN3 table.  
+- **[field_RN3_Geometry]** - The name of the RN3 table geometry field.
+- **[field_SQL_Geometry]** - The name of the geometry field in the Harvested Data table, where the RN3 field geometry should be stored.
 
 (RN3_Generic_Harvesting_Data.md-tables-geomfields-explanation)=
 #### Explanation
 
-text
+- The **[field_RN3_Geometry]** and **[field_SQL_Geometry]** can have the same or different value.
+- The fields **[field_RN3_Geometry]** and **[field_SQL_Geometry]** must be different if we want to store the geometry data as SQL geometry and also keep it as a GeoJSON value, which we indicate by setting the **[flag_keep_geojson] = 1** and **[flag_update_geometry] = 1** in the {ref}`RN3_Generic_Harvesting_Data.md-tables-dataflow-tables`. This means that the corresponding **Template table** must contain two 'geometry' columns: one *[nvarchar]\(max)* column for the GeoJSON value and a *[geometry]* type column for the actual geometry. The column that stores the GeoJSON value must have the same name as the RN3 field.
+- If the RN3 table contains multiple different geometry fields (e.g., one for point and the other for polygon geometries), but only one of the fields can have a value in the released data, it's possible to store geometries from all RN3 fields in just one SQL field. In that case, add one record for each RN3 field to the Geometry Fields table, and give them the same **[field_SQL_Geometry]** value.
 
 #### How to
 
@@ -554,14 +559,12 @@ CREATE TABLE [RN3].[metadata].[DataflowTables_GeometryFields](
 ALTER TABLE [RN3].[metadata].[DataflowTables_GeometryFields]  WITH CHECK ADD  CONSTRAINT [FK_DataflowTables_GeometryFields_DataflowTables] FOREIGN KEY([dataCollectionId], [table_RN3_Name])
 REFERENCES [RN3].[metadata].[DataflowTables] ([dataCollectionId], [table_RN3_Name])
 ON DELETE CASCADE
-
 ~~~~
 
 (RN3_Generic_Harvesting_Data.md-tables-tables-how-to-populate-geomfields-table)=
 ##### Populate [metadata].[DataflowTables_GeometryFields] table
 
 **SQL - example:**  
-
 
 ~~~~sql
 INSERT INTO [RN3].[metadata].[DataflowTables_GeometryFields]
