@@ -1,6 +1,6 @@
 # RN3 Generic Update - prefill table
 
-___
+<hr class="double">
 
 **Complexity:**  
 <span class="stars">★★☆☆☆</span>

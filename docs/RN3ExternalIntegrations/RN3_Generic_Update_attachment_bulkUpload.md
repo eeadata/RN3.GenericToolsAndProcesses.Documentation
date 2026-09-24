@@ -1,6 +1,6 @@
 # RN3 Generic Update - attachment bulk upload
 
-___
+<hr class="double">
 
 **Complexity:**  
 <span class="stars">★☆☆☆☆</span>

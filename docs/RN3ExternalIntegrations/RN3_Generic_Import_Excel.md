@@ -1,6 +1,6 @@
 # RN3 Generic Import - Excel
 
-___
+<hr class="double">
 
 **Complexity:**  
 <span class="stars">⯪☆☆☆☆</span>
