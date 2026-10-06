@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RN3 Generic Update - Reference datasets &#8212; RN3 Generic Tools and Processes - Documentation 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=0cc09019" />
+    <link rel="stylesheet" type="text/css" href="../_static/customStarFont.css?v=23dc880e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customHR.css?v=2c5c9b6e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'RN3DataExchangeAutomations/RN3_Generic_Update_Reference';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Supporting tools" href="../SupportingTools/index.html" />
+    <link rel="prev" title="RN3 Generic Harvesting - Data" href="RN3_Generic_Harvesting_Data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RN3 GTaPs Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../RN3ExternalIntegrations/index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../RN3ExternalIntegrations/index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html">RN3 Generic Harvesting - Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Harvesting_Data.html">RN3 Generic Harvesting - Data</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">RN3 Generic Update - Reference datasets</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">RN3 Data exchange automations</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">RN3 Generic Update - Reference datasets</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rn3-generic-update-reference-datasets">
+<span id="rn3-generic-update-reference"></span><h1>RN3 Generic Update - Reference datasets<a class="headerlink" href="#rn3-generic-update-reference-datasets" title="Link to this heading">#</a></h1>
+<hr class="double">
+<p><strong>Complexity:</strong><br />
+<span class="stars">★★★★☆</span></p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Reference dataset update is an FME-orchestrated process that updates selected RN3 dataflow <strong>reference dataset tables</strong> if the corresponding <strong>reference data source</strong> has changed since the last update. The reference data sources are tables or views in an <strong>MS SQL database</strong> (or databases).</p>
+<p>The process can be triggered manually or, more commonly, scheduled to run regularly.</p>
+<hr class="thick">
+</section>
+<section id="quick-setup">
+<h2>Quick setup<a class="headerlink" href="#quick-setup" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Ensure the <strong>metadata harvesting process</strong> is set up for the dataflows where you want to update reference data, and the <strong>RN3 metadata tables</strong> exist.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-update-reference-md-tables-rn3-dataflow-metadata-tables"><span class="std std-ref">RN3 Dataflow Metadata tables</span></a>.</p></li>
+</ul>
+</li>
+<li><p>Choose a <strong>Source database</strong> and ask the EEA Service Desk to create it if it doesn’t exist yet.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-update-reference-md-databases-source"><span class="std std-ref">Source</span></a> database for more details.</p></li>
+</ul>
+</li>
+<li><p>Create <strong>Reference Data Source tables</strong> in the Source database, one for each RN3 reference table you want to update.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-update-reference-md-tables-source-tables"><span class="std std-ref">Reference Data Source tables</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p>Create the <strong>Reference Update Tables table</strong> in the RN3 database if it doesn’t exist yet, and insert one record for each RN3 reference table you want to update.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-update-reference-md-tables-how-to-create-reference-update-tables-table"><span class="std std-ref">Create [metadata].[ReferenceUpdateTables] table</span></a> for an SQL example.</p></li>
+<li><p>See How to <a class="reference internal" href="#rn3-generic-update-reference-md-tables-how-to-populate-reference-update-tables-table"><span class="std std-ref">Populate [metadata].[ReferenceUpdateTables] table</span></a> for an SQL example.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-update-reference-md-tables-reference-update-tables"><span class="std std-ref">Reference Update Tables table</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p>Create the <strong>Reference Update Parameters table</strong> in the RN3 database if it doesn’t exist yet, and insert one record for each RN3 dataflow where you want to update the reference dataset tables.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-update-reference-md-tables-how-to-create-reference-update-parameters-table"><span class="std std-ref">Create [metadata].[ReferenceUpdateParameters] table</span></a> for an SQL example.</p></li>
+<li><p>See How to <a class="reference internal" href="#rn3-generic-update-reference-md-tables-how-to-populate-reference-update-parameters-table"><span class="std std-ref">Populate [metadata].[ReferenceUpdateParameters] table</span></a> for an SQL example.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-update-reference-md-tables-reference-update-parameters"><span class="std std-ref">Reference Update Parameters table</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p><strong>Create a data harvesting schedule</strong> on the EEA’s FME Flow server.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-update-reference-md-fme-workspace-schedule"><span class="std std-ref">Schedule</span></a> for the details.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-update-reference-md-fme-workspace"><span class="std std-ref">FME workspace</span></a> for the details on the FME workspace.</p></li>
+</ul>
+</li>
+</ol>
+<hr class="thick">
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>The reference update setup process is complex and requires several steps to be completed correctly.</p>
+<p>The <strong>prerequisite</strong> for the process is the presence of metadata tables that are regularly updated by the <strong><a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html#rn3-generic-harvesting-metadata"><span class="std std-ref">RN3 Generic Harvesting - Metadata</span></a></strong> process.</p>
+<p>In addition to the <strong>RN3 dataflow metadata</strong> tables, the process uses additional SQL tables and views, some of which must be created and populated during the setup:</p>
+<ul class="simple">
+<li><p><strong>reference data source</strong> tables or views</p></li>
+<li><p>table containing metadata of the individual <strong>update jobs</strong></p></li>
+<li><p>table containing list of <strong>reference dataset tables</strong> included in the update process and their data sources</p></li>
+<li><p>table containing the required dataflow <strong>reference update parameters</strong></p></li>
+</ul>
+<p>The tables don’t need to be on the same MS SQL Server, but it’s recommended they are, as it makes working with them easier.</p>
+<hr class="thick">
+</section>
+<section id="databases">
+<h2>Databases<a class="headerlink" href="#databases" title="Link to this heading">#</a></h2>
+<p>The data harvesting setup is flexible regarding the names and number of databases. The standard setup model, however, works with two databases.</p>
+<ul class="simple">
+<li><p><strong>Source</strong> database</p></li>
+<li><p><strong>RN3</strong> database</p></li>
+</ul>
+<p><em>In this documentation, we will be using this model and the database names.</em></p>
+<section id="source">
+<span id="rn3-generic-update-reference-md-databases-source"></span><h3>Source<a class="headerlink" href="#source" title="Link to this heading">#</a></h3>
+<p>This is a dataflow-specific database.<br />
+In a standard EEA dataflow database model, the Production database usually serves as the Source database, but depending on the actual source of the reference data, it may also be the Import database, the ‘non-suffix’ database, or another database.<br />
+Individual RN3 reference tables from the same dataset may even have their source data located in multiple different databases.</p>
+<p>The Source database contains the following <strong>tables</strong> involved in the reference update process:</p>
+<ul class="simple">
+<li><p><strong>Reference Data Source</strong> tables or views</p>
+<ul>
+<li><p>Must be created manually.</p></li>
+</ul>
+</li>
+<li><p><strong>Update Jobs</strong> table</p>
+<ul>
+<li><p>Is created automatically.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rn3">
+<h3>RN3<a class="headerlink" href="#rn3" title="Link to this heading">#</a></h3>
+<p>This is a generic, server-wide metadata database.<br />
+In the standard setup, this metadata database contains the following <strong>tables</strong> involved in the data reference update process:</p>
+<ul class="simple">
+<li><p><strong>RN3 Dataflow Metadata</strong> tables</p>
+<ul>
+<li><p>Must be present.</p></li>
+</ul>
+</li>
+<li><p><strong>Reference Update Tables</strong> table</p>
+<ul>
+<li><p>Must be created manually if it doesn’t exist yet.</p></li>
+</ul>
+</li>
+<li><p><strong>Reference Update Parameters</strong> table</p>
+<ul>
+<li><p>Must be created manually if it doesn’t exist yet.</p></li>
+</ul>
+</li>
+</ul>
+<p>Because metadata harvesting is a prerequisite for the reference dataset update, this database should already be present when we start setting up the data harvesting process.<br />
+See Metadata harvesting <a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html#rn3-generic-harvesting-metadata-md-database"><span class="std std-ref">Database</span></a> for more details.</p>
+<hr class="thick">
+</section>
+</section>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Link to this heading">#</a></h2>
+<p>This documentation uses standard names for tables and schemas involved in the data harvesting process. The responsible data manager may, however, use different names if needed.</p>
+<section id="reference-data-source-tables">
+<span id="rn3-generic-update-reference-md-tables-source-tables"></span><h3>Reference Data Source tables<a class="headerlink" href="#reference-data-source-tables" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Reference Data <strong>Source tables</strong> or views are placed in the <strong>Source database</strong>.</p>
+<p>Creating the Source tables should be the first step in setting up the reference dataset update process.<br />
+Each RN3 reference dataset table we want to update must have a Source table or view in the database.</p>
+<p>The Source tables must include all data that the reference dataset tables need.</p>
+<p><ins><strong>Schema and names</strong></ins></p>
+<p>There is no standard convention for naming the Source tables. The data manager should use names and schemas that best fit their reference data management approach and naming conventions.<br />
+However, the name should help identify the target RN3 reference table.</p>
+<p>It’s also up to the data manager whether the reference source data is provided in a dedicated <strong>Table</strong> or ‘produced on the fly’ by a <strong>View</strong>.</p>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The Source table structure should match that of the target <strong>RN3 reference dataset table</strong>. The table columns must have the same names as the RN3 table fields (including the same letter case).</p>
+<p>In addition to the data columns, each Source table must include a <em>datetime</em> column with the timestamp of when the specific record was created or last updated.<br />
+This column is used to check whether the reference data source has changed since the last update of the corresponding RN3 reference dataset table.</p>
+<section id="reference">
+<span id="rn3-generic-update-reference-md-tables-source-tables-reference"></span><h4>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h4>
+<p>Each Source table or view must include a datetime column that includes the timestamp of the last reference record update.
+The data manager may choose the name of this column, but we will use <strong>lastUpdate</strong> in the following text.</p>
+</section>
+<section id="explanation">
+<span id="rn3-generic-update-reference-md-tables-source-tables-explanation"></span><h4>Explanation<a class="headerlink" href="#explanation" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>The individual <strong>Source tables or views</strong> should be created in cooperation with the <strong>responsible dataflow owner</strong> (e.g., data steward).</p></li>
+<li><p>The update process will fail if a Source table or view misses the <strong>lastUpdate column</strong>, or if it is empty for all records.</p></li>
+<li><p>The update process will not fail if a Source table or view contains misnamed data columns or is missing columns for any RN3 table field. The process will not use misnamed columns, and RN3 table fields with missing Source columns will be empty after the update.</p></li>
+<li><p>Each data column in the Source table or view should contain only data that are appropriate for the corresponding RN3 fields. The update process will not fail if the data type of the Source data values is incorrect, but discrepancies will most likely cause validation errors or failures in the RN3 dataflow.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the <em>RN3 reference dataset table</em> contains any <strong>geometry fields</strong>, the corresponding Source table or view needs to contain the geometry values formatted as <strong>Extended GeoJSON</strong> strings, not as SQL geometry!</p>
+</div>
+</li>
+<li><p>The update compares the highest timestamp value in the <strong>lastUpdate</strong> column of the Source table with the highest <strong>[tableUpdated]</strong> value of the corresponding <strong>Update Jobs table</strong> records.</p>
+<ul class="simple">
+<li><p>If the <em>lastUpdate</em> value is higher, the process selects all data from the Source table and uses it to update the corresponding RN3 reference dataset table.</p></li>
+<li><p>If the <em>lastUpdate</em> value is lower, the process will not update the corresponding RN3 reference dataset table.</p></li>
+<li><p>If no Source table has a higher <em>lastUpdate</em> value, the update process ends there.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="update-jobs-table">
+<span id="rn3-generic-update-reference-md-tables-update-jobs"></span><h3>Update Jobs table<a class="headerlink" href="#update-jobs-table" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Update Jobs table is placed in the <strong>Source database</strong>.</p>
+<p>The table contains a list of the update jobs and their metadata.</p>
+<p>The process uses the table to identify the latest update for the corresponding RN3 reference dataset table. At the end of the update, it adds a new record for each reference table it updated, or attempted to update, and documents the job result.</p>
+<p><ins><strong>Schema and name</strong></ins></p>
+<p>The standard table name is <strong>[ReferenceUpdateJobs]</strong> and the standard schema is <strong>[metadata]</strong>.</p>
+<p>When the update process runs for a specific dataflow for the first time, it creates the schema and the table if they don’t exist yet.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It’s not recommended to create the Update Jobs table manually.</p>
+</div>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The Update Jobs table structure includes metadata columns needed to uniquely identify each job at the reference table level, as well as each job’s result.</p>
+<section id="rn3-generic-update-reference-md-tables-update-jobs-reference">
+<span id="id1"></span><h4>Reference<a class="headerlink" href="#rn3-generic-update-reference-md-tables-update-jobs-reference" title="Link to this heading">#</a></h4>
+<p>The Harvesting Jobs table contains these columns:</p>
+<ul class="simple">
+<li><p><strong>[dataflowId]</strong> - The RN3 dataflow identifier.</p></li>
+<li><p><strong>[datasetId]</strong> - The RN3 reference datset identifier.</p></li>
+<li><p><strong>[datasetName]</strong> - The RN3 reference dataset name.</p></li>
+<li><p><strong>[tableSchemaId]</strong> - The RN3 reference dataset table schema identifier.</p></li>
+<li><p><strong>[tableName]</strong> - The RN3 reference dataset table name.</p></li>
+<li><p><strong>[tableUpdated]</strong> - A timestamp when the reference table was successfully updated.</p></li>
+<li><p><strong>[jobId]</strong> - An identifier of the FME job that ran the reference update process.</p></li>
+<li><p><strong>[jobExecuted]</strong> - A timestamp of when the FME job started.</p></li>
+<li><p><strong>[jobSummary]</strong> - A summary of the reference update job.</p></li>
+</ul>
+</section>
+<section id="rn3-generic-update-reference-md-tables-update-jobs-explanation">
+<span id="id2"></span><h4>Explanation<a class="headerlink" href="#rn3-generic-update-reference-md-tables-update-jobs-explanation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>At the beginning, the reference update process finds the highest timestamp value in the <strong>lastUpdate</strong> column of each reference data source table involved in the update. It then compares it with the highest <strong>[tableUpdated]</strong> timestamp value of matching Update Jobs table records. If no matching records exist, or if the <strong>lastUpdate</strong> value is higher, the process selects data from the source table and attempts to update the RN3 reference table.</p></li>
+<li><p>Whether the import succeeds or fails, the process enters a new record in the Updates Jobs table. The <strong>[tableUpdated]</strong> field is filled only if the import succeeds.</p></li>
+<li><p>If the import was successful, the <strong>[jobSummary]</strong> will include a short confirmation of the success. If it failed, the field will include detailed information. In both cases, the field also includes the highest <strong>lastUpdate</strong> timestamp of the specific reference data source.</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="rn3-dataflow-metadata-tables">
+<span id="rn3-generic-update-reference-md-tables-rn3-dataflow-metadata-tables"></span><h3>RN3 Dataflow Metadata tables<a class="headerlink" href="#rn3-dataflow-metadata-tables" title="Link to this heading">#</a></h3>
+<p>The RN3 Dataflow Metadata tables are described in the <strong><a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html#rn3-generic-harvesting-metadata-md-tables"><span class="std std-ref">Tables</span></a></strong> section of the <strong>RN3 Generic Harvesting - metadata</strong> document.</p>
+<p>The tables must exist and be populated for the update process to function.</p>
+<p>The reference update process uses the following RN3 metadata tables:</p>
+<ul class="simple">
+<li><p><strong>[Dataflow]</strong></p></li>
+<li><p><strong>[DesignDataset]</strong></p></li>
+<li><p><strong>[ReferenceDataset]</strong></p></li>
+</ul>
+<p>The <strong>[Dataflow]</strong> table provides the RN3 dataflow ApiKey value the process uses to authorise the data import request.</p>
+<p>The <strong>[DesignDataset]</strong> table is the source of the RN3 dataset schema, including the structure of the individual tables.</p>
+<p>The <strong>[ReferenceDataset]</strong> table provides information on the reference datasets included in the specific RN3 dataflow.</p>
+<hr>
+</section>
+<section id="reference-update-tables-table">
+<span id="rn3-generic-update-reference-md-tables-reference-update-tables"></span><h3>Reference Update Tables table<a class="headerlink" href="#reference-update-tables-table" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Reference Update Tables table is placed in the <strong>RN3 database</strong>.</p>
+<p>It contains a list of <strong>RN3 reference dataset tables</strong> to be updated by the process and parameters of the corresponding <strong>Reference Data Source</strong> tables.</p>
+<p><ins><strong>Schema and name</strong></ins></p>
+<p>The standard table name is <strong>[ReferenceUpdateTables]</strong> and the standard schema is <strong>[metadata]</strong>.</p>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The [RN3].[metadata].[ReferenceUpdateTables] table contains columns for three parameter groups:</p>
+<ol class="arabic simple">
+<li><p><strong>Dataflow-related</strong> parameters</p>
+<ul class="simple">
+<li><p>[dataflowId], [dataflowName], [datasetId], [datasetName]</p></li>
+</ul>
+</li>
+<li><p><strong>RN3 table</strong> parameters</p>
+<ul class="simple">
+<li><p>[table_RN3_Name], [table_RN3_SchemaID],[table_RN3_update]</p></li>
+</ul>
+</li>
+<li><p><strong>Reference Data Source table</strong> parameters</p>
+<ul class="simple">
+<li><p>[dataSource_DatabaseConnection], [dataSource_Database], [dataSource_Schema], [dataSource_Name], [dataSource_Field_lastUpdate]</p></li>
+</ul>
+</li>
+</ol>
+<section id="rn3-generic-update-reference-md-tables-reference-update-tables-reference">
+<span id="id3"></span><h4>Reference<a class="headerlink" href="#rn3-generic-update-reference-md-tables-reference-update-tables-reference" title="Link to this heading">#</a></h4>
+<p>[RN3].[metadata].[ReferenceUpdateTables] table columns:</p>
+<ul class="simple">
+<li><p><strong>[dataflowId]</strong>  - The RN3 dataflow identifier.</p></li>
+<li><p><strong>[dataflowName]</strong>  - Optional. The name of the RN3 dataflow.</p></li>
+<li><p><strong>[datasetId]</strong> - The RN3 reference dataset identifier.</p></li>
+<li><p><strong>[datasetName]</strong> - The name of the RN3 reference dataset.</p></li>
+<li><p><strong>[table_RN3_Name]</strong> - The name of the RN3 reference table.</p></li>
+<li><p><strong>[table_RN3_SchemaID]</strong> - The schema identifier of the RN3 reference table.</p></li>
+<li><p><strong>[table_RN3_update]</strong> - A boolean field indicating whether the RN3 reference table should be updated or not (1 = yes, 0 = no).</p></li>
+<li><p><strong>[dataSource_DatabaseConnection]</strong> - Name of the FME Database connection linked to the MS SQL database containing the Reference Data Source table.</p></li>
+<li><p><strong>[dataSource_Database]</strong> - Name of the MS SQL database containing the Reference Data Source table.</p></li>
+<li><p><strong>[dataSource_Schema]</strong> - Name of the Reference Data Source table schema.</p></li>
+<li><p><strong>[dataSource_Name]</strong> - Name of the Reference Data Source table.</p></li>
+<li><p><strong>[dataSource_Field_lastUpdate]</strong> - Name of the datetime field in the Reference Data Source table that contains timestamp values of the record’s last update.</p></li>
+</ul>
+</section>
+<section id="rn3-generic-update-reference-md-tables-reference-update-tables-explanation">
+<span id="id4"></span><h4>Explanation<a class="headerlink" href="#rn3-generic-update-reference-md-tables-reference-update-tables-explanation" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>If the [RN3].[metadata].[ReferenceUpdateTables] table doesn’t exist yet, a responsible data manager must create it.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-update-reference-md-tables-how-to-create-reference-update-tables-table"><span class="std std-ref">Create [metadata].[ReferenceUpdateTables] table</span></a> for an example.</p>
+</div>
+</li>
+<li><p>The data manager needs to add a record for each RN3 reference table they want to update and provide all mandatory values.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-update-reference-md-tables-how-to-populate-reference-update-tables-table"><span class="std std-ref">Populate [metadata].[ReferenceUpdateTables] table</span></a> for an example.</p>
+</div>
+</li>
+<li><p>It is in this table that the data manager specifies the source of the data for the RN3 reference table, its name and location.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful not to delete the [RN3].[metadata].[ReferenceUpdateParameters] table if it already exists, or delete or change records for other dataflows that use the same table.</p>
+</div>
+<ul>
+<li><p>The value for the <strong>table_RN3_SchemaID</strong> field can be extracted from the RN3 dataset URL when a specific RN3 table is selected. It is the value of the ‘tab’ parameter.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example</p>
+<p><em><strong>URL:</strong></em> https://sandbox.reportnet.europa.eu/dataflow/13110/datasetSchema/46012?tab=6a452708c2c277000148527d<br />
+<em><strong>rn3_tableSchemaId:</strong></em> 6a452708c2c277000148527d</p>
+</div>
+</li>
+<li><p>The FME database connection referred to in the <strong>dataSource_DatabaseConnection</strong> must exist in the EEA’s FME Flow server. The connection must be JDBC, and its name should end with the suffix ‘_JDBC’. The FME Flow server needs at least <em>db_reader</em> permission on the linked database to access it.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-update-reference-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-update-reference-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+<li><p>The database connection parameters may contain both non-JDBC and JDBC versions of the connection name. The non-JDBC connection names must match the JDBC one, just without the ‘_JDBC’ suffix. The data harvesting process automatically creates attributes with the JDBC versions of the database connections if the respective parameters contain non-JDBC ones.</p></li>
+<li><p>The  <strong>[dataSource_Field_lastUpdate]</strong> value must match the <strong>lastUpdate</strong> column name in the corresponding <strong>Reference Data Source table</strong>, otherwise the update process will fail.</p></li>
+</ul>
+</section>
+<section id="how-to">
+<h4>How to<a class="headerlink" href="#how-to" title="Link to this heading">#</a></h4>
+<section id="create-metadata-referenceupdatetables-table">
+<span id="rn3-generic-update-reference-md-tables-how-to-create-reference-update-tables-table"></span><h5>Create [metadata].[ReferenceUpdateTables] table<a class="headerlink" href="#create-metadata-referenceupdatetables-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--DROP TABLE [RN3].[metadata].[ReferenceUpdateTables]</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">ReferenceUpdateTables</span><span class="p">](</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">datasetId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">datasetName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">table_RN3_Name</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">table_RN3_SchemaID</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">table_RN3_update</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bit</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataSource_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataSource_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataSource_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataSource_Name</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataSource_Field_lastUpdate</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">CLUSTERED</span><span class="w"> </span>
+<span class="p">(</span>
+<span class="w">	</span><span class="p">[</span><span class="n">datasetId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">table_RN3_Name</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
+<span class="p">)</span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">PAD_INDEX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">STATISTICS_NORECOMPUTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">IGNORE_DUP_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">ALLOW_ROW_LOCKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">,</span><span class="w"> </span><span class="n">ALLOW_PAGE_LOCKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">,</span><span class="w"> </span><span class="n">OPTIMIZE_FOR_SEQUENTIAL_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+<span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="populate-metadata-referenceupdatetables-table">
+<span id="rn3-generic-update-reference-md-tables-how-to-populate-reference-update-tables-table"></span><h5>Populate [metadata].[ReferenceUpdateTables] table<a class="headerlink" href="#populate-metadata-referenceupdatetables-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--DELETE</span>
+<span class="c1">--SELECT *</span>
+<span class="c1">--FROM [RN3].[metadata].[ReferenceUpdateTables]</span>
+<span class="c1">--WHERE [dataflowId] IN (&lt;dataflowId&gt;,&lt;dataflowId&gt;)</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">ReferenceUpdateTables</span><span class="p">]</span>
+<span class="w">    </span><span class="p">([</span><span class="n">dataflowId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowName</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">datasetId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">datasetName</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_RN3_Name</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_RN3_SchemaID</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_RN3_update</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataSource_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataSource_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataSource_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataSource_Name</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataSource_Field_lastUpdate</span><span class="p">])</span>
+<span class="k">VALUES</span>
+
+<span class="c1">-- one record for each RN3 reference table that should be updated</span>
+<span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">datasetId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;datasetName&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_tablename&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_schemaId&gt;&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;&lt;Source_database_FME_connection_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Source_database_name&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;source_table_schema&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;source_table_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;lastUpdate&#39;</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">,(</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">datasetId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;datasetName&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_tablename&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_schemaId&gt;&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;&lt;source_database_FME_connection_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;source_database_name&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;source_table_schema&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;source_table_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;lastUpdate&#39;</span><span class="w"> </span><span class="p">)</span>
+</pre></div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="reference-update-parameters-table">
+<span id="rn3-generic-update-reference-md-tables-reference-update-parameters"></span><h3>Reference Update Parameters table<a class="headerlink" href="#reference-update-parameters-table" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Reference Update Parameters table is placed in the <strong>RN3 database</strong>.</p>
+<p>It contains the core parameters used by the reference dataset update process, one record for each RN3 dataflow where we want to update the reference dataset tables.<br />
+The majority of the parameters identify the other metadata tables (Update Jobs, RN3 metadata, Reference Update Tables) the process must use to update the reference tables.</p>
+<p><ins><strong>Schema and name</strong></ins></p>
+<p>The standard table name is <strong>[ReferenceUpdateParameters]</strong> and the standard schema is <strong>[metadata]</strong>.</p>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The [RN3].[metadata].[ReferenceUpdateParameters] table contains columns for four parameter groups:</p>
+<ol class="arabic simple">
+<li><p><strong>Dataflow-related</strong> parameters</p>
+<ul class="simple">
+<li><p>[dataflowId], [dataflowName]</p></li>
+</ul>
+</li>
+<li><p><strong>RN3 metadata tables</strong> parameters</p>
+<ul class="simple">
+<li><p>[metadata_DatabaseConnection] ,[metadata_Database] ,[metadata_Schema] ,[metadata_Table_Dataflow] ,[metadata_Table_ReferenceDataset] ,[metadata_Table_DesignDataset]</p></li>
+</ul>
+</li>
+<li><p><strong>Reference Update Tables table</strong> parameters</p>
+<ul class="simple">
+<li><p>[referenceTables_DatabaseConnection] ,[referenceTables_Database] ,[referenceTables_Schema] ,[referenceTables_Table]</p></li>
+</ul>
+</li>
+<li><p><strong>Update Jobs table</strong> parameters</p>
+<ul class="simple">
+<li><p>[updateJobs_DatabaseConnection] ,[updateJobs_Database] ,[updateJobs_Schema] ,[updateJobs_Table]</p></li>
+</ul>
+</li>
+</ol>
+<section id="rn3-generic-update-reference-md-tables-reference-update-parameters-reference">
+<span id="id5"></span><h4>Reference<a class="headerlink" href="#rn3-generic-update-reference-md-tables-reference-update-parameters-reference" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>[dataflowId]</strong>  - The RN3 dataflow identifier.</p></li>
+<li><p><strong>[dataflowName]</strong>  - Optional. The name of the RN3 dataflow.</p></li>
+<li><p><strong>[metadata_DatabaseConnection]</strong> - Name of the FME Database connection linked to the MS SQL database containing the RN3 metadata tables.</p></li>
+<li><p><strong>[metadata_Database]</strong> - Name of the MS SQL database containing the RN3 metadata tables (standard is ‘RN3’).</p></li>
+<li><p><strong>[metadata_Schema]</strong> - Name of the RN3 metadata tables schema (standard is ‘metadata’).</p></li>
+<li><p><strong>[metadata_Table_Dataflow]</strong> - Name of the table containing RN3 dataflow metadata (standard is ‘Dataflow’).</p></li>
+<li><p><strong>[metadata_Table_ReferenceDataset]</strong> - Name of the table containing RN3 reference dataset metadata (standard is ‘ReferenceDataset’).</p></li>
+<li><p><strong>[metadata_Table_DesignDataset]</strong> - Name of the table containing RN3 design dataset metadata (standard is ‘DesignDataset’).</p></li>
+<li><p><strong>[referenceTables_DatabaseConnection]</strong> - Name of the FME Database connection linked to the MS SQL database containing the Reference Update Tables table.</p></li>
+<li><p><strong>[referenceTables_Database]</strong> - Name of the MS SQL database containing the Reference Update Tables table (standard is ‘RN3’).</p></li>
+<li><p><strong>[referenceTables_Schema]</strong> - Name of the Reference Update Tables table schema (standard is ‘metadata’).</p></li>
+<li><p><strong>[referenceTables_Table]</strong> - Name of the Reference Update Tables table (standard is ‘ReferenceUpdateTables’).</p></li>
+<li><p><strong>[updateJobs_DatabaseConnection]</strong> - Name of the FME Database connection linked to the MS SQL database containing the Update Jobs table.</p></li>
+<li><p><strong>[updateJobs_Database]</strong> - Name of the MS SQL database containing the Update Jobs table (standardly it is the dataflow-specific Production, Import or non-suffix database).</p></li>
+<li><p><strong>[updateJobs_Schema]</strong> - Name of the Update Jobs table schema (standard is ‘metadata’).</p></li>
+<li><p><strong>[updateJobs_Table]</strong> - Name of the Update Jobs table (standard is ‘UpdateJobs’).</p></li>
+</ul>
+</section>
+<section id="rn3-generic-update-reference-md-tables-reference-update-parameters-explanation">
+<span id="id6"></span><h4>Explanation<a class="headerlink" href="#rn3-generic-update-reference-md-tables-reference-update-parameters-explanation" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>If the [RN3].[metadata].[ReferenceUpdateParameters] table doesn’t exist yet, a responsible data manager must create it.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-update-reference-md-tables-how-to-create-reference-update-parameters-table"><span class="std std-ref">Create [metadata].[ReferenceUpdateParameters] table</span></a> for an example.</p>
+</div>
+</li>
+<li><p>The data manager needs to add a record for each RN3 dataflow where they want to update the reference data and provide all mandatory values.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-update-reference-md-tables-how-to-populate-reference-update-parameters-table"><span class="std std-ref">Populate [metadata].[ReferenceUpdateParameters] table</span></a> for an example.</p>
+</div>
+</li>
+<li><p>It is in this table that we specify the databases, table schemas and names of metadata tables, whether they follow the standard or differ from it.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful not to delete the [RN3].[metadata].[ReferenceUpdateParameters] table if it already exists, or delete or change records for other dataflows that use the same table.</p>
+</div>
+<ul>
+<li><p>The FME database connections referred to in the <strong>metadata_DatabaseConnection</strong>, <strong>referenceTables_DatabaseConnection</strong> and <strong>updateJobs_DatabaseConnection</strong> parameters must exist in the EEA’s FME Flow server. The connections must be <strong>JDBC</strong>, and their names should end with the suffix ‘_JDBC’. The FME Flow server needs at least <em>db_reader</em> permissions on the linked databases to read the metadata tables.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-update-reference-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-update-reference-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+<li><p>The database connection parameters may contain both non-JDBC and JDBC versions of the connection name. The non-JDBC connection names must match the JDBC one, just without the ‘_JDBC’ suffix. The data harvesting process automatically creates attributes with the JDBC versions of the database connections if the respective parameters contain non-JDBC ones.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h4>How to<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<section id="create-metadata-referenceupdateparameters-table">
+<span id="rn3-generic-update-reference-md-tables-how-to-create-reference-update-parameters-table"></span><h5>Create [metadata].[ReferenceUpdateParameters] table<a class="headerlink" href="#create-metadata-referenceupdateparameters-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">ReferenceUpdateParameters</span><span class="p">](</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Table_Dataflow</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Table_ReferenceDataset</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Table_DesignDataset</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">referenceTables_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">referenceTables_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">referenceTables_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">referenceTables_Table</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">updateJobs_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">updateJobs_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">updateJobs_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">updateJobs_Table</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="populate-metadata-referenceupdateparameters-table">
+<span id="rn3-generic-update-reference-md-tables-how-to-populate-reference-update-parameters-table"></span><h5>Populate [metadata].[ReferenceUpdateParameters] table<a class="headerlink" href="#populate-metadata-referenceupdateparameters-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">ReferenceUpdateParameters</span><span class="p">]</span>
+<span class="w">    </span><span class="p">([</span><span class="n">dataflowId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowName</span><span class="p">]</span>
+
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Table_Dataflow</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Table_ReferenceDataset</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Table_DesignDataset</span><span class="p">]</span>
+
+<span class="w">    </span><span class="p">,[</span><span class="n">referenceTables_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">referenceTables_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">referenceTables_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">referenceTables_Table</span><span class="p">]</span>
+
+<span class="w">    </span><span class="p">,[</span><span class="n">updateJobs_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">updateJobs_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">updateJobs_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">updateJobs_Table</span><span class="p">])</span>
+<span class="k">VALUES</span>
+<span class="w">     </span><span class="c1">-- Dataflow name</span>
+<span class="w">    </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span>
+
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Dataflow&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ReferenceDataset&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DesignDataset&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ReferenceUpdateTables&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;Source_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;Source_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UpdateJobs&#39;</span>
+<span class="w">    </span><span class="p">),</span>
+
+<span class="c1">-- Dataflow name</span>
+<span class="w">    </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span>
+
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Dataflow&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ReferenceDataset&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DesignDataset&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ReferenceUpdateTables&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;Source_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;Source_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UpdateJobs&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="thick">
+</section>
+</section>
+</section>
+</section>
+<section id="fme-workspace">
+<span id="rn3-generic-update-reference-md-fme-workspace"></span><h2>FME workspace<a class="headerlink" href="#fme-workspace" title="Link to this heading">#</a></h2>
+<p>The reference data update FME workspace does the following:</p>
+<ul class="simple">
+<li><p>Processes user parameters and selects relevant records from the <strong>Reference Update Parameters</strong> table.</p></li>
+<li><p>Creates JDBC versions of database connections if the parameters provide non-JDBC versions.</p></li>
+<li><p>Selects relevant records from the <strong>Reference Update Tables</strong> table.</p></li>
+<li><p>Creates the <strong>Update Jobs</strong> table schema if it doesn’t exist yet.</p></li>
+<li><p>Creates the <strong>Update Jobs</strong> table if it doesn’t exist yet.</p></li>
+<li><p>Selects the highest <strong>lastUpdate</strong> value from each <strong>Reference Data Source table</strong> and compares it with the the highest <strong>[tableUpdated]</strong> value of the corresponding <strong>Update Jobs table</strong> records.</p></li>
+<li><p>Selects all records from the <strong>Reference Data Source tables</strong> where the highest <strong>lastUpdate</strong> value is higher.</p></li>
+<li><p>Parses JSON schema of the corresponding RN3 tables selected from the RN3 metadata table <strong>[DesignDataset]</strong>, and converts it to dynamic schema for CSV files.</p></li>
+<li><p>Creates CSV files using the source data and the dynamic schema.</p></li>
+<li><p>Selects dataflow API key from the RN3 metadata table <strong>[Dataflows]</strong>.</p></li>
+<li><p>Zips the CSV files.</p></li>
+<li><p>Sends ZIP file to Reportnet 3 using the <em>/dataset/v2/importFileData/{datasetId}</em> API endpoint, with parameter replace=true.</p></li>
+<li><p>Parses the response, checks the status of the RN3 job and waits until it finishes (or fails).</p></li>
+<li><p>Inserts a record into the <strong>Update Jobs table</strong> with the jobs summary.</p></li>
+</ul>
+<p><strong>Latest version:</strong><br />
+<a class="reference external" href="https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Update_referenceData.fmw">https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Update_referenceData.fmw</a></p>
+<section id="user-parameters">
+<span id="rn3-generic-update-reference-md-fme-workspace-user-parameters"></span><h3>User parameters<a class="headerlink" href="#user-parameters" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h4>Reference<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<p><strong>Mandatory parameters:</strong></p>
+<ul class="simple">
+<li><p><strong>dataflowIds</strong> - A comma-separated list of all RN3 dataflows where the reference dataset tables should be updated.</p></li>
+<li><p><strong>UP_databaseConnection</strong> - Name of the FME Database connection linked to the MS SQL database containing the Reference Update Parameters table. It must be a <strong>JDBC</strong> MSSQL connection.</p></li>
+<li><p><strong>UP_database</strong> - Name of the MS SQL database containing the Reference Update Parameters table (standard is ‘RN3’).</p></li>
+<li><p><strong>UP_schema</strong> - Name of the Reference Update Parameters table schema (standard is ‘metadata’).</p></li>
+<li><p><strong>UP_table</strong> - Name of the Reference Update Parameters table (standard is ‘ReferenceUpdateParameters’).</p></li>
+<li><p><strong>baseUrl</strong> - The base URL of the specific Reportnet 3 platform’s API service (e.g., https://api.reportnet.europa.eu).</p></li>
+</ul>
+</section>
+<section id="id9">
+<h4>Explanation<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>In the <strong>UP_</strong> parameters we specify the name and location of the <strong>Reference Update Parameters table</strong>. This is where we can identify whether the location, schema or name is non-standard.</p></li>
+<li><p>If the database connection referred to in the <strong>UP_databaseConnection</strong> parameter is not a JDBC connection, the harvesting process will fail.</p></li>
+<li><p>The FME connection referred to in the <strong>UP_databaseConnection</strong> parameter must exist in the EEA’s FME Flow server. The connection must be non-JDBC. The FME Flow server needs <em>db_ddladmin</em> or <em>db_owner</em> permissions on the linked database to access it and write to the metadata tables.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-update-reference-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-update-reference-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="schedule">
+<span id="rn3-generic-update-reference-md-fme-workspace-schedule"></span><h3>Schedule<a class="headerlink" href="#schedule" title="Link to this heading">#</a></h3>
+<p>The reference data update processes are commonly run on a regular schedule. This can be achieved by creating an FME Schedule (or Automation) that triggers the FME workspace at specified intervals and supplies it with corresponding user parameters.<br />
+The recommended frequency for reference data updates is once a day. It’s highly recommended to run it late at night.<br />
+The generic metadata harvesting should run about 10-15 minutes before the data harvesting so it has time to finish.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-update-reference-md-how-to-create-fme-schedule"><span class="std std-ref">Create a Schedule on FME Flow.</span></a></p>
+</div>
+<hr>
+</section>
+<section id="id10">
+<h3>How to<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<section id="create-a-database-connection-on-fme-flow">
+<span id="rn3-generic-update-reference-md-how-to-create-database-connection"></span><h4>Create a database connection on FME Flow<a class="headerlink" href="#create-a-database-connection-on-fme-flow" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow">https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow</a>.</p></li>
+<li><p>If you don’t have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you.</p></li>
+</ul>
+</section>
+<section id="add-fme-flow-server-as-a-user-to-an-ms-sql-database">
+<span id="rn3-generic-update-reference-md-how-to-add-fme-database-user"></span><h4>Add FME Flow server as a user to an MS SQL database<a class="headerlink" href="#add-fme-flow-server-as-a-user-to-an-ms-sql-database" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms">https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms</a>.</p></li>
+<li><p>Add a user with eeadmz1\fmeservice as the user name and login name.</p></li>
+<li><p>Select appropriate permission options on the Membership page.</p></li>
+<li><p>If you don’t have permissions to add users to the database, ask EEA Service Desk to add it.</p></li>
+</ul>
+</section>
+<section id="create-a-schedule-on-fme-flow">
+<span id="rn3-generic-update-reference-md-how-to-create-fme-schedule"></span><h4>Create a Schedule on FME Flow.<a class="headerlink" href="#create-a-schedule-on-fme-flow" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm">https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm</a>.</p></li>
+<li><p>If you don’t have permissions to create a Schedule, or are not confident enough to create it, ask the EEA Service Desk or a colleague with appropriate permissions and experience to create it for you.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="RN3_Generic_Harvesting_Data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">RN3 Generic Harvesting - Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../SupportingTools/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Supporting tools</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-setup">Quick setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#databases">Databases</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source">Source</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3">RN3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-data-source-tables">Reference Data Source tables</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-jobs-table">Update Jobs table</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-update-reference-md-tables-update-jobs-reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-update-reference-md-tables-update-jobs-explanation">Explanation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-dataflow-metadata-tables">RN3 Dataflow Metadata tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-update-tables-table">Reference Update Tables table</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-update-reference-md-tables-reference-update-tables-reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-update-reference-md-tables-reference-update-tables-explanation">Explanation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to">How to</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#create-metadata-referenceupdatetables-table">Create [metadata].[ReferenceUpdateTables] table</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#populate-metadata-referenceupdatetables-table">Populate [metadata].[ReferenceUpdateTables] table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-update-parameters-table">Reference Update Parameters table</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-update-reference-md-tables-reference-update-parameters-reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-update-reference-md-tables-reference-update-parameters-explanation">Explanation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">How to</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#create-metadata-referenceupdateparameters-table">Create [metadata].[ReferenceUpdateParameters] table</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#populate-metadata-referenceupdateparameters-table">Populate [metadata].[ReferenceUpdateParameters] table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fme-workspace">FME workspace</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-parameters">User parameters</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Explanation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">Schedule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">How to</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-database-connection-on-fme-flow">Create a database connection on FME Flow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-fme-flow-server-as-a-user-to-an-ms-sql-database">Add FME Flow server as a user to an MS SQL database</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-schedule-on-fme-flow">Create a Schedule on FME Flow.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/RN3.GenericProcesses/edit/main/Documentation/RN3DataExchangeAutomations/RN3_Generic_Update_Reference.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/RN3DataExchangeAutomations/RN3_Generic_Update_Reference.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

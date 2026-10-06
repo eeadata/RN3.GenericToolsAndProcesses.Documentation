@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RN3 Generic Harvesting - Data &#8212; RN3 Generic Tools and Processes - Documentation 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=0cc09019" />
+    <link rel="stylesheet" type="text/css" href="../_static/customStarFont.css?v=23dc880e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customHR.css?v=2c5c9b6e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'RN3DataExchangeAutomations/RN3_Generic_Harvesting_Data';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RN3 Generic Update - Reference datasets" href="RN3_Generic_Update_Reference.html" />
+    <link rel="prev" title="RN3 Generic Harvesting - Metadata" href="RN3_Generic_Harvesting_Metadata.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RN3 GTaPs Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../RN3ExternalIntegrations/index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../RN3ExternalIntegrations/index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html">RN3 Generic Harvesting - Metadata</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">RN3 Generic Harvesting - Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Update_Reference.html">RN3 Generic Update - Reference datasets</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">RN3 Data exchange automations</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">RN3 Generic Harvesting - Data</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rn3-generic-harvesting-data">
+<span id="id1"></span><h1>RN3 Generic Harvesting - Data<a class="headerlink" href="#rn3-generic-harvesting-data" title="Link to this heading">#</a></h1>
+<hr class="double">
+<p><strong>Complexity:</strong><br />
+<span class="stars">★★★★⯪</span></p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Data harvesting is an FME-orchestrated process that downloads <strong>data</strong> from <strong>data collection</strong> datasets of selected <strong>Reportnet 3 dataflows</strong> and stores it in a <strong>series of tables</strong> in an <strong>MS SQL database</strong>.</p>
+<p>The process is designed to harvest only data that has not yet been successfully harvested.<br />
+This usually means data released since the last harvesting, or where the harvesting has previously failed.<br />
+The process can also be forced to reharvest previously harvested data.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The process can harvest only data from the latest release. If a data provider made multiple releases between two harvesting jobs, the process won’t harvest data from earlier releases.<br />
+Older releases also can’t be reharvested. Instead, the data will be replaced with data from the latest release.</p>
+<p><em>This will change in the future, once the required changes are done to the RN3 platform to allow harvesting of specific release snapshots.</em></p>
+</div>
+<p>The process harvests <strong>geometry data</strong> and can be configured to convert it into SQL geometry.<br />
+It can also be configured to download the <strong>attachment files</strong> and store them in a specified folder.</p>
+<p>The process can be triggered manually or, more commonly, scheduled to run regularly.</p>
+<hr class="thick">
+</section>
+<section id="quick-setup">
+<h2>Quick setup<a class="headerlink" href="#quick-setup" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Ensure the <strong>metadata harvesting process</strong> is set up for the dataflows you want to harvest data from, and the <strong>RN3 metadata tables</strong> exist.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-rn3-dataflow-metadata-tables"><span class="std std-ref">RN3 Dataflow Metadata tables</span></a>.</p></li>
+</ul>
+</li>
+<li><p>Ask the EEA Service Desk to create the <strong>Import database</strong> if it doesn’t exist yet, and if you don’t want to use a different database.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-databases-import"><span class="std std-ref">Import</span></a> database for more details.</p></li>
+</ul>
+</li>
+<li><p>Create <strong>Template tables</strong> in the Import database, one for each RN3 table you want to harvest.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-create-template-tables"><span class="std std-ref">Create [template] tables</span></a> for an SQL example.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-templates"><span class="std std-ref">Template tables</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p>Create the <strong>Dataflow Tables table</strong> in the RN3 database if it doesn’t exist yet, and insert one record for each RN3 table you want to harvest.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-create-dataflow-tables-table"><span class="std std-ref">Create [metadata].[DataflowTables] table</span></a> for an SQL example.</p></li>
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-populate-dataflow-tables-table"><span class="std std-ref">Populate [metadata].[DataflowTables] table</span></a> for an SQL example.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-dataflow-tables"><span class="std std-ref">Dataflow Tables table</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p>If you want to harvest geometry data from one or more of the RN3 tables, create the <strong>Geometry Fields table</strong> in the RN3 database if it doesn’t exist yet. Insert one record for each combination of the source RN3 geometry field and the target SQL geometry field.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-tables-how-to-create-geomfields-table"><span class="std std-ref">Create [metadata].[DataflowTables_GeometryFields] table</span></a> for an SQL example.</p></li>
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-tables-how-to-populate-geomfields-table"><span class="std std-ref">Populate [metadata].[DataflowTables_GeometryFields] table</span></a> for an SQL example.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-geomfields"><span class="std std-ref">Geometry Fields table</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p>Create the <strong>Harvesting Parameters table</strong> in the RN3 database if it doesn’t exist yet, and insert one record for each RN3 data collection you want to harvest.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-create-harvesting-parameters-table"><span class="std std-ref">Create [metadata].[HarvestingParameters] table</span></a> for an SQL example.</p></li>
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-populate-harvesting-parameters-table"><span class="std std-ref">Populate [metadata].[HarvestingParameters] table</span></a> for an SQL example.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-harvesting-parameters"><span class="std std-ref">Harvesting Parameters table</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p><strong>Create a data harvesting schedule</strong> on the EEA’s FME Flow server.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-fme-workspace-schedule"><span class="std std-ref">Schedule</span></a> for the details.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-fme-workspace"><span class="std std-ref">FME workspace</span></a> for the details on the FME workspace.</p></li>
+</ul>
+</li>
+</ol>
+<hr class="thick">
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>The data harvesting setup process is complex and requires several steps to be completed correctly.</p>
+<p>The <strong>prerequisite</strong> for the process is the presence of metadata tables that are regularly updated by the <strong><a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html#rn3-generic-harvesting-metadata"><span class="std std-ref">RN3 Generic Harvesting - Metadata</span></a></strong> process.</p>
+<p>In addition to the <strong>RN3 dataflow metadata</strong> tables, the process uses additional SQL tables, some of which must be created and populated during the setup:</p>
+<ul class="simple">
+<li><p>tables to store <strong>harvested data</strong></p></li>
+<li><p>harvested data <strong>template</strong> tables</p></li>
+<li><p>table containing metadata of the individual <strong>harvesting jobs</strong></p></li>
+<li><p>table containing list of <strong>dataflow tables</strong> included in the harvesting process</p></li>
+<li><p>table containing a list of <strong>geometry fields</strong>, used to specify how the geometry data should be harvested</p></li>
+<li><p>table containing the required dataflow <strong>harvesting parameters</strong></p></li>
+</ul>
+<p>With the exception of the <em>templates</em> tables, all other tables must be located in databases on the same MS SQL Server.</p>
+<hr class="thick">
+</section>
+<section id="databases">
+<h2>Databases<a class="headerlink" href="#databases" title="Link to this heading">#</a></h2>
+<p>The data harvesting setup is flexible regarding the names and number of databases. The standard setup model, however, works with two databases.</p>
+<ul class="simple">
+<li><p><strong>Import</strong> database</p></li>
+<li><p><strong>RN3</strong> database</p></li>
+</ul>
+<p><em>In this documentation, we will be using this model and the database names.</em></p>
+<section id="import">
+<span id="rn3-generic-harvesting-data-md-databases-import"></span><h3>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h3>
+<p>This is a dataflow-specific database.<br />
+In a standard EEA dataflow database model, the Import database name consists of the abbreviation of the dataflow or the dataflow group, and the suffix ‘_Import’ (e.g., NatDA_Import, WISE_SoE_Import).<br />
+The data manager may use a different database, or even multiple databases if needed.</p>
+<p>The Import database contains the following <strong>tables</strong> involved in the data harvesting process:</p>
+<ul class="simple">
+<li><p><strong>Template</strong> tables</p>
+<ul>
+<li><p>Must be created manually.</p></li>
+</ul>
+</li>
+<li><p><strong>Harvested Data</strong> tables</p>
+<ul>
+<li><p>Are created automatically.</p></li>
+</ul>
+</li>
+<li><p><strong>Harvesting Jobs</strong> table</p>
+<ul>
+<li><p>Is created automatically.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="rn3">
+<h3>RN3<a class="headerlink" href="#rn3" title="Link to this heading">#</a></h3>
+<p>This is a generic, server-wide metadata database.<br />
+In the standard setup, this metadata database contains the following <strong>tables</strong> involved in the data harvesting process:</p>
+<ul class="simple">
+<li><p><strong>RN3 Dataflow Metadata</strong> tables</p>
+<ul>
+<li><p>Must be present.</p></li>
+</ul>
+</li>
+<li><p><strong>Dataflow Tables</strong> table</p>
+<ul>
+<li><p>Must be created manually if it doesn’t exist yet.</p></li>
+</ul>
+</li>
+<li><p><strong>Geometry Fields</strong> table</p>
+<ul>
+<li><p>Must be created manually if it doesn’t exist yet and if reported geometry data is to be harvested.</p></li>
+</ul>
+</li>
+<li><p><strong>Harvesting Parameters</strong> table</p>
+<ul>
+<li><p>Must be created manually if it doesn’t exist yet.</p></li>
+</ul>
+</li>
+</ul>
+<p>Because metadata harvesting is a prerequisite for data harvesting, this database should already be present when we start setting up the data harvesting process.<br />
+See Metadata harvesting <a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html#rn3-generic-harvesting-metadata-md-database"><span class="std std-ref">Database</span></a> for more details.</p>
+<hr class="thick">
+</section>
+</section>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Link to this heading">#</a></h2>
+<p>This documentation uses standard names for tables and schemas involved in the data harvesting process. The responsible data manager may, however, use different names if needed.</p>
+<section id="template-tables">
+<span id="rn3-generic-harvesting-data-md-tables-templates"></span><h3>Template tables<a class="headerlink" href="#template-tables" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Template tables are placed in the <strong>Import database</strong>.</p>
+<p>Creating Template tables should be the first step in setting up the data harvesting process.<br />
+Each RN3 dataflow table that the data manager wants to harvest must have a Template table in the database.</p>
+<p>The Template tables must be left empty.</p>
+<p>The harvesting process uses the Template tables as the source of dynamic schemas when writing the data to the database.<br />
+When it runs for the first time for a specific dataflow, it also uses them to create the Harvested Data tables (see <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-harvested-data"><span class="std std-ref">Harvested Data tables</span></a>).</p>
+<p><ins><strong>Schema and names</strong></ins></p>
+<p>The standard name for the Template table schema is <strong>[template]</strong>.</p>
+<p>Template table names should match the RN3 table names.<br />
+If the dataflow, however, contains multiple tables with the same names, just in different datasets, and their data are harvested to the same Import database, the Template table names need to be differentiated. The standard approach is to prefix the RN3 table name with an abbreviation of the specific RN3 dataset schema.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example</p>
+<p>The Habitatas directive reporting dataflow contains tables with the same names in its reporting dataset schemas.<br />
+For example, the <em>Maps</em> table appears in both the <em>Reporting data - Habitats</em> and <em>Reporting data - Species</em> datasets. In the NatureArt17_Import database, the corresponding Template tables are named <em>Habitats_Maps</em> and <em>Species_Maps</em>.<br />
+For consistency, all Template table names were prefixed with an abbreviation of their dataset schema.</p>
+</div>
+<p>Another, relatively simple option for handling tables with the same names is to use different table schemas for tables from different datasets.<br />
+(There may be other options, like different dataset-specific import databases or data-collection-specific harvesting processes, but these may be unnecessarily complex, and we are not going to describe them.)</p>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The Template table structure should match that of the <strong>RN3 dataset table</strong>. The table columns must have the same names as the RN3 table fields (including the same letter case).</p>
+<p>In addition to the data columns, each Template table must contain these 3 <strong>metadata columns</strong>:</p>
+<ul class="simple">
+<li><p><strong>[rn3_dataProviderCode]</strong></p></li>
+<li><p><strong>[rn3_snapshotId]</strong></p></li>
+<li><p><strong>[rn3_recordId]</strong></p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-templates-reference"><span class="std std-ref">Reference</span></a> for the details.</p>
+</div>
+<p><ins><strong>Geometry data</strong></ins></p>
+<p>If an RN3 table contains geometry fields, the data manager must decide how to handle the geometry and configure the Template tables accordingly. By default, the geometry is not imported even if the Template table contains columns with matching names. By choosing the appropriate format of the RN3 data download file and supplying the relevant values in the <strong>dataflow tables</strong> table and the <strong>geometry fields</strong> table, they can decide to:</p>
+<ul class="simple">
+<li><p>Store the geometry in an SQL Geometry column of the same or different name as the RN3 field name.</p></li>
+<li><p>Keep the GeoJSON string and import it to an appropriate column of the same name, or drop it.</p></li>
+<li><p>Store the geometry data from different RN3 geometry fields in different SQL geometry columns, or in the same column if every RN3 record will have geometry in just one of the fields.</p></li>
+<li><p>Reproject the reported geometry to a specific Coordinate Reference System (CRS) before storing it.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-geomfields"><span class="std std-ref">Geometry Fields table</span></a> for details about the configuration of the geometry data harvesting.</p>
+</div>
+<section id="reference">
+<span id="rn3-generic-harvesting-data-md-tables-templates-reference"></span><h4>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h4>
+<p>Each Template table must include the following metadata columns. It’s recommended to add them to the front of the table.</p>
+<ul class="simple">
+<li><p><strong>[rn3_dataProviderCode]</strong> -  The code of the RN3 data provider (e.g., two-letter country code). Recommended data type: <strong>nvarchar</strong> of sufficient length.</p></li>
+<li><p><strong>[rn3_snapshotId]</strong> - The identifier of the release snapshot the data is part of. Recommended data type: <strong>bigint</strong>.</p></li>
+<li><p><strong>[rn3_recordId]</strong> - The unique identifier of the RN3 record. Recommended data type: <strong>nvarchar(100)</strong>.</p></li>
+</ul>
+</section>
+<section id="explanation">
+<span id="rn3-generic-harvesting-data-md-tables-templates-explanation"></span><h4>Explanation<a class="headerlink" href="#explanation" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>The harvesting process will fail if a Template table misses any <strong>metadata column</strong>.</p></li>
+<li><p>The harvesting process will not fail if a Template table contains misnamed data columns or is missing columns for any RN3 table field. The misnamed columns will not be populated.</p></li>
+<li><p>If any RN3 table fields should not, or need not, be harvested, excluding the respective column from the Template table is a way to achieve that.</p></li>
+<li><p>Each data column in the Template table needs a <strong>data type</strong> appropriate for the values reported in the corresponding RN3 fields.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The harvesting process will fail if the Template table column has an inappropriate data type. This includes text columns (nvarachar) with an insufficient character limit.<br />
+To continue harvesting from the RN3 dataflow, correct the data type in both the affected Template and the corresponding Harvested Data table, or disable harvesting for the specific release.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="how-to">
+<h4>How to<a class="headerlink" href="#how-to" title="Link to this heading">#</a></h4>
+<section id="create-template-tables">
+<span id="rn3-generic-harvesting-data-md-tables-how-to-create-template-tables"></span><h5>Create [template] tables<a class="headerlink" href="#create-template-tables" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">USE</span><span class="w"> </span><span class="p">[</span><span class="n">NatDA_Import</span><span class="p">]</span>
+
+<span class="c1">--CREATE SCHEMA [template]</span>
+
+<span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">[</span><span class="n">NatDA_Import</span><span class="p">].[</span><span class="n">harvestedData</span><span class="p">].[</span><span class="n">ProtectedSite</span><span class="p">];</span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">[</span><span class="n">NatDA_Import</span><span class="p">].[</span><span class="k">template</span><span class="p">].[</span><span class="n">ProtectedSite</span><span class="p">];</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">NatDA_Import</span><span class="p">].[</span><span class="k">template</span><span class="p">].[</span><span class="n">ProtectedSite</span><span class="p">](</span>
+<span class="w">    </span><span class="p">[</span><span class="n">rn3_dataProviderCode</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">rn3_snapshotId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">rn3_recordId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">inspireIDLocalId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">inspireIDNamespace</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">inspireIDVersionId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">legalFoundationDate</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">siteName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">thematicIdentifier</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">Geometry_polygons</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">geometry</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">Geometry_points</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">geometry</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">sourceIdentifier</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="harvested-data-tables">
+<span id="rn3-generic-harvesting-data-md-tables-harvested-data"></span><h3>Harvested Data tables<a class="headerlink" href="#harvested-data-tables" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Harvested Data tables are placed in the <strong>Import database</strong>.</p>
+<p>They store the data harvested from the corresponding RN3 tables.</p>
+<p><ins><strong>Schema and names</strong></ins></p>
+<p>The standard name for the Harvested Data table schema is <strong>[harvestedData]</strong>.</p>
+<p>When the harvesting process runs for the first time for a specific dataflow, it creates the table schema and Harvested Data tables by copying the corresponding Template tables. The Harvested Data tables will have the same names as the <strong>Template tables</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It’s not recommended to create the Harvested Data tables manually.</p>
+</div>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The Harvested Data tables’ structure matches the structure of the corresponding <strong>Template tables</strong>.</p>
+<section id="id2">
+<h4>Explanation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Any change made in a Template table must be made in the corresponding Harvested Data table, if it already exists.</p></li>
+<li><p>You can also delete the Harvested Data table if it’s empty or the data it already contains doesn’t need to be preserved. The data harvesting process will create the table again next time it runs.</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="harvesting-jobs-table">
+<span id="rn3-generic-harvesting-data-md-tables-harvesting-jobs"></span><h3>Harvesting Jobs table<a class="headerlink" href="#harvesting-jobs-table" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Harvesting Jobs table is placed in the <strong>Import database</strong>.</p>
+<p>The table contains a list of the harvesting jobs and their metadata.</p>
+<p>The process uses the table to identify which release snapshots have already been harvested, and adds new records when it detects new releases - one record for each viable release snapshot.<br />
+At the end, it documents whether the specific release snapshot was successfully harvested, when it was harvested, or why it failed.</p>
+<p><ins><strong>Schema and name</strong></ins></p>
+<p>The standard table name is <strong>[HarvestingJobs]</strong> and the standard schema is <strong>[metadata]</strong>.</p>
+<p>When the harvesting process runs for a specific dataflow for the first time, it creates the table schema if it doesn’t exist yet. It then also creates the table by copying the relevant content from the [RN3].[metadata].[HistoricalRelease] table.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It’s not recommended to create the Harvesting Jobs tables manually.</p>
+</div>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The Harvesting Jobs table structure matches the structure of the <strong>[RN3].[metadata].[HistoricalRelease]</strong> table, with a few <strong>additional columns</strong> (see <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-harvesting-jobs-reference"><span class="std std-ref">Reference</span></a> for the details).</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <strong>[HistoricalRelease]</strong> table entry in the <strong>Metadata tables <a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html#rn3-generic-harvesting-metadata-md-tables-reference"><span class="std std-ref">Reference</span></a></strong> for more details.</p>
+</div>
+<section id="rn3-generic-harvesting-data-md-tables-harvesting-jobs-reference">
+<span id="id3"></span><h4>Reference<a class="headerlink" href="#rn3-generic-harvesting-data-md-tables-harvesting-jobs-reference" title="Link to this heading">#</a></h4>
+<p>In addition to the columns from the [RN3].[metadata].[HistoricalRelease] table, the Harvesting Jobs table contains these additional columns:</p>
+<ul class="simple">
+<li><p><strong>[harvestDate]</strong> - A timestamp when the release snapshot data was successfully harvested.</p></li>
+<li><p><strong>[jobId]</strong> - An identifier of the data harvesting FME job that harvested the release snapshot.</p></li>
+<li><p><strong>[jobSummary]</strong> - A summary of the harvesting job in JSON format.</p></li>
+</ul>
+</section>
+<section id="rn3-generic-harvesting-data-md-tables-harvesting-jobs-explanation">
+<span id="id4"></span><h4>Explanation<a class="headerlink" href="#rn3-generic-harvesting-data-md-tables-harvesting-jobs-explanation" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>At the beginning of the data harvesting, the process finds the release snapshots metadata in the <strong>[RN3].[metadata].[HistoricalRelease]</strong> that match the specific harvesting parameters and are not already in the Harvesting Jobs table. It then copies those with <strong>[dcrelease] = 1</strong> to the table. It also adds the <strong>[jobId]</strong> value to the record at that time.</p></li>
+<li><p>The process then selects any harvesting jobs records with an empty <strong>[harvestDate]</strong> field and attempts to download the corresponding data from the data collection datasets. It then tries to process it and import it into the Harvested Data tables.</p></li>
+<li><p>The process adds the <strong>[harvestDate]</strong> value to the harvesting jobs record only if the harvesting was fully successful. This means it tries to harvest data from failed jobs next time it runs.</p></li>
+<li><p>By manipulating the <strong>[harvestDate]</strong> value manually, we can either prevent the process from harvesting specific release snapshots or force it to re-harvest them.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-prevent-harvesting"><span class="std std-ref">Prevent snapshot harvesting</span></a>.<br />
+How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-reharvest-snapshot"><span class="std std-ref">Reharvest snapshot data</span></a>.</p>
+</div>
+</li>
+<li><p>The “status” in the <strong>[jobSummary]</strong> JSON will be “success” for successful harvesting jobs and “failure” for failed jobs. The “summary” will, for each table in the specific release snapshot, contain the final number of harvested records and other relevant numbers. Because a harvesting failure may be caused by a mismatch between the records entering a specific processing step and the number of records in the step’s output, the summary numbers may help identify the concrete failure reason.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h4>How to<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<section id="prevent-snapshot-harvesting">
+<span id="rn3-generic-harvesting-data-md-how-to-prevent-harvesting"></span><h5>Prevent snapshot harvesting<a class="headerlink" href="#prevent-snapshot-harvesting" title="Link to this heading">#</a></h5>
+<p>When the harvesting process repeatedly fails to harvest a certain snapshot, and it can’t be fixed otherwise, we may need to stop it from trying.</p>
+<p>To prevent harvesting of a specific release snapshot that has a record in the Harvesting Jobs table, we manually add a [harvestDate] value to the record.</p>
+<p>We recommend adding a text value to the record’s [jobSummary] field that explains why we’re excluding the snapshot.</p>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">a</span>
+<span class="k">SET</span><span class="w"> </span><span class="p">[</span><span class="n">harvestDate</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2024-01-10 06:00:00&#39;</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">jobSummary</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Harvesting manualy disabled. The snapshots contain no data, probably due to an RN3 platform error at release.&#39;</span>
+<span class="c1">--SELECT *</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_SOE_Import</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">HarvestingJobs</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">snapshotId</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65849</span>
+</pre></div>
+</div>
+</section>
+<section id="reharvest-snapshot-data">
+<span id="rn3-generic-harvesting-data-md-how-to-reharvest-snapshot"></span><h5>Reharvest snapshot data<a class="headerlink" href="#reharvest-snapshot-data" title="Link to this heading">#</a></h5>
+<p>To force the process to <strong>reharvest</strong> specific snapshots, we manually delete the [harvestDate] value from the corresponding records.</p>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">a</span>
+<span class="k">SET</span><span class="w"> </span><span class="p">[</span><span class="n">harvestDate</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span>
+<span class="c1">--SELECT *</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">NatDA_Import</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">HarvestingJobs</span><span class="p">]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">snapshotId</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;105195&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;105193&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;105194&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To reharvest just a single release snapshot, we can also run the process with the record’s [snapshotId] value in the snapshotId user parameter. The [harvestDate] value will be automatically deleted at the start of the process.<br />
+This method is mostly viable only when we execute the harvesting process manually, e.g., during testing.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="rn3-dataflow-metadata-tables">
+<span id="rn3-generic-harvesting-data-md-tables-rn3-dataflow-metadata-tables"></span><h3>RN3 Dataflow Metadata tables<a class="headerlink" href="#rn3-dataflow-metadata-tables" title="Link to this heading">#</a></h3>
+<p>The RN3 Dataflow Metadata tables are described in the <strong><a class="reference internal" href="RN3_Generic_Harvesting_Metadata.html#rn3-generic-harvesting-metadata-md-tables"><span class="std std-ref">Tables</span></a></strong> section of the <strong>RN3 Generic Harvesting - metadata</strong> document.</p>
+<p>As mentioned previously, the tables must exist and be regularly updated for the data harvesting process to function.</p>
+<p>The data harvesting process uses the following RN3 metadata tables:</p>
+<ul class="simple">
+<li><p><strong>[Dataflow]</strong></p></li>
+<li><p><strong>[HistoricRelease]</strong></p></li>
+</ul>
+<p>The <strong>[Dataflow]</strong> table provides the RN3 dataflow ApiKey value the process uses to authorise the data download request.</p>
+<p>The <strong>[HistoricRelease]</strong> table is the source of the information on release snapshots that need to be harvested, as explained in the <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-harvesting-jobs"><span class="std std-ref">Harvesting Jobs table</span></a> part.</p>
+<hr>
+</section>
+<section id="dataflow-tables-table">
+<span id="rn3-generic-harvesting-data-md-tables-dataflow-tables"></span><h3>Dataflow Tables table<a class="headerlink" href="#dataflow-tables-table" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Dataflow Tables table is placed in the <strong>RN3 database</strong>.</p>
+<p>It contains a list of <strong>RN3 dataflow tables</strong> to be harvested, parameters of the corresponding <strong>template</strong> and <strong>harvested data</strong> tables, and other relevant parameters.</p>
+<p><ins><strong>Schema and name</strong></ins></p>
+<p>The standard table name is <strong>[DataflowTables]</strong> and the standard schema is <strong>[metadata]</strong>.</p>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The [RN3].[metadata].[DataflowTables] table contains columns for five parameter groups:</p>
+<ol class="arabic simple">
+<li><p><strong>Dataflow-related</strong> parameters</p>
+<ul class="simple">
+<li><p>[obligationId], [dataflowId], [dataflowName], [dataCollectionId]</p></li>
+</ul>
+</li>
+<li><p><strong>RN3 table</strong> parameters</p>
+<ul class="simple">
+<li><p>[table_RN3_Name]</p></li>
+</ul>
+</li>
+<li><p><strong>Harvested Data table</strong> parameters</p>
+<ul class="simple">
+<li><p>[table_SQL_data_DatabaseConnection], [table_SQL_data_Database], [table_SQL_data_Schema], [table_SQL_data_Name]</p></li>
+</ul>
+</li>
+<li><p><strong>Template table</strong> parameters</p>
+<ul class="simple">
+<li><p>[table_SQL_template_DatabaseConnection], [table_SQL_template_Database], [table_SQL_template_Schema], [table_SQL_template_Name]</p></li>
+</ul>
+</li>
+<li><p>The <strong>geometry data</strong> related parameters</p>
+<ul class="simple">
+<li><p>[flag_keep_geojson], [flag_update_geometry], [SQL_geometry_reproject_srid]</p></li>
+</ul>
+</li>
+</ol>
+<section id="rn3-generic-harvesting-data-md-tables-dataflow-tables-reference">
+<span id="id6"></span><h4>Reference<a class="headerlink" href="#rn3-generic-harvesting-data-md-tables-dataflow-tables-reference" title="Link to this heading">#</a></h4>
+<p>[RN3].[metadata].[DataflowTables] table columns:</p>
+<ul class="simple">
+<li><p><strong>[obligationId]</strong>  - The identifier of the reporting obligation assigned to the RN3 dataflow. It must match the [obligationId] in the [RN3].[metadata].[Dataflow].</p></li>
+<li><p><strong>[dataflowId]</strong>  - The RN3 dataflow identifier.</p></li>
+<li><p><strong>[dataflowName]</strong>  - Optional. The name of the RN3 dataflow.</p></li>
+<li><p><strong>[dataCollectionId]</strong>  - The RN3 data collection identifier.</p></li>
+<li><p><strong>[table_RN3_Name]</strong> - The name of the RN3 table.</p></li>
+<li><p><strong>[table_SQL_data_DatabaseConnection]</strong>  - Name of the FME Database connection linked to the MS SQL database containing the Harvested Data table.</p></li>
+<li><p><strong>[table_SQL_data_Database]</strong>  -  Name of the MS SQL database containing the Harvested Data table.</p></li>
+<li><p><strong>[table_SQL_data_Schema]</strong>  - Name of the Harvested Data table schema (standard is ‘harvestedData’).</p></li>
+<li><p><strong>[table_SQL_data_Name]</strong>  - Name of the Harvested Data table to store data from the RN3 table.</p></li>
+<li><p><strong>[table_SQL_template_DatabaseConnection]</strong>  - Name of the FME Database connection linked to the MS SQL database containing the Template table.</p></li>
+<li><p><strong>[table_SQL_template_Database]</strong> - Name of the MS SQL database containing the Template table.</p></li>
+<li><p><strong>[table_SQL_template_Schema]</strong> - Name of the Template table schema (standard is ‘template’).</p></li>
+<li><p><strong>[table_SQL_template_Name]</strong> - Name of the Template table that is the source for the Harvested Data table.</p></li>
+<li><p><strong>[flag_keep_geojson]</strong> - Optional. A boolean value indicates whether the GeoJSON, harvested from geometry field(s) in the RN3 table, should be stored in the field(s) of the same name in the SQL table (1 = yes, 0 = no).</p></li>
+<li><p><strong>[flag_update_geometry]</strong>  - Optional. A boolean value indicates whether the Harvested Data table geometry field should be updated using the data extracted from the corresponding RN3 geometry field (1 = yes, 0 = no).</p></li>
+<li><p><strong>[SQL_geometry_reproject_srid]</strong> - Optional. Integer part of the EPSG notation of the specific CRS to which the SQL geometry should be reprojected (e.g., 4326).</p></li>
+</ul>
+</section>
+<section id="rn3-generic-harvesting-data-md-tables-dataflow-tables-explanation">
+<span id="id7"></span><h4>Explanation<a class="headerlink" href="#rn3-generic-harvesting-data-md-tables-dataflow-tables-explanation" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>If the [RN3].[metadata].[DataflowTables] table doesn’t exist yet, a responsible data manager must create it.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-create-dataflow-tables-table"><span class="std std-ref">Create [metadata].[DataflowTables] table</span></a> for an example.</p>
+</div>
+</li>
+<li><p>The data manager needs to add a record for each RN3 table they want to harvest data from and provide all mandatory values.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-populate-dataflow-tables-table"><span class="std std-ref">Populate [metadata].[DataflowTables] table</span></a> for an example.</p>
+</div>
+</li>
+<li><p>It is in this table that the data manager specifies whether the template and Harvested Data tables are located in different databases or have non-standard schemas and names. As mentioned before, the Template tables can even be in a database located on a different MS SQL server than the other tables.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful not to delete the [RN3].[metadata].[DataflowTables] table if it already exists, or delete or change records for other dataflows that use the same table.</p>
+</div>
+<ul>
+<li><p>The FME database connections referred to in the <strong>table_SQL_data_DatabaseConnection</strong> and <strong>table_SQL_template_DatabaseConnection</strong> parameters must exist in the EEA’s FME Flow server. The connections must be JDBC, and their name should end with the suffix ‘_JDBC’. The FME Flow server needs <em>db_ddladmin</em> or <em>db_owner</em> permissions on the linked databases to access them and write to the tables.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+<li><p>The database connection parameters may contain both non-JDBC and JDBC versions of the connection name. The non-JDBC connection names must match the JDBC one, just without the ‘_JDBC’ suffix. The data harvesting process automatically creates attributes with the JDBC versions of the database connections if the respective parameters contain non-JDBC ones.</p></li>
+<li><p>The <strong>[flag_keep_geojson]</strong>, <strong>[flag_update_geometry]</strong>, <strong>[SQL_geometry_reproject_srid]</strong> values must be NULL for RN3 tables without geometry fields.</p></li>
+<li><p>The <strong>[flag_keep_geojson]</strong> value can be 1 only if the data is to be downloaded from RN3 as <em>JSON</em> or <em>CSV</em> files. Only in these formats is the geometry present as GeoJSON. If the download format is parquet, it contains geometry data in extended WKB format. There is no valid reason for trying to store it in the database in that format. The harvesting process also won’t convert WKB to GeoJSON.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <strong>etlExportVersion</strong> in FME workspace <a class="reference internal" href="#rn3-generic-harvesting-data-md-fme-workspace-user-parameters"><span class="std std-ref">User parameters</span></a> for how to decide and specify the download file format.</p>
+</div>
+</li>
+<li><p>If the <strong>[flag_update_geometry]</strong> is 1, the Geometry Fields table must exist and contain information about the relation between the geometry fields in the RN3 and the Harvested Data table.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-geomfields"><span class="std std-ref">Geometry Fields table</span></a></p>
+</div>
+</li>
+<li><p>The <strong>[SQL_geometry_reproject_srid]</strong> must be left empty if the geometry should be stored in the Harvested Data table in its original CRS.</p></li>
+<li><p>If the <strong>[flag_update_geometry]</strong> = 1, the harvesting process automatically creates an auxiliary table <strong>[NatDA_Import].[harvestedData].[auxGeom]</strong>. It uses it as temporary storage for geometry before inserting it into the Harvested Data table. You can ignore the table, or safely delete it once the data harvesting period has ended.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h4>How to<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<section id="create-metadata-dataflowtables-table">
+<span id="rn3-generic-harvesting-data-md-tables-how-to-create-dataflow-tables-table"></span><h5>Create [metadata].[DataflowTables] table<a class="headerlink" href="#create-metadata-dataflowtables-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">DataflowTables</span><span class="p">]</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">DataflowTables</span><span class="p">](</span>
+<span class="w">    </span><span class="p">[</span><span class="n">obligationId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">dataflowId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">dataflowName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">dataCollectionId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_RN3_Name</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_SQL_data_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_SQL_data_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_SQL_data_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_SQL_data_Name</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_SQL_template_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_SQL_template_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_SQL_template_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_SQL_template_Name</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">flag_keep_geojson</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bit</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">flag_update_geometry</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bit</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">SQL_geometry_reproject_srid</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span>
+
+<span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">CLUSTERED</span><span class="w"> </span>
+<span class="p">(</span>
+<span class="w">    </span><span class="p">[</span><span class="n">dataCollectionId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">table_RN3_Name</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
+<span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">PAD_INDEX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">STATISTICS_NORECOMPUTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">IGNORE_DUP_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">ALLOW_ROW_LOCKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">,</span><span class="w"> </span><span class="n">ALLOW_PAGE_LOCKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+<span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="populate-metadata-dataflowtables-table">
+<span id="rn3-generic-harvesting-data-md-tables-how-to-populate-dataflow-tables-table"></span><h5>Populate [metadata].[DataflowTables] table<a class="headerlink" href="#populate-metadata-dataflowtables-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--DELETE</span>
+<span class="c1">--SELECT *</span>
+<span class="c1">--FROM [RN3].[metadata].[DataflowTables]</span>
+<span class="c1">--WHERE [dataflowId] IN (&lt;dataflowId&gt;,&lt;dataflowId&gt;)</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">DataflowTables</span><span class="p">]</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="p">[</span><span class="n">obligationId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowName</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataCollectionId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_RN3_Name</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_SQL_data_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_SQL_data_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_SQL_data_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_SQL_data_Name</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_SQL_template_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_SQL_template_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_SQL_template_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_SQL_template_Name</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">flag_keep_geojson</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">flag_update_geometry</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">SQL_geometry_reproject_srid</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="k">VALUES</span>
+<span class="c1">-- one record for each dataflow table that should be harvested</span>
+<span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="o">&lt;</span><span class="n">obligationId</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">dataCollectionId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_tablename&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Import_database_FME_connection_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Import_database_name&#39;</span><span class="p">,</span><span class="s1">&#39;harvestedData&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;sql_data_table_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Import_database_FME_connection_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Import_database_name&#39;</span><span class="p">,</span><span class="s1">&#39;template&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;sql_template_table_name&gt;&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">NULL</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">,(</span><span class="w"> </span><span class="o">&lt;</span><span class="n">obligationId</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">dataCollectionId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_tablename&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Import_database_FME_connection_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Import_database_name&#39;</span><span class="p">,</span><span class="s1">&#39;harvestedData&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;sql_data_table_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Import_database_FME_connection_name&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;Import_database_name&#39;</span><span class="p">,</span><span class="s1">&#39;template&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;sql_template_table_name&gt;&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="k">NULL</span><span class="w"> </span><span class="p">)</span>
+</pre></div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="geometry-fields-table">
+<span id="rn3-generic-harvesting-data-md-tables-geomfields"></span><h3>Geometry Fields table<a class="headerlink" href="#geometry-fields-table" title="Link to this heading">#</a></h3>
+<p>The Geometry Fields table must be placed in the same database as the <strong><a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-dataflow-tables"><span class="std std-ref">Dataflow Tables table</span></a></strong>.</p>
+<p>If the table doesn’t exist yet, the data manager must create it if they want to harvest geometry data from the geometry fields in the dataflow.</p>
+<p>The table is basically an extension of the Dataflow Tables table.</p>
+<p><ins><strong>Schema and name</strong></ins></p>
+<p>The table must have the name of the Dataflow Tables table suffixed with ‘_GeometryFields’. It must use the same table schema.<br />
+So, in the standard model, it is <strong>[metadata].[DataflowTables_GeometryFields]</strong>.</p>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The table contains selected columns from the Dataflow Tables table and these additional fields:</p>
+<ul class="simple">
+<li><p><strong>[field_RN3_Geometry]</strong></p></li>
+<li><p><strong>[field_SQL_Geometry]</strong></p></li>
+</ul>
+<section id="rn3-generic-harvesting-data-md-tables-geomfields-reference">
+<span id="id9"></span><h4>Reference<a class="headerlink" href="#rn3-generic-harvesting-data-md-tables-geomfields-reference" title="Link to this heading">#</a></h4>
+<p>The [metadata].[DataflowTables_GeometryFields] table columns:</p>
+<ul class="simple">
+<li><p><strong>[dataflowId]</strong> - Optional. The RN3 dataflow identifier.</p></li>
+<li><p><strong>[dataflowName]</strong> - Optional. The name of the RN3 dataflow.</p></li>
+<li><p><strong>[dataCollectionId]</strong>  - The RN3 data collection identifier.</p></li>
+<li><p><strong>[table_RN3_Name]</strong> - The name of the RN3 table.</p></li>
+<li><p><strong>[field_RN3_Geometry]</strong> - The name of the RN3 table geometry field.</p></li>
+<li><p><strong>[field_SQL_Geometry]</strong> - The name of the geometry field in the Harvested Data table, where the RN3 field geometry should be stored.</p></li>
+</ul>
+</section>
+<section id="rn3-generic-harvesting-data-md-tables-geomfields-explanation">
+<span id="id10"></span><h4>Explanation<a class="headerlink" href="#rn3-generic-harvesting-data-md-tables-geomfields-explanation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The <strong>[field_RN3_Geometry]</strong> and <strong>[field_SQL_Geometry]</strong> can have the same or different value.</p></li>
+<li><p>The fields <strong>[field_RN3_Geometry]</strong> and <strong>[field_SQL_Geometry]</strong> must be different if we want to convert and store the geometry data as SQL geometry and also keep it as a GeoJSON value, which we indicate by setting the <strong>[flag_keep_geojson] = 1</strong> and <strong>[flag_update_geometry] = 1</strong> in the <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-dataflow-tables"><span class="std std-ref">Dataflow Tables table</span></a>. In this situation, the corresponding <strong>Template table</strong> must contain two ‘geometry’ columns: one <em>[nvarchar](max)</em> column for the GeoJSON value and a <em>[geometry]</em> type column for the actual geometry. The column that stores the GeoJSON value must have the same name as the RN3 field.</p></li>
+<li><p>If the RN3 table contains multiple different geometry fields (e.g., one for point and the other for polygon geometries), but only one of the fields can have a value in the released data, it’s possible to store geometries from all RN3 fields in just one SQL field. In that case, add one record for each RN3 field to the Geometry Fields table, and give them the same <strong>[field_SQL_Geometry]</strong> value.</p></li>
+</ul>
+</section>
+<section id="id11">
+<h4>How to<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<section id="create-metadata-dataflowtables-geometryfields-table">
+<span id="rn3-generic-harvesting-data-md-tables-tables-how-to-create-geomfields-table"></span><h5>Create [metadata].[DataflowTables_GeometryFields] table<a class="headerlink" href="#create-metadata-dataflowtables-geometryfields-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">DataflowTables_GeometryFields</span><span class="p">](</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataCollectionId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">table_RN3_Name</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">field_RN3_Geometry</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">field_SQL_Geometry</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">DataflowTables_GeometryFields</span><span class="p">]</span><span class="w">  </span><span class="k">WITH</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="k">ADD</span><span class="w">  </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="p">[</span><span class="n">FK_DataflowTables_GeometryFields_DataflowTables</span><span class="p">]</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">([</span><span class="n">dataCollectionId</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">table_RN3_Name</span><span class="p">])</span>
+<span class="k">REFERENCES</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">DataflowTables</span><span class="p">]</span><span class="w"> </span><span class="p">([</span><span class="n">dataCollectionId</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">table_RN3_Name</span><span class="p">])</span>
+<span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span>
+</pre></div>
+</div>
+</section>
+<section id="populate-metadata-dataflowtables-geometryfields-table">
+<span id="rn3-generic-harvesting-data-md-tables-tables-how-to-populate-geomfields-table"></span><h5>Populate [metadata].[DataflowTables_GeometryFields] table<a class="headerlink" href="#populate-metadata-dataflowtables-geometryfields-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">DataflowTables_GeometryFields</span><span class="p">]</span>
+<span class="w">    </span><span class="p">([</span><span class="n">dataflowId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowName</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataCollectionId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">table_RN3_Name</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">field_RN3_Geometry</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">field_SQL_Geometry</span><span class="p">])</span>
+<span class="k">VALUES</span>
+<span class="w">	</span><span class="c1">-- one record for each combination of RN3 geometry field and SQL geometry field</span>
+<span class="w">	</span><span class="c1">-- if RN3 table has multiple geometry fields, but one RN3 record can have geometry reported only in one of them, both RN3 fields can be mapped to the same SQL field in the corresponding SQL table</span>
+<span class="w">	</span><span class="p">(</span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">dataCollectionId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_tableName&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_geometry_fieldName&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;sql_geometry_fieldName&#39;</span><span class="p">)</span>
+<span class="w">	</span><span class="p">,(</span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">dataCollectionId</span><span class="o">&gt;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_tableName&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;rn3_geometry_fieldName&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;sql_geometry_fieldName&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="harvesting-parameters-table">
+<span id="rn3-generic-harvesting-data-md-tables-harvesting-parameters"></span><h3>Harvesting Parameters table<a class="headerlink" href="#harvesting-parameters-table" title="Link to this heading">#</a></h3>
+<p>In the standard model, the Harvesting Parameters table is placed in the <strong>RN3 database</strong>.</p>
+<p>It contains the core parameters used by the data harvesting process, one record for each RN3 data collection we want to harvest.<br />
+The majority of the parameters identify the other metadata tables (Harvesting Jobs, RN3 metadata, Dataflow tables) the harvesting process must use to harvest data from the given RN3 dataflow and its data collections.</p>
+<p><ins><strong>Schema and name</strong></ins></p>
+<p>The standard table name is <strong>[HarvestingParameters]</strong> and the standard schema is <strong>[metadata]</strong>.</p>
+<p><ins><strong>Structure</strong></ins></p>
+<p>The [RN3].[metadata].[HarvestingParameters] table contains columns for five parameter groups:</p>
+<ol class="arabic simple">
+<li><p><strong>Dataflow-related</strong> parameters</p>
+<ul class="simple">
+<li><p>[obligationId], [dataflowId], [dataflowName], [dataCollectionId]</p></li>
+</ul>
+</li>
+<li><p><strong>RN3 metadata tables</strong> parameters</p>
+<ul class="simple">
+<li><p>[metadata_DatabaseConnection], [metadata_Database], [metadata_Schema], [metadata_Table_Dataflow], [metadata_Table_DataCollection], [metadata_Table_HistoricRelease], [metadata_Table_ReportingDataset]</p></li>
+</ul>
+</li>
+<li><p><strong>Dataflow Tables table</strong> parameters</p>
+<ul class="simple">
+<li><p>[dataflowTables_DatabaseConnection], [dataflowTables_Database], [dataflowTables_Schema], [dataflowTables_Table]</p></li>
+</ul>
+</li>
+<li><p><strong>Harvesting Jobs table</strong> parameters</p>
+<ul class="simple">
+<li><p>[harvestingJobs_DatabaseConnection], [harvestingJobs_Database], [harvestingJobs_Schema], [harvestingJobs_Table]</p></li>
+</ul>
+</li>
+<li><p>The <strong>attachment</strong> related parameters</p>
+<ul class="simple">
+<li><p>[attachmentParentPath]</p></li>
+</ul>
+</li>
+</ol>
+<section id="rn3-generic-harvesting-data-md-tables-harvesting-parameters-reference">
+<span id="id12"></span><h4>Reference<a class="headerlink" href="#rn3-generic-harvesting-data-md-tables-harvesting-parameters-reference" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>[obligationId]</strong>  - The identifier of the reporting obligation assigned to the RN3 dataflow. It must match the [obligationId] in the [RN3].[metadata].[Dataflow].</p></li>
+<li><p><strong>[dataflowId]</strong>  - The RN3 dataflow identifier.</p></li>
+<li><p><strong>[dataflowName]</strong>  - Optional. The name of the RN3 dataflow.</p></li>
+<li><p><strong>[dataCollectionId]</strong>  - The RN3 data collection identifier.</p></li>
+<li><p><strong>[metadata_DatabaseConnection]</strong> - Name of the FME Database connection linked to the MS SQL database containing the RN3 metadata tables.</p></li>
+<li><p><strong>[metadata_Database]</strong> - Name of the MS SQL database containing the RN3 metadata tables (standard is ‘RN3’).</p></li>
+<li><p><strong>[metadata_Schema]</strong> - Name of the RN3 metadata tables schema (standard is ‘metadata’).</p></li>
+<li><p><strong>[metadata_Table_Dataflow]</strong> - Name of the table containing RN3 dataflow metadata (standard is ‘Dataflow’).</p></li>
+<li><p><strong>[metadata_Table_DataCollection]</strong> - Name of the table containing RN3 data collection metadata (standard is ‘DataCollection’).</p></li>
+<li><p><strong>[metadata_Table_HistoricRelease]</strong> - Name of the table containing RN3 release snapshot metadata (standard is ‘HistoricRelease’).</p></li>
+<li><p><strong>[metadata_Table_ReportingDataset]</strong> - Name of the table containing RN3 reporting dataset metadata (standard is ‘ReportingDataset’).</p></li>
+<li><p><strong>[dataflowTables_DatabaseConnection]</strong> - Name of the FME Database connection linked to the MS SQL database containing the Dataflow Tables table.</p></li>
+<li><p><strong>[dataflowTables_Database]</strong> - Name of the MS SQL database containing the Dataflow Tables table (standard is ‘RN3’).</p></li>
+<li><p><strong>[dataflowTables_Schema]</strong> - Name of the Dataflow Tables table schema (standard is ‘metadata’).</p></li>
+<li><p><strong>[dataflowTables_Table]</strong> - Name of the Dataflow Tables table (standard is ‘DataflowTables’).</p></li>
+<li><p><strong>[harvestingJobs_DatabaseConnection]</strong> - Name of the FME Database connection linked to the MS SQL database containing the Harvesting Jobs table.</p></li>
+<li><p><strong>[harvestingJobs_Database]</strong> - Name of the MS SQL database containing the Harvesting Jobs table (standardly it is the dataflow-specific Import database).</p></li>
+<li><p><strong>[harvestingJobs_Schema]</strong> - Name of the Harvesting Jobs table schema (standard is ‘metadata’).</p></li>
+<li><p><strong>[harvestingJobs_Table]</strong> - Name of the Harvesting Jobs table (standard is ‘HarvestingJobs’).</p></li>
+<li><p><strong>[attachmentParentPath]</strong> - Optional. Full path to the parent directory where attachment files are stored.</p></li>
+</ul>
+</section>
+<section id="rn3-generic-harvesting-data-md-tables-harvesting-parameters-explanation">
+<span id="id13"></span><h4>Explanation<a class="headerlink" href="#rn3-generic-harvesting-data-md-tables-harvesting-parameters-explanation" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>If the [RN3].[metadata].[HarvestingParameters] table doesn’t exist yet, a responsible data manager must create it.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-create-harvesting-parameters-table"><span class="std std-ref">Create [metadata].[HarvestingParameters] table</span></a> for an example.</p>
+</div>
+</li>
+<li><p>The data manager needs to add a record for each RN3 data collection they want to harvest data from and provide all mandatory values.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-tables-how-to-populate-harvesting-parameters-table"><span class="std std-ref">Populate [metadata].[HarvestingParameters] table</span></a> for an example.</p>
+</div>
+</li>
+<li><p>It is in this table that we specify the databases, table schemas and names of metadata tables, whether they follow the standard or differ from it.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful not to delete the [RN3].[metadata].[HarvestingParameters] table if it already exists, or delete or change records for other dataflows that use the same table.</p>
+</div>
+<ul>
+<li><p>The FME database connections referred to in the <strong>metadata_DatabaseConnection</strong>, <strong>dataflowTables_DatabaseConnection</strong> and <strong>table_SQL_template_DatabaseConnection</strong> parameters must exist in the EEA’s FME Flow server. The connections must be <strong>JDBC</strong>, and their names should end with the suffix ‘_JDBC’. The FME Flow server needs at least <em>db_reader</em> permissions on the linked databases to read the metadata tables.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+<li><p>The database connection parameters may contain both non-JDBC and JDBC versions of the connection name. The non-JDBC connection names must match the JDBC one, just without the ‘_JDBC’ suffix. The data harvesting process automatically creates attributes with the JDBC versions of the database connections if the respective parameters contain non-JDBC ones.</p></li>
+<li><p>The RN3 metadata tables DataCollection and ReportingDataset referred to in the <strong>[metadata_Table_DataCollection]</strong> and <strong>[metadata_Table_ReportingDataset]</strong> parameters are currently not used by the data harvesting process. The columns were added to the Harvesting Parameters table during the initial stages of the process development, when it was assumed they would be used. They remain there and are treated as mandatory for historical reasons and in case they are needed in future versions.</p></li>
+</ul>
+<section id="attachment-harvesting">
+<h5>Attachment harvesting<a class="headerlink" href="#attachment-harvesting" title="Link to this heading">#</a></h5>
+<p>Attachments will be harvested only if the <strong>[attachmentParentPath]</strong> value is provided and the data download format is <em>CSV</em> or <em>parquet</em>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <strong>etlExportVersion</strong> in FME workspace <a class="reference internal" href="#rn3-generic-harvesting-data-md-fme-workspace-user-parameters"><span class="std std-ref">User parameters</span></a> for how to decide and specify the download file format.</p>
+</div>
+<p>Standard <strong>[attachmentParentPath]</strong> value is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">cwsfileserver.eea.dmz1\projects\ReportnetResources\RN3_GenericHarvesting_data\RN3_attachments</span><span class="se">\&#39;</span><span class="s1">  </span>
+</pre></div>
+</div>
+<p>We suggest using it, as the FME Flow server already has proper permissions to this CWS folder. If you use a different folder, ensure FME has permission to create subfolders and add files.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The RN3 data collection with the [attachmentParentPath] field populated must not contain a table named <strong>attachments</strong>. The RN3 export API reserves that name for the folder where it stores the attachment files. Data files from any table named attachments will therefore be handled as attachment files rather than data files, and ultimately, this data will not be extracted and stored in the Harvested Data tables.</p>
+</div>
+<p>The attachment files will be imported as zip files into the following directory structure under the parent folder specified in the [attachmentParentPath]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="o">&lt;</span><span class="n">obligationId</span><span class="o">&gt;</span>\<span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span>\<span class="o">&lt;</span><span class="n">dataProviderCode</span><span class="o">&gt;</span>\<span class="o">&lt;</span><span class="n">dataCollectionId</span><span class="o">&gt;</span>\<span class="o">&lt;</span><span class="n">snapshotId</span><span class="o">&gt;</span>\<span class="o">&lt;</span><span class="n">rn3TableName</span><span class="o">&gt;</span>\<span class="o">&lt;</span><span class="n">fieldName</span><span class="o">&gt;</span>\<span class="o">&lt;</span><span class="n">recordId</span><span class="o">&gt;.</span><span class="n">zip</span>  
+</pre></div>
+</div>
+<p>The name of the file in the zip file will match the value in the respective attachment field (the name of the file the data provider uploaded to RN3).</p>
+<p>The data harvesting process will create a metadata table <strong>[AttachmentFilesMapping]</strong> (if it doesn’t already exist) in the same database and under the same table schema as the Harvesting Jobs table.  It adds a record for each harvested and stored attachment file. This information can be used in relevant SQL queries and to locate the specific files in the folder structure.<br />
+The table contains these columns:</p>
+<ul class="simple">
+<li><p><strong>[obligationId]</strong></p></li>
+<li><p><strong>[dataflowId]</strong></p></li>
+<li><p><strong>[dataflowName]</strong></p></li>
+<li><p><strong>[dataCollectionId]</strong></p></li>
+<li><p><strong>[attachment_tableName_rn3]</strong> - Name of the RN3 table the attachment file was harvested from.</p></li>
+<li><p><strong>[attachment_tableName_sql]</strong> - Name of the corresponding Harvested Data table.</p></li>
+<li><p><strong>[attachment_fieldName]</strong> - Name of the corresponding attachment field/column.</p></li>
+<li><p><strong>[rn3_dataProviderCode]</strong> - Code of the data provider.</p></li>
+<li><p><strong>[rn3_snapshotId]</strong> - Identifier of the release snapshot.</p></li>
+<li><p><strong>[rn3_recordId]</strong> - The RN3 identifier of the record the harvested file was attached to.</p></li>
+<li><p><strong>[attachment_fileName]</strong> - Name of the attachment file.</p></li>
+<li><p><strong>[attachment_zipFilePath]</strong> - Full path of the zip file with the attachment, except for the attachmentParentPath part.</p></li>
+</ul>
+</section>
+</section>
+<section id="id14">
+<h4>How to<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<section id="create-metadata-harvestingparameters-table">
+<span id="rn3-generic-harvesting-data-md-tables-how-to-create-harvesting-parameters-table"></span><h5>Create [metadata].[HarvestingParameters] table<a class="headerlink" href="#create-metadata-harvestingparameters-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">HarvestingParameters</span><span class="p">](</span>
+<span class="w">	</span><span class="p">[</span><span class="n">obligationId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataCollectionId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Table_Dataflow</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Table_DataCollection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Table_HistoricRelease</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">metadata_Table_ReportingDataset</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowTables_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowTables_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowTables_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowTables_Table</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">harvestingJobs_DatabaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">harvestingJobs_Database</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">harvestingJobs_Schema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">harvestingJobs_Table</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">attachmentParentPath</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">500</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="populate-metadata-harvestingparameters-table">
+<span id="rn3-generic-harvesting-data-md-tables-how-to-populate-harvesting-parameters-table"></span><h5>Populate [metadata].[HarvestingParameters] table<a class="headerlink" href="#populate-metadata-harvestingparameters-table" title="Link to this heading">#</a></h5>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">].[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">HarvestingParameters</span><span class="p">]</span>
+<span class="w">    </span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">obligationId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowId</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowName</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataCollectionId</span><span class="p">]</span>
+
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Table_Dataflow</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Table_DataCollection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Table_HistoricRelease</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">metadata_Table_ReportingDataset</span><span class="p">]</span>
+
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowTables_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowTables_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowTables_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">dataflowTables_Table</span><span class="p">]</span>
+
+<span class="w">    </span><span class="p">,[</span><span class="n">harvestingJobs_DatabaseConnection</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">harvestingJobs_Database</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">harvestingJobs_Schema</span><span class="p">]</span>
+<span class="w">    </span><span class="p">,[</span><span class="n">harvestingJobs_Table</span><span class="p">]</span>
+
+<span class="w">    </span><span class="p">,[</span><span class="n">attachmentParentPath</span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+
+<span class="k">VALUES</span>
+<span class="c1">-- Dataflow name</span>
+<span class="c1">-- Data collection name</span>
+<span class="w">    </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">obligationId</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dataCollectionId</span><span class="o">&gt;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Dataflow&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DataCollection&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HistoricRelease&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ReportingDataset&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DataflowTables&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;Import_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;Import_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HarvestingJobs&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;\\cwsfileserver.eea.dmz1\system\RN3_attachment\&#39;</span>
+<span class="w">    </span><span class="p">),</span>
+
+<span class="c1">-- Dataflow name</span>
+<span class="c1">-- Data collection name</span>
+<span class="w">    </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">obligationId</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;dataflowName&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">dataCollectionId</span><span class="o">&gt;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Dataflow&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DataCollection&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HistoricRelease&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ReportingDataset&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;RN3_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DataflowTables&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;Import_database_FME_connection_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;Import_database_name&gt;&#39;</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HarvestingJobs&#39;</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="p">,</span><span class="k">NULL</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="thick">
+</section>
+</section>
+</section>
+</section>
+<section id="fme-workspace">
+<span id="rn3-generic-harvesting-data-md-fme-workspace"></span><h2>FME workspace<a class="headerlink" href="#fme-workspace" title="Link to this heading">#</a></h2>
+<p>The metadata harvesting FME workspace does the following:</p>
+<ul class="simple">
+<li><p>Processes user parameters and selects relevant records from the <strong>Harvesting Parameters</strong> table.</p></li>
+<li><p>Creates JDBC versions of database connections if the parameters provide non-JDBC versions.</p></li>
+<li><p>Selects relevant records from the <strong>Dataflow Tables</strong> and <strong>Geometry Fields</strong> tables.</p></li>
+<li><p>Creates <strong>Harvested Data</strong> table schema and tables if they don’t exist yet.</p></li>
+<li><p>Reads the data schema from the <strong>Template</strong> tables.</p></li>
+<li><p>Creates <strong>Harvesting Jobs</strong> table schema if it doesn’t exist yet.</p></li>
+<li><p>Checks if the <strong>Harvesting Jobs</strong> table exists. If it doesn’t, creates it by copying relevant release snapshot records from the [HistoricalReleases] RN3 metadata table, or adds new release snapshot records if it does exist.</p></li>
+<li><p>Selects release snapshot records from the <strong>Harvesting Jobs</strong> table that have not been harvested.</p></li>
+<li><p>Downloads the latest RN3 Data collections data from the data providers whose release snapshots have been selected.</p></li>
+<li><p>Reads the downloaded data and inserts it into the <strong>Harvested Data</strong> tables using the dynamic data schema.</p></li>
+<li><p>Processes the downloaded <strong>attachment files</strong> and stores them in the folder structure under the specified parent folder, if specified. Creates and updates the [AttachmentFilesMapping] table as needed.</p></li>
+<li><p>Converts the <strong>geometry data</strong>, if specified, and uploads it to the <strong>Harvested Data</strong> tables.</p></li>
+<li><p>Documents the result of the data harvesting in the <strong>Harvesting Jobs</strong> table.</p></li>
+</ul>
+<p><strong>Latest version:</strong><br />
+<a class="reference external" href="https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Harvesting_Data_v3a.fmw">https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Harvesting_Data_v3a.fmw</a></p>
+<section id="user-parameters">
+<span id="rn3-generic-harvesting-data-md-fme-workspace-user-parameters"></span><h3>User parameters<a class="headerlink" href="#user-parameters" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h4>Reference<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<p><strong>Mandatory parameters:</strong></p>
+<ul class="simple">
+<li><p><strong>obligationIds</strong> - A comma-separated list of reporting obligation identifiers for which the latest RN3 dataflow should be checked for new releases and harvested.</p></li>
+<li><p><strong>dataflowIds</strong> - A comma-separated list of all RN3 dataflows that are supposed to be checked for new releases, in all their data collections, and harvested.</p></li>
+<li><p><strong>dataCollectionIds</strong> -  A comma-separated list of selected RN3 data collections that should be harvested.</p></li>
+<li><p><strong>HP_databaseConnection</strong> - Name of the FME Database connection linked to the MS SQL database containing the Harvesting Parameters table. It must be a <strong>JDBC</strong> MSSQL connection.</p></li>
+<li><p><strong>HP_database</strong> - Name of the MS SQL database containing the Harvesting Parameters table (standard is ‘RN3’).</p></li>
+<li><p><strong>HP_schema</strong> - Name of the Harvesting Parameters table schema (standard is ‘metadata’).</p></li>
+<li><p><strong>HP_table</strong> - Name of the Harvesting Parameters table (standard is ‘HarvestingParameters’).</p></li>
+<li><p><strong>baseUrl</strong> - The base URL of the specific Reportnet 3 platform’s API service (e.g., https://api.reportnet.europa.eu).</p></li>
+<li><p><strong>etlExportVersion</strong> - The ‘version’ identifier of the etlexport API endpoint used to download the data collection data from the RN3. Allowed values: ‘v3’, ‘v4’, ‘v5’.</p></li>
+</ul>
+<p><strong>Optional parameters:</strong></p>
+<ul class="simple">
+<li><p><strong>snapshotId</strong> - The identifier of a single release snapshot that should be harvested.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h4>Explanation<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>Only one of the <strong>obligationIds</strong>, <strong>dataflowIds</strong>, or <strong>dataCollectionIds</strong> parameters need to be provided. If more than one is provided, the dataflowIds takes precedence over obligationIds, and dataCollectionIds over dataflowIds.</p></li>
+<li><p>If <strong>dataCollectionIds</strong> is the only parameter of the three provided, the process will harvest data only from the latest of the dataflows with the specific obligationId. It will ignore older dataflows with the same obligationId.</p></li>
+<li><p>The <strong>dataflowIds</strong> parameter is the one used most. However, it needs to be used instead of the obligationIds only in cases when an obligation has multiple dataflows in RN3, and we want to harvest data from an older dataflow instead of the latest one, or if multiple dataflows of the same obligation should be harvested at the same time.</p></li>
+<li><p>The <strong>dataCollectionIds</strong> is to be used if a dataflow contains more data collections, and only some of them should be harvested by this workspace. If it’s left empty, the workspace will harvest data from all data collections of all specified dataflows. If the list is provided, the workspace will harvest only data from the listed collections.</p></li>
+<li><p>If <strong>snapshotId</strong> is provided, it must be from a dataflow and a collection listed in the <strong>dataflowIds</strong> and <strong>dataCollectionIds</strong> parameters. The snapshot that has already been successfully harvested will be re-harvested,  and the <strong>[harvestDate]</strong> and <strong>[jobSummary]</strong> of the corresponding Harvesting Job record will be updated. The main purpose of this parameter is to test and analyse why a specific snapshot fails harvesting and import.</p></li>
+<li><p>In the <strong>HP_</strong> parameters we specify the name and location of the <strong>Harvesting Parameters table</strong>. This is where we can identify whether the location, schema or name is non-standard.</p></li>
+<li><p>If the database connection referred to in the <strong>HP_databaseConnection</strong> parameter is not a JDBC connection, the harvesting process will fail.</p></li>
+<li><p>The FME connection referred to in the <strong>HP_databaseConnection</strong> parameter must exist in the EEA’s FME Flow server. The connection must be non-JDBC. The FME Flow server needs <em>db_ddladmin</em> or <em>db_owner</em> permissions on the linked database to access it and write to the metadata tables.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+<li><p>The <strong>etlExportVersion</strong> specifies the format of the file downloaded by the RN3 API export endpoint:</p>
+<ul class="simple">
+<li><p><strong>v3</strong> - JSON. Geometries are downloaded as extended GeoJSON strings. This version can not be used to harvest attachment files.</p></li>
+<li><p><strong>v4</strong> - CSV. Geometries are downloaded as extended GeoJSON strings. Attachment files are included in the download if the [attachmentParentPath] parameter is specified in the corresponding Harvesting Parameters table record.</p></li>
+<li><p><strong>v5</strong> - parquet. Geometries are downloaded as EWKB values. Attachment files are included in the download if the [attachmentParentPath] parameter is specified in the corresponding Harvesting Parameters table record.</p></li>
+</ul>
+</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="schedule">
+<span id="rn3-generic-harvesting-data-md-fme-workspace-schedule"></span><h3>Schedule<a class="headerlink" href="#schedule" title="Link to this heading">#</a></h3>
+<p>The data harvesting processes are commonly run on a regular schedule. This can be achieved by creating an FME Schedule (or Automation) that triggers the FME workspace at specified intervals and supplies it with corresponding user parameters.<br />
+The most commonly used frequency for RN3 metadata harvesting is once a day. It’s highly recommended to run it late at night.<br />
+The generic metadata harvesting should run about 10-15 minutes before the data harvesting so it has time to finish.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-harvesting-data-md-how-to-create-fme-schedule"><span class="std std-ref">Create a Schedule on FME Flow.</span></a></p>
+</div>
+<hr>
+</section>
+<section id="id17">
+<h3>How to<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<section id="create-a-database-connection-on-fme-flow">
+<span id="rn3-generic-harvesting-data-md-how-to-create-database-connection"></span><h4>Create a database connection on FME Flow<a class="headerlink" href="#create-a-database-connection-on-fme-flow" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow">https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow</a>.</p></li>
+<li><p>If you don’t have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you.</p></li>
+</ul>
+</section>
+<section id="add-fme-flow-server-as-a-user-to-an-ms-sql-database">
+<span id="rn3-generic-harvesting-data-md-how-to-add-fme-database-user"></span><h4>Add FME Flow server as a user to an MS SQL database<a class="headerlink" href="#add-fme-flow-server-as-a-user-to-an-ms-sql-database" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms">https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms</a>.</p></li>
+<li><p>Add a user with eeadmz1\fmeservice as the user name and login name.</p></li>
+<li><p>Select appropriate permission options on the Membership page.</p></li>
+<li><p>If you don’t have permissions to add users to the database, ask EEA Service Desk to add it.</p></li>
+</ul>
+</section>
+<section id="create-a-schedule-on-fme-flow">
+<span id="rn3-generic-harvesting-data-md-how-to-create-fme-schedule"></span><h4>Create a Schedule on FME Flow.<a class="headerlink" href="#create-a-schedule-on-fme-flow" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm">https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm</a>.</p></li>
+<li><p>If you don’t have permissions to create a Schedule, or are not confident enough to create it, ask the EEA Service Desk or a colleague with appropriate permissions and experience to create it for you.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="RN3_Generic_Harvesting_Metadata.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">RN3 Generic Harvesting - Metadata</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="RN3_Generic_Update_Reference.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RN3 Generic Update - Reference datasets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-setup">Quick setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#databases">Databases</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3">RN3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#template-tables">Template tables</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">Explanation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to">How to</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#create-template-tables">Create [template] tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#harvested-data-tables">Harvested Data tables</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Explanation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#harvesting-jobs-table">Harvesting Jobs table</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-harvesting-data-md-tables-harvesting-jobs-reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-harvesting-data-md-tables-harvesting-jobs-explanation">Explanation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">How to</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#prevent-snapshot-harvesting">Prevent snapshot harvesting</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#reharvest-snapshot-data">Reharvest snapshot data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-dataflow-metadata-tables">RN3 Dataflow Metadata tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataflow-tables-table">Dataflow Tables table</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-harvesting-data-md-tables-dataflow-tables-reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-harvesting-data-md-tables-dataflow-tables-explanation">Explanation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">How to</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#create-metadata-dataflowtables-table">Create [metadata].[DataflowTables] table</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#populate-metadata-dataflowtables-table">Populate [metadata].[DataflowTables] table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-fields-table">Geometry Fields table</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-harvesting-data-md-tables-geomfields-reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-harvesting-data-md-tables-geomfields-explanation">Explanation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">How to</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#create-metadata-dataflowtables-geometryfields-table">Create [metadata].[DataflowTables_GeometryFields] table</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#populate-metadata-dataflowtables-geometryfields-table">Populate [metadata].[DataflowTables_GeometryFields] table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#harvesting-parameters-table">Harvesting Parameters table</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-harvesting-data-md-tables-harvesting-parameters-reference">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rn3-generic-harvesting-data-md-tables-harvesting-parameters-explanation">Explanation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#attachment-harvesting">Attachment harvesting</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">How to</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#create-metadata-harvestingparameters-table">Create [metadata].[HarvestingParameters] table</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#populate-metadata-harvestingparameters-table">Populate [metadata].[HarvestingParameters] table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fme-workspace">FME workspace</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-parameters">User parameters</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Explanation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">Schedule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">How to</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-database-connection-on-fme-flow">Create a database connection on FME Flow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-fme-flow-server-as-a-user-to-an-ms-sql-database">Add FME Flow server as a user to an MS SQL database</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-schedule-on-fme-flow">Create a Schedule on FME Flow.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/RN3.GenericProcesses/edit/main/Documentation/RN3DataExchangeAutomations/RN3_Generic_Harvesting_Data.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/RN3DataExchangeAutomations/RN3_Generic_Harvesting_Data.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

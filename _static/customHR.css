@@ -1,0 +1,14 @@
+hr {
+   border-top:2px solid;
+}
+
+hr.thick {
+  height:5px;
+  border-top:3px solid;
+}
+
+hr.double {
+  height:7px;
+  border-top:2px solid;
+  border-bottom:2px solid;
+}

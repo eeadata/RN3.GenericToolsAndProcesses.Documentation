@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RN3 Generic Tools and Processes - Documentation &#8212; RN3 Generic Tools and Processes - Documentation 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/customTable.css?v=0cc09019" />
+    <link rel="stylesheet" type="text/css" href="_static/customStarFont.css?v=23dc880e" />
+    <link rel="stylesheet" type="text/css" href="_static/customHR.css?v=2c5c9b6e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RN3 External integrations" href="RN3ExternalIntegrations/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RN3 GTaPs Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="RN3ExternalIntegrations/index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="RN3DataExchangeAutomations/index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="RN3ExternalIntegrations/index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="RN3DataExchangeAutomations/index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rn3-generic-tools-and-processes-documentation">
+<h1>RN3 Generic Tools and Processes - Documentation<a class="headerlink" href="#rn3-generic-tools-and-processes-documentation" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>RN3 Generic Tools and Processes are predominantly FME-based solutions, providing added functionality to actors involved in Reportnet 3 dataflows.</p>
+<p>In this documentation, you will find information on how to set up and use these tools and processes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The documentation is intended for Data custodians and their consultants, or Data stewards confident in their technical skills (see <a class="reference internal" href="#gtaps-index-md-requirements"><span class="std std-ref">Complexity and technical requirements</span></a> for more details).</p>
+</div>
+<p>The main reason for choosing a generic tool or procedure is to save resources that would otherwise be spent on developing and maintaining custom solutions.</p>
+<p>While generic solutions can’t cover all possible situations, they cover the most common ones and often provide sufficient customisation options.</p>
+<p>By using them, dataflow managers are also steered towards standard approaches to the design and handling of dataflows and related workflows, which may translate into additional resource savings.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>All documented tools and processes were designed and tested on Dataflows created in the DLH version of the Reportnet 3 platform.<br />
+They should not be used in dataflows on the original PostgreSQL version of the platform.</p>
+</div>
+<section id="categories">
+<h2>Categories<a class="headerlink" href="#categories" title="Link to this heading">#</a></h2>
+<p>Main categories are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="RN3ExternalIntegrations/index.html#rn3-external-integrations"><span class="std std-ref">RN3 External integrations</span></a></p></li>
+<li><p><a class="reference internal" href="RN3DataExchangeAutomations/index.html#rn3-data-exchange-automations"><span class="std std-ref">RN3 Data exchange automations</span></a></p></li>
+<li><p><a class="reference internal" href="SupportingTools/index.html#rn3-supporting-tools"><span class="std std-ref">Supporting tools</span></a></p></li>
+</ul>
+</section>
+<section id="complexity-and-technical-requirements">
+<span id="gtaps-index-md-requirements"></span><h2>Complexity and technical requirements<a class="headerlink" href="#complexity-and-technical-requirements" title="Link to this heading">#</a></h2>
+<p>Individual tools and processes vary in complexity and the level of technical skill required.</p>
+<section id="repornet-3">
+<h3>Repornet 3<a class="headerlink" href="#repornet-3" title="Link to this heading">#</a></h3>
+<p>Every tool, in general, requires sufficient understanding of Reportnet 3, its functions and mechanisms, and knowledge of RN3 Dataflow design principles.</p>
+<p>The simplest RN3 External integrations do not require additional knowledge besides how to create them.</p>
+</section>
+<section id="sql">
+<h3>SQL<a class="headerlink" href="#sql" title="Link to this heading">#</a></h3>
+<p>More complex tools use MS SQL databases, either as a source of data or metadata, or as a place to store them.<br />
+These tools often include SQL scripts (or their examples) for creating database objects and for managing data.<br />
+The user setting up or using the respective tool needs to know how to use SQL Server Management Studio to modify and execute these scripts, or how to design some themselves.<br />
+However, the creation of the SQL databases must be done by the EEA Service desk.</p>
+</section>
+<section id="fme">
+<h3>FME<a class="headerlink" href="#fme" title="Link to this heading">#</a></h3>
+<p>Some knowledge of how to use FME Flow is required to set up RN3 Harvesting procedures (creation of Schedules or Automations) and for some RN3 External integrations using the MS SQL database (creation of database connections).
+Some of these actions may, however, be outsourced to EEA Service desk.</p>
+<p>Knowledge of FME Form is required for tools executed locally. This includes the use of many of the Supporting tools, or testing and the potential modification of other tools and processes. In certain cases, this may also require knowledge of Python scripts.</p>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<p>Some tools use additional files, such as Excel or CSV files, as data sources or outputs.</p>
+</section>
+</section>
+<section id="custom-vs-generic">
+<h2>Custom vs Generic<a class="headerlink" href="#custom-vs-generic" title="Link to this heading">#</a></h2>
+<p>The custom FME solutions are created for a specific Reportnet 3 dataflow, dataset or table. This specificity affects how FME workspaces are designed, particularly regarding the schema of the inputs and outputs. For example:</p>
+<ul class="simple">
+<li><p><strong>Readers/FeatureReaders</strong> expect an input to have a static schema, and will always output an exact set of exposed attributes.</p></li>
+<li><p><strong>Writers/FeatureWriters</strong> output exposed attributes into an automatically or manually defined fixed schema.</p></li>
+<li><p><strong>SQLCreators/SQLExecutors</strong> contain SQL expressions with names of tables and columns hardcoded.</p></li>
+<li><p>The <strong>database connections</strong> used by the Readers, Writers and SQLCreators/Executors are fixed.</p></li>
+<li><p><strong>HTTPCallers</strong> use many hardcoded parameters and sometimes even hardcoded authorisation attributes (which may be a security risk).</p></li>
+<li><p>The other transformers work only with exposed attributes of fixed names.</p></li>
+</ul>
+<p>While the custom FME workspace may be easier to design initially, any change to the inputs or outputs may require extensive redesign.<br />
+Inputs and outputs with different structures may require:</p>
+<ol class="arabic simple">
+<li><p>Forks in the workspace workflow, where each path may contain copies of the same set of transformers, just with a different set of exposed attributes.</p></li>
+<li><p>Separate FME workspaces.</p></li>
+</ol>
+<p>Design and maintenance of custom solutions is therefore often very resource-demanding.</p>
+<p>With some limitations, the generic solutions are designed to work independently of the schema of the workspace inputs and outputs. That allows them to be used for any input of the same general origin (e.g., an Excel file based on an official reporting template) and any output of the same type (e.g., a set of CSV files ready for import into an RN3 dataset).
+Here’s the list of the most common techniques that allow such an approach.</p>
+<ul class="simple">
+<li><p><strong>FeatureReaders</strong> and <strong>SQLExecutors</strong> do not expose the data attributes in their outputs.</p></li>
+<li><p>The schema of the input and output is inferred from the Data Schema output of the Reader transformer, or from an external source (e.g., schema of the respective RN3 dataset acquired by an HTTP API request). This schema may be used directly, but more often it’s parsed and modified to create a dynamic schema for the specific output format.</p></li>
+<li><p><strong>FeatureWriters</strong> use a Dynamic schema definition for the creation of their outputs.</p></li>
+<li><p><strong>SQLExecutors</strong> use values of the input attributes to construct their SQL expressions dynamically.</p></li>
+<li><p>The names of <strong>database connections</strong> are supplied dynamically as attribute values rather than fixed.</p></li>
+<li><p>The majority of parameters for <strong>HTTPCallers</strong> are supplied dynamically as attribute values.</p></li>
+<li><p>The <strong>Dereferencer</strong> transformers are used where a value from a specific unexposed attribute needs to be used or transformed.</p></li>
+<li><p>The <strong>PythonCaller</strong> transformers are used to modify or create values of unexposed attributes, or apply certain logic to the data, based on the values in unexposed attributes.</p></li>
+<li><p>The parameters that the FME workspace needs to work for a specific RN3 dataflow, dataset or table are supplied directly as user parameters by the RN3 platform itself (e.g., RN3 dataset identifier), from the custom parameters of the specific external integration, from the workspace execution schedule, or manually by the user when executing the workspace directly, or they are provided in an external source (e.g., dedicated SQL table). The workspace will often access and read parameters from this external source using the specific values provided in the supplied user parameters (e.g., the name of the dedicated SQL table, its schema, the database name, and the name of the corresponding FME database connection).</p></li>
+</ul>
+<p>Designing a generic solution is more challenging, and so may be setting them up. They are, however, more efficient in the long run. One workspace can serve many different dataflows. Any corrections and updates must be made in only one workspace.</p>
+<p>The data managers who use custom solutions may need to update them all one by one every time RN3 behaviour changes or a new function is introduced.<br />
+If they use the generic solutions, and the change has been implemented in the workspace version they already use, they will not need to take any action.</p>
+<p>If a new version of the FME workspace has been created, they can decide whether to switch after consulting the update documentation. Even then, all they may need to do in their external integration setup or FME Flow schedule is to update the workspace reference to a new version, and they can be confident the process will still work.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="RN3ExternalIntegrations/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RN3 External integrations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

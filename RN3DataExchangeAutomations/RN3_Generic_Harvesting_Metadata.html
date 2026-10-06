@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RN3 Generic Harvesting - Metadata &#8212; RN3 Generic Tools and Processes - Documentation 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=0cc09019" />
+    <link rel="stylesheet" type="text/css" href="../_static/customStarFont.css?v=23dc880e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customHR.css?v=2c5c9b6e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'RN3DataExchangeAutomations/RN3_Generic_Harvesting_Metadata';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RN3 Generic Harvesting - Data" href="RN3_Generic_Harvesting_Data.html" />
+    <link rel="prev" title="RN3 Data exchange automations" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RN3 GTaPs Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../RN3ExternalIntegrations/index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../RN3ExternalIntegrations/index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">RN3 Generic Harvesting - Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Harvesting_Data.html">RN3 Generic Harvesting - Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Update_Reference.html">RN3 Generic Update - Reference datasets</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">RN3 Data exchange automations</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">RN3 Generic Harvesting - Metadata</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rn3-generic-harvesting-metadata">
+<span id="id1"></span><h1>RN3 Generic Harvesting - Metadata<a class="headerlink" href="#rn3-generic-harvesting-metadata" title="Link to this heading">#</a></h1>
+<hr class="double">
+<p><strong>Complexity:</strong><br />
+<span class="stars">★★⯪☆☆</span></p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Metadata harvesting is an FME-orchestrated process that downloads <strong>metadata</strong> of selected <strong>Reportnet 3 dataflows</strong> and stores it in a <strong>series of tables</strong> in an <strong>MS SQL database</strong>.</p>
+<p>The process can be triggered manually or, more commonly, scheduled to run regularly.</p>
+<p>The harvested dataflow metadata can be used for multiple purposes, but the main one is for use in RN3 data harvesting.
+It is a <strong>prerequisite</strong> for the <strong><a class="reference internal" href="RN3_Generic_Harvesting_Data.html#rn3-generic-harvesting-data"><span class="std std-ref">RN3 Generic Harvesting - Data</span></a></strong> process.</p>
+<hr class="thick">
+</section>
+<section id="quick-setup">
+<h2>Quick setup<a class="headerlink" href="#quick-setup" title="Link to this heading">#</a></h2>
+<p><ins>If the RN3 database already exists on your MS SQL server and has been used for metadata harvesting:</ins></p>
+<ol class="arabic simple">
+<li><p>For each RN3 dataflow you want to harvest, <strong>insert a record</strong> with the required values into the <strong>[RN3].[metadata].[Dataflow] table</strong>.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-how-to-populate-metadata-dataflow-table"><span class="std std-ref">Populate [metadata].[Dataflow] table</span></a>.</p></li>
+<li><p>See Tables <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-reference"><span class="std std-ref">Reference</span></a> and <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-explanation"><span class="std std-ref">Explanation</span></a> for more details.</p></li>
+</ul>
+</li>
+</ol>
+<p><ins>If the RN3 database doesn’t exist on your MS SQL server:</ins></p>
+<ol class="arabic simple">
+<li><p>Ask EEA’s Service Desk to <strong>create the RN3 database</strong>.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-database"><span class="std std-ref">Database</span></a> for more details and alternatives.</p></li>
+</ul>
+</li>
+<li><p><strong>Create [metadata].[Dataflow] table</strong> in the RN3 database.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-how-to-create-metadata-dataflow-table"><span class="std std-ref">Create [metadata].[Dataflow] table</span></a>.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables"><span class="std std-ref">Tables</span></a> for more details and alternatives.</p></li>
+</ul>
+</li>
+<li><p>For each RN3 dataflow you want to harvest, <strong>insert a record</strong> with the required values into the <strong>[RN3].[metadata].[Dataflow] table</strong>.</p>
+<ul class="simple">
+<li><p>See How to <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-how-to-populate-metadata-dataflow-table"><span class="std std-ref">Populate [metadata].[Dataflow] table</span></a>.</p></li>
+<li><p>See Tables <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-reference"><span class="std std-ref">Reference</span></a> and <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-explanation"><span class="std std-ref">Explanation</span></a> for more details.</p></li>
+</ul>
+</li>
+<li><p><strong>Create a metadata harvesting schedule</strong> on the EEA’s FME Flow server.</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-fme-workspace-schedule"><span class="std std-ref">Schedule</span></a> for the details.</p></li>
+<li><p>See <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-fme-workspace"><span class="std std-ref">FME workspace</span></a> for the details on the FME workspace.</p></li>
+</ul>
+</li>
+</ol>
+<hr class="thick">
+</section>
+<section id="database">
+<span id="rn3-generic-harvesting-metadata-md-database"></span><h2>Database<a class="headerlink" href="#database" title="Link to this heading">#</a></h2>
+<p>The MS SQL database where the harvesting process stores the metadata of RN3 dataflows is traditionally a dedicated database named <strong>RN3</strong>.<br />
+It can, however, be any database.</p>
+<p>The responsible data manager must specify what database the harvesting process should use in the <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-fme-workspace-user-parameters"><span class="std std-ref">User parameters</span></a> of the FME workspace.</p>
+<p><em>In this documentation, we will continue referring to this database as the <strong>RN3</strong> database.</em></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Please contact EEA Service Desk if you want to create a new MS SQL database.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If harvested metadata are to be used in the generic data harvesting process, the RN3 database must be on the same MS SQL Server as the database for the harvested data (traditionally referred to as the <strong>Import</strong> database).</p>
+</div>
+<p>If more data managers (data custodians) use the same MS SQL Server to manage different dataflows, they can all use the same RN3 database.<br />
+In such situations, data managers must take care not to affect the metadata of other dataflows when setting up their metadata harvesting. They should also appoint one of them to manage the metadata harvesting schedule, since the process requires only a single schedule to run for all dataflows with metadata in the RN3 database.</p>
+<hr class="thick">
+</section>
+<section id="tables">
+<span id="rn3-generic-harvesting-metadata-md-tables"></span><h2>Tables<a class="headerlink" href="#tables" title="Link to this heading">#</a></h2>
+<p>By default, the harvesting process stores RN3 dataflow metadata in the RN3 database in the following tables under the <strong>[metadata]</strong> table schema:</p>
+<ul class="simple">
+<li><p><strong>[Dataflow]</strong></p></li>
+<li><p><strong>[DataCollection]</strong></p></li>
+<li><p><strong>[DesignDataset]</strong></p></li>
+<li><p><strong>[EUDataset]</strong></p></li>
+<li><p><strong>[HistoricRelease]</strong></p></li>
+<li><p><strong>[HistoricRelease_statusLog]</strong></p></li>
+<li><p><strong>[ReferenceDataset]</strong></p></li>
+<li><p><strong>[ReportingDataset]</strong></p></li>
+</ul>
+<p>If needed, the default table schema and table names can be changed by modifying the respective <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-fme-workspace-user-parameters"><span class="std std-ref">User parameters</span></a> of the FME workspace.</p>
+<p><em>In this documentation, we will continue using the default table schema and table names.</em></p>
+<p>The table schema and all the tables are created by the harvesting process when it runs in the RN3 database for the first time.<br />
+No metadata tables will be populated during this first execution because the process doesn’t yet know what to harvest. The responsible data manager must provide this information in the <strong>[metadata].[Dataflow]</strong> table.</p>
+<p>The data manager can skip the initial execution of the harvesting process and create the <strong>[metadata]</strong> schema and the <strong>[metadata].[Dataflow]</strong> table themselves.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-how-to-create-metadata-dataflow-table"><span class="std std-ref">Create [metadata].[Dataflow] table</span></a></p>
+</div>
+<p>Once the [metadata].[Dataflow] table has been created, the responsible data manager must insert a new record for each RN3 dataflow they want to harvest metadata from. Only four values need to be provided in each record. The harvesting process will fill the rest.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See How to <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-how-to-populate-metadata-dataflow-table"><span class="std std-ref">Populate [metadata].[Dataflow] table</span></a></p>
+</div>
+<p>The content of all tables is updated every time the harvesting process is executed. The new records are added, and existing records are overwritten. The exception is [HistoricRelease_statusLog] table (see Tables <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-tables-explanation"><span class="std std-ref">Explanation</span></a> for clarification).</p>
+<section id="reference">
+<span id="rn3-generic-harvesting-metadata-md-tables-reference"></span><h3>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h3>
+<section id="dataflow">
+<h4>[Dataflow]<a class="headerlink" href="#dataflow" title="Link to this heading">#</a></h4>
+<p>Besides the harvested metadata of the RN3 dataflow itself, the table contains a few columns that need to be prefilled before harvesting can start.<br />
+Description of selected columns:</p>
+<ul class="simple">
+<li><p><strong>[dataflowId]</strong> - The RN3 dataflow identifier. The primary key. Must be prefilled.</p></li>
+<li><p><strong>[obligationId]</strong> - Reporting obligation identifier. Must be prefilled.</p></li>
+<li><p><strong>[harvestMetadata]</strong> - A boolean value indicating whether the dataflow metadata should actually be harvested (1=yes, 0=no). Must be prefilled.</p></li>
+<li><p><strong>[apiKey]</strong> - The API-key of the dataflow. Must be prefilled.</p></li>
+</ul>
+</section>
+<section id="designdataset">
+<h4>[DesignDataset]<a class="headerlink" href="#designdataset" title="Link to this heading">#</a></h4>
+<p>Contains harvested metadata of all dataflow’s design datasets.<br />
+Description of selected columns:</p>
+<ul class="simple">
+<li><p><strong>[datasetId]</strong> - The RN3 dataset identifier. The primary key.</p></li>
+<li><p><strong>[dataflowId]</strong> - The foreign key linking the [DesignDataset] record to the corresponding [Dataflow] record.</p></li>
+<li><p><strong>[datasetSchema]</strong> - The unique identifier of the dataset schema.   It’s the same for all datasets created from the same schema.</p></li>
+<li><p><strong>[datasetSchemaJson]</strong> - A JSON string containing all design dataset metadata which is not extracted by the harvesting process. This includes a list of all dataset fields and their metadata.</p></li>
+</ul>
+</section>
+<section id="referencedataset">
+<h4>[ReferenceDataset]<a class="headerlink" href="#referencedataset" title="Link to this heading">#</a></h4>
+<p>Contains harvested metadata of all dataflow’s reference datasets.<br />
+Description of selected columns:</p>
+<ul class="simple">
+<li><p><strong>[datasetId]</strong> - The RN3 dataset identifier. The primary key.</p></li>
+<li><p><strong>[dataflowId]</strong> - The foreign key linking the [DesignDataset] record to the corresponding [Dataflow] record.</p></li>
+<li><p><strong>[datasetSchema]</strong> - The unique identifier of the dataset schema.   It’s the same for all datasets created from the same schema.</p></li>
+</ul>
+</section>
+<section id="reportingdataset">
+<h4>[ReportingDataset]<a class="headerlink" href="#reportingdataset" title="Link to this heading">#</a></h4>
+<p>Contains harvested metadata of all dataflow’s reporting datasets (the data provider’s datasets).<br />
+Description of selected columns:</p>
+<ul class="simple">
+<li><p><strong>[datasetId]</strong> - The RN3 dataset identifier. The primary key.</p></li>
+<li><p><strong>[dataflowId]</strong> - The foreign key linking the [ReportingDataset] record to the corresponding [Dataflow] record.</p></li>
+<li><p><strong>[datasetSchema]</strong> - The unique identifier of the dataset schema.   It’s the same for all datasets created from the same schema.</p></li>
+<li><p><strong>[isReleased]</strong> - A boolean field indicating whether the data provider has released their data.</p></li>
+<li><p><strong>[dataProviderId]</strong> - A numeric identifier of the data provider.</p></li>
+<li><p><strong>[status]</strong> - Status of the latest data provider release.</p></li>
+</ul>
+</section>
+<section id="datacollection">
+<h4>[DataCollection]<a class="headerlink" href="#datacollection" title="Link to this heading">#</a></h4>
+<p>Contains harvested metadata of all dataflow’s data collections.<br />
+Description of selected columns:</p>
+<ul class="simple">
+<li><p><strong>[dataCollectionId]</strong> - The RN3 dataset identifier. The primary key.</p></li>
+<li><p><strong>[dataflowId]</strong> - The foreign key linking the [DataCollection] record to the corresponding [Dataflow] record.</p></li>
+<li><p><strong>[datasetSchema]</strong> - The unique identifier of the dataset schema.   It’s the same for all datasets created from the same schema.</p></li>
+</ul>
+</section>
+<section id="eudataset">
+<h4>[EUDataset]<a class="headerlink" href="#eudataset" title="Link to this heading">#</a></h4>
+<p>Contains harvested metadata of all dataflow’s EU datasets.<br />
+Description of selected columns:</p>
+<ul class="simple">
+<li><p><strong>[datasetId]</strong> - The RN3 dataset identifier. The primary key.</p></li>
+<li><p><strong>[dataflowId]</strong> - The foreign key linking the [EUDataset] record to the corresponding [Dataflow] record.</p></li>
+<li><p><strong>[datasetSchema]</strong> - The unique identifier of the dataset schema.</p></li>
+</ul>
+</section>
+<section id="historicrelease">
+<h4>[HistoricRelease]<a class="headerlink" href="#historicrelease" title="Link to this heading">#</a></h4>
+<p>Contains harvested metadata of dataset release snapshots.<br />
+Description of selected columns:</p>
+<ul class="simple">
+<li><p><strong>[snapshotId]</strong> - The RN3 release snapshot identifier. The primary key.</p></li>
+<li><p><strong>[datasetId]</strong> - The foreign key linking the [HistoricRelease] record to the corresponding [ReportingDataset] record.</p></li>
+<li><p><strong>[dataCollectionId]</strong> - The foreign key linking the [HistoricRelease] record to the corresponding [DataCollection] record.</p></li>
+<li><p><strong>[dataflowId]</strong> - The foreign key linking the [HistoricRelease] record to the corresponding [Dataflow] record.</p></li>
+<li><p><strong>[dataProviderCode]</strong> - A code of the data provider (e.g., a two-letter country code).</p></li>
+<li><p><strong>[dateReleased]</strong> - A timestamp of the corresponding dataset release.</p></li>
+<li><p><strong>[dcrelease]</strong> - A boolean value indicating if this release snapshot is the latest release snapshot from the reporting dataset of the given data provider (1) or if it’s one from the older releases (0). The latest snapshot is the one currently used in the corresponding Data collection.</p></li>
+<li><p><strong>[eurelease]</strong> - A boolean value indicating if this release snapshot is the one currently used in the corresponding EU dataset.</p></li>
+<li><p><strong>[restrictFromPublic]</strong> - A boolean value indicating if this release snapshot was restricted by the data provider from public view at its release.</p></li>
+</ul>
+</section>
+<section id="historicrelease-statuslog">
+<h4>[HistoricRelease_statusLog]<a class="headerlink" href="#historicrelease-statuslog" title="Link to this heading">#</a></h4>
+<p>Combines time-specific information of release snapshot with the information on release status from the corresponding Reporting dataset.<br />
+Description of selected columns:</p>
+<ul class="simple">
+<li><p><strong>[snapshotId]</strong> - The foreign key linking the record to the corresponding [HistoricRelease] record.</p></li>
+<li><p><strong>[status]</strong> - The latest status of the data provider release the release snapshot is part of.</p></li>
+</ul>
+</section>
+</section>
+<section id="explanation">
+<span id="rn3-generic-harvesting-metadata-md-tables-explanation"></span><h3>Explanation<a class="headerlink" href="#explanation" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The value in the <strong>apiKey</strong> column of the <strong>[Dataflow]</strong> table is constructed by prefixing the dataflow API-key with the ‘ApiKey ‘ string (including the space!).</p>
+<p>The dataflow’s <strong>API key</strong> can be obtained from the dataflow page by following the instructions at <a class="reference external" href="https://eea.github.io/eea.help.reportnet3/rest-api/">https://eea.github.io/eea.help.reportnet3/rest-api/</a>.</p>
+</li>
+<li><p>The <strong>[HistoricRelease_statusLog]</strong> table has been designed as a workaround to solve a problem caused by a faulty architecture of the RN3 metadata database. In this architecture, the release status is not an attribute of the release itself, but of the reporting dataset.</p>
+<p>The release status, which is very important for the further use of the data, is the status assigned to the dataset by the data requester at the end of the <strong>Final Feedback</strong> process. This status indicates if the release has been technically accepted or a correction has been requested.</p>
+<p>But because a data provider can release their data many times, the final feedback status may be replaced by a new status when a new release is made. This made it difficult to identify release snapshots that were technically accepted.</p>
+<p>The [HistoricRelease_statusLog] table has been designed to preserve the latest release status for each release snapshot. The metadata harvesting process updates the record as long as the corresponding [HistoricRelease] record has [dcrelease] = 1 (meaning it’s the latest release snapshot). When the data provider makes a new release, the [dcrelease] value of the [HistoricRelease] record changes to 0, and the corresponding [HistoricRelease_statusLog] record is no longer updated by the metadata harvesting process.</p>
+</li>
+</ul>
+</section>
+<section id="how-to">
+<h3>How to<a class="headerlink" href="#how-to" title="Link to this heading">#</a></h3>
+<section id="create-metadata-dataflow-table">
+<span id="rn3-generic-harvesting-metadata-md-tables-how-to-create-metadata-dataflow-table"></span><h4>Create [metadata].[Dataflow] table<a class="headerlink" href="#create-metadata-dataflow-table" title="Link to this heading">#</a></h4>
+<p><strong>SQL - example:</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Run this only if the table doesn’t exist yet, or you are the only data manager using the RN3 database.</p>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">USE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">]</span>
+
+<span class="c1">-- DROP TABLE [metadata].[Dataflow]</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">Dataflow</span><span class="p">](</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">4000</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">description</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">4000</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">deadlineDate</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">releasable</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bit</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">obligationId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">harvestMetadata</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bit</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">apiKey</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">json</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">recordLastModified</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">obligationScope</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">obligationAlias</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">obligationDisclaimerText</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">manualAcceptance</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bit</span><span class="p">]</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="p">[</span><span class="n">PK_Dataflow</span><span class="p">]</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">CLUSTERED</span><span class="w"> </span>
+<span class="p">(</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowId</span><span class="p">]</span><span class="w"> </span><span class="k">ASC</span>
+<span class="p">)</span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">PAD_INDEX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">STATISTICS_NORECOMPUTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">IGNORE_DUP_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">,</span><span class="w"> </span><span class="n">ALLOW_ROW_LOCKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">,</span><span class="w"> </span><span class="n">ALLOW_PAGE_LOCKS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ON</span><span class="p">,</span><span class="w"> </span><span class="n">OPTIMIZE_FOR_SEQUENTIAL_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">OFF</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+<span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span><span class="w"> </span><span class="n">TEXTIMAGE_ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="populate-metadata-dataflow-table">
+<span id="rn3-generic-harvesting-metadata-md-tables-how-to-populate-metadata-dataflow-table"></span><h4>Populate [metadata].[Dataflow] table<a class="headerlink" href="#populate-metadata-dataflow-table" title="Link to this heading">#</a></h4>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">USE</span><span class="w"> </span><span class="p">[</span><span class="n">RN3</span><span class="p">]</span>
+
+<span class="c1">-- DELETE FROM [metadata].[Dataflow] WHERE [dataflowId] = &lt;dataflowId&gt;</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">Dataflow</span><span class="p">]</span><span class="w"> </span><span class="p">(</span>
+<span class="w">	</span><span class="p">[</span><span class="n">dataflowId</span><span class="p">]</span>
+<span class="w">	</span><span class="p">,[</span><span class="n">obligationId</span><span class="p">]</span>
+<span class="w">	</span><span class="p">,[</span><span class="n">harvestMetadata</span><span class="p">]</span>
+<span class="w">	</span><span class="p">,[</span><span class="n">apikey</span><span class="p">]</span>
+<span class="w">	</span><span class="p">)</span><span class="w"> </span>
+<span class="k">VALUES</span>
+<span class="w">	</span><span class="p">(</span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">obligationId</span><span class="o">&gt;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ApiKey &lt;dataflow API Key&gt;&#39;</span><span class="p">),</span>
+<span class="w">	</span><span class="p">(</span><span class="o">&lt;</span><span class="n">dataflowId</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">obligationId</span><span class="o">&gt;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;ApiKey &lt;dataflow API Key&gt;&#39;</span><span class="p">),</span>
+<span class="w">	</span><span class="p">(...)</span>
+</pre></div>
+</div>
+<hr class="thick">
+</section>
+</section>
+</section>
+<section id="fme-workspace">
+<span id="rn3-generic-harvesting-metadata-md-fme-workspace"></span><h2>FME workspace<a class="headerlink" href="#fme-workspace" title="Link to this heading">#</a></h2>
+<p>The metadata harvesting FME workspace does the following:</p>
+<ul class="simple">
+<li><p>Creates [metadata] table schema if it doesn’t exist.</p></li>
+<li><p>Creates the [metadata] tables if they don’t exist.</p></li>
+<li><p>Selects [metadata].[Dataflow] records where [harvestMetadata] = 1.</p></li>
+<li><p>Uses the selected values to get the dataflow metadata from Reportnet 3 as JSON strings</p></li>
+<li><p>Parses the JSON, extracts relevant metadata values and writes them in the corresponding tables using the Upsert action.</p></li>
+</ul>
+<p><strong>Latest version:</strong><br />
+<a class="reference external" href="https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Harvesting_Metadata_v2.fmw">https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Harvesting_Metadata_v2.fmw</a></p>
+<section id="user-parameters">
+<span id="rn3-generic-harvesting-metadata-md-fme-workspace-user-parameters"></span><h3>User parameters<a class="headerlink" href="#user-parameters" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h4>Reference<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p><strong>Mandatory parameters:</strong></p>
+<ul class="simple">
+<li><p><strong>ApiUrl</strong> - The base URL of the specific Reportnet 3 platform’s API service (e.g., https://api.reportnet.europa.eu).</p></li>
+<li><p><strong>RN3_metadata_databaseConnection</strong> - Name of the FME Database connection linked to <strong>RN3 database</strong>.</p></li>
+<li><p><strong>RN3_metadata_database</strong> - Name of the RN3 database (default value is ‘RN3’).</p></li>
+<li><p><strong>RN3_metadata_schema</strong> - Name of the table schema for the metadata tables (default value is ‘metadata’).</p></li>
+<li><p><strong>RN3_metadata_table_Dataflow</strong> - Name of the table for dataflow metadata (default value is ‘Dataflow’).</p></li>
+<li><p><strong>RN3_metadata_table_DataCollection</strong> - Name of the table for data collection metadata (default value is ‘DataCollection’).</p></li>
+<li><p><strong>RN3_metadata_table_HistoricRelease</strong> - Name of the table for release snapshot metadata (default value is ‘HistoricRelease’).</p></li>
+<li><p><strong>RN3_metadata_table_ReportingDataset</strong> - Name of the table for reporting dataset metadata (default value is ‘ReportingDataset’).</p></li>
+</ul>
+<p><strong>Optional parameters:</strong></p>
+<ul class="simple">
+<li><p><strong>RN3_metadata_table_DesignDataset</strong> -  Name of the table for design dataset metadata (default value is ‘DesignDataset’).</p></li>
+<li><p><strong>RN3_metadata_table_ReferenceDataset</strong> - Name of the table for reference dataset metadata (default value is ‘ReferenceDataset’).</p></li>
+<li><p><strong>RN3_metadata_table_EUDataset</strong> - Name of the table for EU dataset metadata (default value is ‘EUDataset’).</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>Explanation<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul>
+<li><p>The <strong>optional parameters</strong> represent tables that were added to the metadata harvesting in later versions of the FME workspace. Making them optional was intended to ensure that data managers do not have to change user parameter values in existing schedules and automations. If optional parameters are not provided, the harvesting process uses default names for the respective metadata tables.</p></li>
+<li><p>The FME connection referred to in the <strong>RN3_metadata_databaseConnection</strong> parameter must exist in the EEA’s FME Flow server. The connection must be non-JDBC. The FME Flow server needs <em>db_ddladmin</em> or <em>db_owner</em> permissions on the linked database to access it and write to the metadata tables.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="schedule">
+<span id="rn3-generic-harvesting-metadata-md-fme-workspace-schedule"></span><h3>Schedule<a class="headerlink" href="#schedule" title="Link to this heading">#</a></h3>
+<p>The metadata harvesting processes are commonly run on a regular schedule. This can be achieved by creating an FME Schedule (or Automation) that triggers the FME workspace at specified intervals and supplies it with corresponding user parameters.<br />
+The most commonly used frequency for RN3 metadata harvesting is two times a day. It’s highly recommended that one of the times runs late at night.<br />
+If a scheduled generic data harvesting process depends on the harvested metadata, the metadata harvesting should run about 10-15 minutes before to allow it to finish.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-harvesting-metadata-md-how-to-create-fme-schedule"><span class="std std-ref">Create a Schedule on FME Flow.</span></a></p>
+</div>
+</section>
+<section id="id4">
+<h3>How to<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="create-a-database-connection-on-fme-flow">
+<span id="rn3-generic-harvesting-metadata-md-how-to-create-database-connection"></span><h4>Create a database connection on FME Flow<a class="headerlink" href="#create-a-database-connection-on-fme-flow" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow">https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow</a>.</p></li>
+<li><p>If you don’t have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you.</p></li>
+</ul>
+</section>
+<section id="add-fme-flow-server-as-a-user-to-an-ms-sql-database">
+<span id="rn3-generic-harvesting-metadata-md-how-to-add-fme-database-user"></span><h4>Add FME Flow server as a user to an MS SQL database<a class="headerlink" href="#add-fme-flow-server-as-a-user-to-an-ms-sql-database" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms">https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms</a>.</p></li>
+<li><p>Add a user with eeadmz1\fmeservice as the user name and login name.</p></li>
+<li><p>Select appropriate permission options on the Membership page.</p></li>
+<li><p>If you don’t have permissions to add users to the database, ask EEA Service Desk to add it.</p></li>
+</ul>
+</section>
+<section id="create-a-schedule-on-fme-flow">
+<span id="rn3-generic-harvesting-metadata-md-how-to-create-fme-schedule"></span><h4>Create a Schedule on FME Flow.<a class="headerlink" href="#create-a-schedule-on-fme-flow" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm">https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm</a>.</p></li>
+<li><p>If you don’t have permissions to create a Schedule, or are not confident enough to create it, ask the EEA Service Desk or a colleague with appropriate permissions and experience to create it for you.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">RN3 Data exchange automations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="RN3_Generic_Harvesting_Data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RN3 Generic Harvesting - Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-setup">Quick setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database">Database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">Tables</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dataflow">[Dataflow]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#designdataset">[DesignDataset]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#referencedataset">[ReferenceDataset]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reportingdataset">[ReportingDataset]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#datacollection">[DataCollection]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eudataset">[EUDataset]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#historicrelease">[HistoricRelease]</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#historicrelease-statuslog">[HistoricRelease_statusLog]</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">Explanation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to">How to</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-metadata-dataflow-table">Create [metadata].[Dataflow] table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#populate-metadata-dataflow-table">Populate [metadata].[Dataflow] table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fme-workspace">FME workspace</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-parameters">User parameters</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Reference</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Explanation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schedule">Schedule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">How to</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-database-connection-on-fme-flow">Create a database connection on FME Flow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-fme-flow-server-as-a-user-to-an-ms-sql-database">Add FME Flow server as a user to an MS SQL database</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-schedule-on-fme-flow">Create a Schedule on FME Flow.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/RN3.GenericProcesses/edit/main/Documentation/RN3DataExchangeAutomations/RN3_Generic_Harvesting_Metadata.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/RN3DataExchangeAutomations/RN3_Generic_Harvesting_Metadata.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

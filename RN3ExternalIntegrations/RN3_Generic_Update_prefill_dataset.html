@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RN3 Generic Update - prefill dataset &#8212; RN3 Generic Tools and Processes - Documentation 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customTable.css?v=0cc09019" />
+    <link rel="stylesheet" type="text/css" href="../_static/customStarFont.css?v=23dc880e" />
+    <link rel="stylesheet" type="text/css" href="../_static/customHR.css?v=2c5c9b6e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=18a8d5f5"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'RN3ExternalIntegrations/RN3_Generic_Update_prefill_dataset';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/mermaid-zoom.js?v=572d2af9"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RN3 Generic Update - attachment bulk upload" href="RN3_Generic_Update_attachment_bulkUpload.html" />
+    <link rel="prev" title="RN3 Generic Update - prefill table" href="RN3_Generic_Update_prefill_table.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RN3 GTaPs Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../RN3DataExchangeAutomations/index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    RN3 External integrations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../RN3DataExchangeAutomations/index.html">
+    RN3 Data exchange automations
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../SupportingTools/index.html">
+    Supporting tools
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Import_Excel.html">RN3 Generic Import - Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Export_Excel.html">RN3 Generic Export - Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Update_prefill_table.html">RN3 Generic Update - prefill table</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">RN3 Generic Update - prefill dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RN3_Generic_Update_attachment_bulkUpload.html">RN3 Generic Update - attachment bulk upload</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">RN3 External integrations</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">RN3 Generic Update - prefill dataset</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rn3-generic-update-prefill-dataset">
+<h1>RN3 Generic Update - prefill dataset<a class="headerlink" href="#rn3-generic-update-prefill-dataset" title="Link to this heading">#</a></h1>
+<hr class="double">
+<p><strong>Complexity:</strong><br />
+<span class="stars">★★★☆☆</span></p>
+<p><strong>Operation type:</strong><br />
+IMPORT FROM OTHER SYSTEM</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This external integration allows an authorised data reporter user to prefill the whole RN3 reporting dataset (<em><strong>target dataset</strong></em>) with selected data (usually the provider-specific data) from specified tables or views in an MS SQL database (or databases) (<em><strong>prefill data sources</strong></em>).</p>
+<p>It requires the presence of a custom SQL table - <em><strong>prefill parameters table</strong></em>. This table contains:</p>
+<ul>
+<li><p>References of the RN3 dataset tables that the process should prefill (<em><strong>target tables</strong></em>).</p></li>
+<li><p>References of the corresponding <em><strong>prefill data sources</strong></em> - tables or views in an MS SQL database(s) containing prefill data.</p></li>
+<li><p>Other relevant information.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>See <a class="reference internal" href="#rn3-generic-update-prefill-dataset-md-prefill-parameters-table"><span class="std std-ref">Prefill parameters table</span></a> for structure reference, detailed explanation, and how to create and fill it.</p>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Any existing records in the <em>target tables</em> will be automatically deleted before the import.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The process doesn’t check if data in the selected <em>prefill data sources</em> matches the constraints of the <em>target tables</em> fields (e.g., data type) before the import. The discrepancies will be identified during the RN3 Validation.</p>
+</div>
+</section>
+<section id="external-integration-setup-example">
+<h2>External integration setup - example<a class="headerlink" href="#external-integration-setup-example" title="Link to this heading">#</a></h2>
+<p><strong>Name:</strong><br />
+Prefill dataset</p>
+<p><strong>Description:</strong><br />
+Prefill dataset (generic)</p>
+<p><strong>Repository:</strong><br />
+Dataflows_RN3_Generic_Processes</p>
+<p><strong>Workspace name:</strong><br />
+RN3_Generic_Update_prefillDataset.fmw</p>
+<p><strong>Operation:</strong><br />
+IMPORT FROM OTHER SYSTEM</p>
+<p><strong>Custom parameters</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Parameter key</strong></p></th>
+<th class="head"><p><strong>Parameter value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>DPP_databaseConnection</strong></p></td>
+<td><p><em>WISE_SOE_Production_WIGEON</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DPP_databaseName</strong></p></td>
+<td><p><em>WISE_SOE_Production</em></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DPP_tableSchema</strong></p></td>
+<td><p><em>metadata</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DPP_tableName</strong></p></td>
+<td><p><em>RN3_DatasetPrefillParameters</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="external-integration-custom-parameters">
+<h2>External integration custom parameters<a class="headerlink" href="#external-integration-custom-parameters" title="Link to this heading">#</a></h2>
+<section id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h3>
+<p><strong>Mandatory parameters:</strong></p>
+<ul class="simple">
+<li><p><strong>DPP_databaseConnection</strong> - Name of the FME Database connection linked to the MS SQL database containing the <em>prefill parameters table</em>.</p></li>
+<li><p><strong>DPP_databaseName</strong> - Name of the MS SQL database containing the <em>prefill parameters table</em>.</p></li>
+<li><p><strong>DPP_tableSchema</strong> - Name of the table schema of the <em>prefill parameters table</em>.</p></li>
+<li><p><strong>DPP_tableName</strong> - Name of the table or view that contains the dataset prefill parameters. The <em><strong>prefill parameters table</strong></em>.</p></li>
+</ul>
+</section>
+<section id="explanation">
+<h3>Explanation<a class="headerlink" href="#explanation" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The FME connection referred to in the <strong>DPP_databaseConnection</strong> parameter must exist in the EEA’s FME Flow server. The connection can be either non-JDBC or JDBC. If it’s JDBC, the connection name must end with ‘_JDBC’. The FME Flow server needs at least <em>db_datareader</em> permissions in the linked database to access and read the <em>prefill parameters table</em>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-update-prefill-dataset-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-update-prefill-dataset-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+</ul>
+</section>
+<section id="how-to">
+<h3>How to<a class="headerlink" href="#how-to" title="Link to this heading">#</a></h3>
+<section id="create-a-database-connection-on-fme-flow">
+<span id="rn3-generic-update-prefill-dataset-md-how-to-create-database-connection"></span><h4>Create a database connection on FME Flow<a class="headerlink" href="#create-a-database-connection-on-fme-flow" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow">https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow</a></p></li>
+<li><p>If you don’t have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you</p></li>
+</ul>
+</section>
+<section id="add-fme-flow-server-as-a-user-to-an-ms-sql-database">
+<span id="rn3-generic-update-prefill-dataset-md-how-to-add-fme-database-user"></span><h4>Add FME Flow server as a user to an MS SQL database<a class="headerlink" href="#add-fme-flow-server-as-a-user-to-an-ms-sql-database" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms">https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms</a></p></li>
+<li><p>Add a user with eeadmz1\fmeservice as the user name and login name</p></li>
+<li><p>Select appropriate permission options in the Membership page</p></li>
+<li><p>If you don’t have permissions to add users to the database, ask EEA Service desk to add it</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="prefill-parameters-table">
+<span id="rn3-generic-update-prefill-dataset-md-prefill-parameters-table"></span><h2>Prefill parameters table<a class="headerlink" href="#prefill-parameters-table" title="Link to this heading">#</a></h2>
+<p>This is an MS SQL Server database table with a predefined structure that should contain a record for each RN3 dataset table that the process should prefill.<br />
+It doesn’t have to be located in the same database as the <em>prefill data sources</em></p>
+<section id="id1">
+<h3>Reference<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><strong>Table structure:</strong></p>
+<ul class="simple">
+<li><p><strong>rn3_dataflowId</strong> - RN3 dataflow ID.</p></li>
+<li><p><strong>rn3_datasetName</strong> - RN3 dataset name.</p></li>
+<li><p><strong>rn3_tableName</strong> - Name of the RN3 dataset table to be prefilled. The <strong>target table</strong>.</p></li>
+<li><p><strong>rn3_tableSchemaId</strong> - RN3 table schema ID.</p></li>
+<li><p><strong>rn3_tablePrefill</strong> - A boolean field indicating if the RN3 table should be prefilled (1) or not (0).</p></li>
+<li><p><strong>ps_databaseConnection</strong> - Name of the FME database connection linked to the MS SQL database containing the <em>table prefill data source</em>.</p></li>
+<li><p><strong>ps_databaseName</strong> - Name of the MS SQL database containing the <em>table prefill data source</em>.</p></li>
+<li><p><strong>ps_tableSchema</strong> - Name of the table schema of the <em>table prefill data source</em>.</p></li>
+<li><p><strong>ps_tableName</strong> - Name of the table or view that contains the table’s prefill data. The <em><strong>table prefill data source</strong></em>.</p></li>
+<li><p><strong>ps_fieldName_provider</strong> - Name of a field in the <em>table prefill data source</em>, which contains the data provider code values.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Explanation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>The value for the <strong>rn3_tableSchemaId</strong> field can be extracted from the RN3 dataset URL when a specific RN3 table is selected. It is the value of the ‘tab’ parameter.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Example</p>
+<p><em><strong>URL:</strong></em> https://sandbox.reportnet.europa.eu/dataflow/13110/datasetSchema/46012?tab=6a452708c2c277000148527d<br />
+<em><strong>rn3_tableSchemaId:</strong></em> 6a452708c2c277000148527d</p>
+</div>
+</li>
+<li><p>The individual <em><strong>table prefill data sources</strong></em> should be created in cooperation with the <strong>responsible dataflow owner</strong> (e.g., data steward).</p></li>
+<li><p>The FME connection referred to in the <strong>ps_databaseConnection</strong> field must exist in the EEA’s FME Flow server. The connection can be either non-JDBC or JDBC. If it’s JDBC, the connection name must end with ‘_JDBC’. The FME Flow server needs at least <em>db_datareader</em> permissions in the linked database to access and read the <em>table prefill data source</em>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>How to <a class="reference internal" href="#rn3-generic-update-prefill-dataset-md-how-to-create-database-connection"><span class="std std-ref">Create a database connection on FME Flow</span></a><br />
+How to <a class="reference internal" href="#rn3-generic-update-prefill-dataset-md-how-to-add-fme-database-user"><span class="std std-ref">Add FME Flow server as a user to an MS SQL database</span></a></p>
+</div>
+</li>
+<li><p>The process will import values only from those columns in the <em>table prefill data source</em> that have the <strong>same name</strong> as the fields in the <em>target table</em>. Any additional columns in the <em>table prefill data source</em> will be ignored. The <em>target table</em> fields that do not have a corresponding column in the <em>table prefill data source</em> will be imported empty.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the <em>target table</em> contains any <strong>geometry fields</strong>, and the prefill action should prefill those too, the <em>table prefill data source</em> needs to contain the geometry values formatted as <strong>Extended GeoJSON</strong> string, not as SQL geometry!<br />
+This may change in future versions.</p>
+</div>
+</li>
+<li><p>If the <strong>ps_fieldName_provider</strong> value is provided, it’s used to select only those <em>table prefill data source</em> records where the value in the specified field is the same as the RN3 dataset’s data provider code value (RN3 supplies the data provider code value to the FME workspace automatically, as the countryCode user parameter).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the <em>table prefill data source</em> doesn’t contain a column with the name matching the <strong>ps_fieldName_provider</strong> value, the import process will fail!</p>
+</div>
+</li>
+<li><p>If the <strong>ps_fieldName_provider</strong> value is not provided, the process selects and imports all records from the <em>table prefill data source</em> to the <em>target table</em>.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>How to<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="create-prefill-parameters-table">
+<h4>Create prefill parameters table<a class="headerlink" href="#create-prefill-parameters-table" title="Link to this heading">#</a></h4>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">USE</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_SOE_Production</span><span class="p">]</span>
+
+<span class="c1">-- DROP TABLE [metadata].[RN3_DatasetPrefillParameters]</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">RN3_DatasetPrefillParameters</span><span class="p">](</span>
+<span class="w">	</span><span class="p">[</span><span class="n">rn3_dataflowId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bigint</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">rn3_datasetName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">	</span>
+<span class="w">	</span><span class="p">[</span><span class="n">rn3_tableName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">rn3_tableSchemaId</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">rn3_tablePrefill</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">bit</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">ps_databaseConnection</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">ps_databaseName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">ps_tableSchema</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">ps_tableName</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">	</span><span class="p">[</span><span class="n">ps_fieldName_provider</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">nvarchar</span><span class="p">](</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="k">PRIMARY</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="populate-prefill-parameters-table">
+<h4>Populate prefill parameters table<a class="headerlink" href="#populate-prefill-parameters-table" title="Link to this heading">#</a></h4>
+<p><strong>SQL - example:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">USE</span><span class="w"> </span><span class="p">[</span><span class="n">WISE_SOE_Production</span><span class="p">]</span>
+
+<span class="c1">-- DELETE FROM [metadata].[RN3_DatasetPrefillParameters] WHERE [rn3_dataflowId] = 13110</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="p">[</span><span class="n">metadata</span><span class="p">].[</span><span class="n">RN3_DatasetPrefillParameters</span><span class="p">]</span>
+<span class="w">    </span><span class="p">(</span>
+<span class="w">        </span><span class="p">[</span><span class="n">rn3_dataflowId</span><span class="p">]</span>
+<span class="w">        </span><span class="p">,[</span><span class="n">rn3_datasetName</span><span class="p">]</span><span class="w">        </span>
+<span class="w">        </span><span class="p">,[</span><span class="n">rn3_tableName</span><span class="p">]</span>
+<span class="w">        </span><span class="p">,[</span><span class="n">rn3_tableSchemaId</span><span class="p">]</span>
+<span class="w">        </span><span class="p">,[</span><span class="n">rn3_tablePrefill</span><span class="p">]</span>
+<span class="w">        </span><span class="p">,[</span><span class="n">ps_databaseConnection</span><span class="p">]</span>
+<span class="w">        </span><span class="p">,[</span><span class="n">ps_databaseName</span><span class="p">]</span>
+<span class="w">        </span><span class="p">,[</span><span class="n">ps_tableSchema</span><span class="p">]</span>
+<span class="w">        </span><span class="p">,[</span><span class="n">ps_tableName</span><span class="p">]</span>
+<span class="w">        </span><span class="p">,[</span><span class="n">ps_fieldName_provider</span><span class="p">]</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">VALUES</span>
+<span class="w">    </span><span class="p">(</span>
+<span class="w">        </span><span class="mi">13110</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;1 - Reporting data&#39;</span><span class="w">        </span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;Emissions&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;6a452708c2c277000148527d&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="mi">1</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;WISE_SOE_Production_WIGEON&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;WISE_SOE_Production&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;rn3_datasetPrefill&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;v_T_WISE1_Emissions&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;countryCode&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">,</span>
+<span class="w">    </span><span class="p">(</span>
+<span class="w">        </span><span class="mi">13110</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;1 - Reporting data&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;RiverineInputLoads&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;6a452712c2c277000148528a&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="mi">1</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;WISE_SOE_Production_WIGEON&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;WISE_SOE_Production&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;rn3_datasetPrefill&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;v_T_WISE1_RiverineInputLoads&#39;</span>
+<span class="w">        </span><span class="p">,</span><span class="s1">&#39;countryCode&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="fme-workspace">
+<h2>FME workspace<a class="headerlink" href="#fme-workspace" title="Link to this heading">#</a></h2>
+<p>The external integration FME workspace does the following:</p>
+<ul class="simple">
+<li><p>Accesses the relevant information from the <em>prefill parameters table</em>.</p></li>
+<li><p>Reads data from the referred <em>prefill data sources</em>.</p></li>
+<li><p>Applies specified filters if provided.</p></li>
+<li><p>Imports the results into the <em>target dataset</em>.</p></li>
+</ul>
+<p>It transforms and saves the selected <em>prefill data sources</em> data into a series of CSV files (one per target table), zips the CSV files into one ZIP file, which it then imports to the RN3 reporting dataset using the ‘/dataset/v2/importFileData/{datasetId}’ RN3 API endpoint.</p>
+<p><strong>Latest version:</strong><br />
+<a class="reference external" href="https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Update_prefillDataset.fmw">https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Update_prefillDataset.fmw</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="RN3_Generic_Update_prefill_table.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">RN3 Generic Update - prefill table</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="RN3_Generic_Update_attachment_bulkUpload.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RN3 Generic Update - attachment bulk upload</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-integration-setup-example">External integration setup - example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-integration-custom-parameters">External integration custom parameters</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation">Explanation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to">How to</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-database-connection-on-fme-flow">Create a database connection on FME Flow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-fme-flow-server-as-a-user-to-an-ms-sql-database">Add FME Flow server as a user to an MS SQL database</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prefill-parameters-table">Prefill parameters table</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Explanation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">How to</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-prefill-parameters-table">Create prefill parameters table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#populate-prefill-parameters-table">Populate prefill parameters table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fme-workspace">FME workspace</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/eeadata/RN3.GenericProcesses/edit/main/Documentation/RN3ExternalIntegrations/RN3_Generic_Update_prefill_dataset.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/RN3ExternalIntegrations/RN3_Generic_Update_prefill_dataset.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
