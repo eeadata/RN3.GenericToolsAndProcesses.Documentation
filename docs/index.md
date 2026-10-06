@@ -10,7 +10,7 @@ html_theme.sidebar_secondary.remove: true
 :hidden:
 
 RN3ExternalIntegrations/index
-RN3Harvesting/index
+RN3DataExchangeAutomations/index
 SupportingTools/index
 
 ```
@@ -38,7 +38,7 @@ They should not be used in dataflows on the original PostgreSQL version of the p
 
 Main categories are:  
 - {ref}`rn3-external-integrations`
-- {ref}`rn3-harvesting-procedures`  
+- {ref}`rn3-data-exchange-automations`  
 - {ref}`rn3-supporting-tools`
 
 (gtaps-index.md-requirements)=

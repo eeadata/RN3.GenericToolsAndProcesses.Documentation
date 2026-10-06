@@ -1,5 +1,5 @@
-(rn3-harvesting-procedures)=
-# RN3 Dataflow Harvesting and Update procedures
+(rn3-data-exchange-automations)=
+# RN3 Data exchange automations
 
 ```{toctree}
 :maxdepth: 2
@@ -12,12 +12,12 @@ RN3_Generic_Update_Reference
 
 ```
 
-Most dataflows include movement of data between the RN3 platform and a dedicated data processing or storage platform, for example, harvesting of reported data or updates of specific data in the RN3 dataflow.
+Most dataflows include exchange of data between the RN3 platform and a dedicated data processing or storage platform, for example, harvesting of reported data or updates of specific data in the RN3 dataflow.
 
 On a small scale, these actions can be done manually using the native RN3 export and import, or external integrations. These options become inadequate when we need to do them regularly, frequently, and on a large scale.
 
 The RN3 API service and FME let us automate and scale up these processes.
-Generic FME workspaces and solutions have been designed for the following dataflow processes:
+Generic FME based solutions have been designed for the automation of the following dataflow processes:
 
 - Dataflow Metadata harvesting
 - Dataflow Data harvesting
