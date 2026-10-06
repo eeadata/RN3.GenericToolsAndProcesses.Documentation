@@ -9,7 +9,7 @@
 
 ## Introduction
 
-Data harvesting is an FME-orchestrated process that downloads **data** from **data collection** datasets of selected **Reportnet 3 dataflows** and stores it in a **series of tables** in an **MS SQL database**.
+Data harvesting is an FME-orchestrated process that downloads **data** from **data collection** datasets of selected **Reportnet 3 dataflows** and stores it in a **series of tables** in an **MS SQL database**.  
 
 The process is designed to harvest only data that has not yet been successfully harvested.  
 This usually means data released since the last harvesting, or where the harvesting has previously failed.  
@@ -284,7 +284,7 @@ It's not recommended to create the Harvesting Jobs tables manually.
 The Harvesting Jobs table structure matches the structure of the **[RN3].[metadata].[HistoricalRelease]** table, with a few **additional columns** (see {ref}`RN3_Generic_Harvesting_Data.md-tables-harvesting-jobs-reference` for the details).  
 
 ```{seealso}
-See **[HistoricalRelease]** table entry in the **Metadata tables {ref}`RN3_Generic_Harvesting_Metadata.md-tables-reference`** for more details.
+See **[HistoricalRelease]** table entry in the **Metadata tables {ref}`RN3_Generic_Harvesting_Metadata.md-tables-reference`** for more details.  
 ```
 
 (RN3_Generic_Harvesting_Data.md-tables-harvesting-jobs-reference)=
@@ -301,7 +301,7 @@ In addition to the columns from the [RN3].[metadata].[HistoricalRelease] table, 
 - At the beginning of the data harvesting, the process finds the release snapshots metadata in the **[RN3].[metadata].[HistoricalRelease]** that match the specific harvesting parameters and are not already in the Harvesting Jobs table. It then copies those with **[dcrelease] = 1** to the table. It also adds the **[jobId]** value to the record at that time.  
 - The process then selects any harvesting jobs records with an empty **[harvestDate]** field and attempts to download the corresponding data from the data collection datasets. It then tries to process it and import it into the Harvested Data tables.  
 - The process adds the **[harvestDate]** value to the harvesting jobs record only if the harvesting was fully successful. This means it tries to harvest data from failed jobs next time it runs.  
-- By manipulating the **[harvestDate]** value manually, we can either prevent the process from harvesting specific release snapshots or force it to re-harvest them.
+- By manipulating the **[harvestDate]** value manually, we can either prevent the process from harvesting specific release snapshots or force it to re-harvest them.  
     ```{seealso}
     How to {ref}`RN3_Generic_Harvesting_Data.md-how-to-prevent-harvesting`.  
     How to {ref}`RN3_Generic_Harvesting_Data.md-how-to-reharvest-snapshot`.  
@@ -386,8 +386,8 @@ The [RN3].[metadata].[DataflowTables] table contains columns for five parameter 
 1. **Dataflow-related** parameters  
 	- [obligationId], [dataflowId], [dataflowName], [dataCollectionId]  
 
-2. **RN3 table** parameters
-	- [table_RN3_Name]
+2. **RN3 table** parameters  
+	- [table_RN3_Name]  
 
 3. **Harvested Data table** parameters  
 	- [table_SQL_data_DatabaseConnection], [table_SQL_data_Database], [table_SQL_data_Schema], [table_SQL_data_Name]  
@@ -396,7 +396,7 @@ The [RN3].[metadata].[DataflowTables] table contains columns for five parameter 
 	- [table_SQL_template_DatabaseConnection], [table_SQL_template_Database], [table_SQL_template_Schema], [table_SQL_template_Name]  
 
 5. The **geometry data** related parameters  
-	- [flag_keep_geojson], [flag_update_geometry], [SQL_geometry_reproject_srid]
+	- [flag_keep_geojson], [flag_update_geometry], [SQL_geometry_reproject_srid]  
 
 
 (RN3_Generic_Harvesting_Data.md-tables-dataflow-tables-reference)=
@@ -405,7 +405,7 @@ The [RN3].[metadata].[DataflowTables] table contains columns for five parameter 
 [RN3].[metadata].[DataflowTables] table columns:  
 - **[obligationId]**  - The identifier of the reporting obligation assigned to the RN3 dataflow. It must match the [obligationId] in the [RN3].[metadata].[Dataflow].  
 - **[dataflowId]**  - The RN3 dataflow identifier.  
-- **[dataflowName]**  - Optional. The name of the RN3 dataflow.
+- **[dataflowName]**  - Optional. The name of the RN3 dataflow.  
 - **[dataCollectionId]**  - The RN3 data collection identifier.  
 - **[table_RN3_Name]** - The name of the RN3 table.  
 - **[table_SQL_data_DatabaseConnection]**  - Name of the FME Database connection linked to the MS SQL database containing the Harvested Data table.  
@@ -413,26 +413,26 @@ The [RN3].[metadata].[DataflowTables] table contains columns for five parameter 
 - **[table_SQL_data_Schema]**  - Name of the Harvested Data table schema (standard is 'harvestedData').  
 - **[table_SQL_data_Name]**  - Name of the Harvested Data table to store data from the RN3 table.  
 - **[table_SQL_template_DatabaseConnection]**  - Name of the FME Database connection linked to the MS SQL database containing the Template table.  
-- **[table_SQL_template_Database]** - Name of the MS SQL database containing the Template table.    
+- **[table_SQL_template_Database]** - Name of the MS SQL database containing the Template table.  
 - **[table_SQL_template_Schema]** - Name of the Template table schema (standard is 'template').  
 - **[table_SQL_template_Name]** - Name of the Template table that is the source for the Harvested Data table.  
-- **[flag_keep_geojson]** - Optional. A boolean value indicates whether the GeoJSON, harvested from geometry field(s) in the RN3 table, should be stored in the field(s) of the same name in the SQL table (1 = yes, 0 = no).
-- **[flag_update_geometry]**  - Optional. A boolean value indicates whether the Harvested Data table geometry field should be updated using the data extracted from the corresponding RN3 geometry field (1 = yes, 0 = no).
-- **[SQL_geometry_reproject_srid]** - Optional. Integer part of the EPSG notation of the specific CRS to which the SQL geometry should be reprojected (e.g., 4326).
+- **[flag_keep_geojson]** - Optional. A boolean value indicates whether the GeoJSON, harvested from geometry field(s) in the RN3 table, should be stored in the field(s) of the same name in the SQL table (1 = yes, 0 = no).  
+- **[flag_update_geometry]**  - Optional. A boolean value indicates whether the Harvested Data table geometry field should be updated using the data extracted from the corresponding RN3 geometry field (1 = yes, 0 = no).  
+- **[SQL_geometry_reproject_srid]** - Optional. Integer part of the EPSG notation of the specific CRS to which the SQL geometry should be reprojected (e.g., 4326).  
 
 
 (RN3_Generic_Harvesting_Data.md-tables-dataflow-tables-explanation)=
 #### Explanation
 
-- If the [RN3].[metadata].[DataflowTables] table doesn't exist yet, a responsible data manager must create it.
+- If the [RN3].[metadata].[DataflowTables] table doesn't exist yet, a responsible data manager must create it.  
 	```{seealso}
-	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-create-dataflow-tables-table` for an example.
+	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-create-dataflow-tables-table` for an example.  
 	```
-- The data manager needs to add a record for each RN3 table they want to harvest data from and provide all mandatory values.
+- The data manager needs to add a record for each RN3 table they want to harvest data from and provide all mandatory values.  
 	```{seealso}
-	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-populate-dataflow-tables-table` for an example.
+	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-populate-dataflow-tables-table` for an example.  
 	```
-- It is in this table that the data manager specifies whether the template and Harvested Data tables are located in different databases or have non-standard schemas and names. As mentioned before, the Template tables can even be in a database located on a different MS SQL server than the other tables.
+- It is in this table that the data manager specifies whether the template and Harvested Data tables are located in different databases or have non-standard schemas and names. As mentioned before, the Template tables can even be in a database located on a different MS SQL server than the other tables.  
 
 ```{warning}
 Be careful not to delete the [RN3].[metadata].[DataflowTables] table if it already exists, or delete or change records for other dataflows that use the same table.  
@@ -445,23 +445,23 @@ Be careful not to delete the [RN3].[metadata].[DataflowTables] table if it alrea
 	How to {ref}`RN3_Generic_Harvesting_Data.md-how-to-add-fme-database-user`  
 	``` 
 
-- The database connection parameters may contain both non-JDBC and JDBC versions of the connection name. The non-JDBC connection names must match the JDBC one, just without the '_JDBC' suffix. The data harvesting process automatically creates attributes with the JDBC versions of the database connections if the respective parameters contain non-JDBC ones.
+- The database connection parameters may contain both non-JDBC and JDBC versions of the connection name. The non-JDBC connection names must match the JDBC one, just without the '_JDBC' suffix. The data harvesting process automatically creates attributes with the JDBC versions of the database connections if the respective parameters contain non-JDBC ones.  
 
 
--  The **[flag_keep_geojson]**, **[flag_update_geometry]**, **[SQL_geometry_reproject_srid]** values must be NULL for RN3 tables without geometry fields. 
+-  The **[flag_keep_geojson]**, **[flag_update_geometry]**, **[SQL_geometry_reproject_srid]** values must be NULL for RN3 tables without geometry fields.  
 
--  The **[flag_keep_geojson]** value can be 1 only if the data is to be downloaded from RN3 as *JSON* or *CSV* files. Only in these formats is the geometry present as GeoJSON. If the download format is parquet, it contains geometry data in extended WKB format. There is no valid reason for trying to store it in the database in that format. The harvesting process also won't convert WKB to GeoJSON.
+-  The **[flag_keep_geojson]** value can be 1 only if the data is to be downloaded from RN3 as *JSON* or *CSV* files. Only in these formats is the geometry present as GeoJSON. If the download format is parquet, it contains geometry data in extended WKB format. There is no valid reason for trying to store it in the database in that format. The harvesting process also won't convert WKB to GeoJSON.  
  	```{seealso}
-	See **etlExportVersion** in FME workspace {ref}`RN3_Generic_Harvesting_Data.md-fme-workspace-user-parameters` for how to decide and specify the download file format.
+	See **etlExportVersion** in FME workspace {ref}`RN3_Generic_Harvesting_Data.md-fme-workspace-user-parameters` for how to decide and specify the download file format.  
 	```
 
-- If the **[flag_update_geometry]** is 1, the Geometry Fields table must exist and contain information about the relation between the geometry fields in the RN3 and the Harvested Data table.
+- If the **[flag_update_geometry]** is 1, the Geometry Fields table must exist and contain information about the relation between the geometry fields in the RN3 and the Harvested Data table.  
 	```{seealso}
-	See {ref}`RN3_Generic_Harvesting_Data.md-tables-geomfields`
+	See {ref}`RN3_Generic_Harvesting_Data.md-tables-geomfields`  
 	```
 
-- The **[SQL_geometry_reproject_srid]** must be left empty if the geometry should be stored in the Harvested Data table in its original CRS. 
-- If the **[flag_update_geometry]** = 1, the harvesting process automatically creates an auxiliary table **[NatDA_Import].[harvestedData].[auxGeom]**. It uses it as temporary storage for geometry before inserting it into the Harvested Data table. You can ignore the table, or safely delete it once the data harvesting period has ended.
+- The **[SQL_geometry_reproject_srid]** must be left empty if the geometry should be stored in the Harvested Data table in its original CRS.  
+- If the **[flag_update_geometry]** = 1, the harvesting process automatically creates an auxiliary table **[NatDA_Import].[harvestedData].[auxGeom]**. It uses it as temporary storage for geometry before inserting it into the Harvested Data table. You can ignore the table, or safely delete it once the data harvesting period has ended.  
 
 #### How to
 
@@ -541,22 +541,22 @@ VALUES
 (RN3_Generic_Harvesting_Data.md-tables-geomfields)=
 ### Geometry Fields table
 
-The Geometry Fields table must be placed in the same database as the **{ref}`RN3_Generic_Harvesting_Data.md-tables-dataflow-tables`**.
+The Geometry Fields table must be placed in the same database as the **{ref}`RN3_Generic_Harvesting_Data.md-tables-dataflow-tables`**.  
 
-If the table doesn't exist yet, the data manager must create it if they want to harvest geometry data from the geometry fields in the dataflow.
+If the table doesn't exist yet, the data manager must create it if they want to harvest geometry data from the geometry fields in the dataflow.  
 
-The table is basically an extension of the Dataflow Tables table.
+The table is basically an extension of the Dataflow Tables table.  
 
 <ins>**Schema and name**</ins>  
 
 The table must have the name of the Dataflow Tables table suffixed with '_GeometryFields'. It must use the same table schema.  
-So, in the standard model, it is **[metadata].[DataflowTables_GeometryFields]**.   
+So, in the standard model, it is **[metadata].[DataflowTables_GeometryFields]**.  
 
 <ins>**Structure**</ins>  
 
-The table contains selected columns from the Dataflow Tables table and these additional fields:
-- **[field_RN3_Geometry]**
-- **[field_SQL_Geometry]**
+The table contains selected columns from the Dataflow Tables table and these additional fields:  
+- **[field_RN3_Geometry]**  
+- **[field_SQL_Geometry]**  
 
 (RN3_Generic_Harvesting_Data.md-tables-geomfields-reference)=
 #### Reference
@@ -566,15 +566,15 @@ The [metadata].[DataflowTables_GeometryFields] table columns:
 - **[dataflowName]** - Optional. The name of the RN3 dataflow.  
 - **[dataCollectionId]**  - The RN3 data collection identifier.  
 - **[table_RN3_Name]** - The name of the RN3 table.  
-- **[field_RN3_Geometry]** - The name of the RN3 table geometry field.
-- **[field_SQL_Geometry]** - The name of the geometry field in the Harvested Data table, where the RN3 field geometry should be stored.
+- **[field_RN3_Geometry]** - The name of the RN3 table geometry field.  
+- **[field_SQL_Geometry]** - The name of the geometry field in the Harvested Data table, where the RN3 field geometry should be stored.  
 
 (RN3_Generic_Harvesting_Data.md-tables-geomfields-explanation)=
 #### Explanation
 
-- The **[field_RN3_Geometry]** and **[field_SQL_Geometry]** can have the same or different value.
-- The fields **[field_RN3_Geometry]** and **[field_SQL_Geometry]** must be different if we want to convert and store the geometry data as SQL geometry and also keep it as a GeoJSON value, which we indicate by setting the **[flag_keep_geojson] = 1** and **[flag_update_geometry] = 1** in the {ref}`RN3_Generic_Harvesting_Data.md-tables-dataflow-tables`. In this situation, the corresponding **Template table** must contain two 'geometry' columns: one *[nvarchar]\(max)* column for the GeoJSON value and a *[geometry]* type column for the actual geometry. The column that stores the GeoJSON value must have the same name as the RN3 field.
-- If the RN3 table contains multiple different geometry fields (e.g., one for point and the other for polygon geometries), but only one of the fields can have a value in the released data, it's possible to store geometries from all RN3 fields in just one SQL field. In that case, add one record for each RN3 field to the Geometry Fields table, and give them the same **[field_SQL_Geometry]** value.
+- The **[field_RN3_Geometry]** and **[field_SQL_Geometry]** can have the same or different value.  
+- The fields **[field_RN3_Geometry]** and **[field_SQL_Geometry]** must be different if we want to convert and store the geometry data as SQL geometry and also keep it as a GeoJSON value, which we indicate by setting the **[flag_keep_geojson] = 1** and **[flag_update_geometry] = 1** in the {ref}`RN3_Generic_Harvesting_Data.md-tables-dataflow-tables`. In this situation, the corresponding **Template table** must contain two 'geometry' columns: one *[nvarchar]\(max)* column for the GeoJSON value and a *[geometry]* type column for the actual geometry. The column that stores the GeoJSON value must have the same name as the RN3 field.  
+- If the RN3 table contains multiple different geometry fields (e.g., one for point and the other for polygon geometries), but only one of the fields can have a value in the released data, it's possible to store geometries from all RN3 fields in just one SQL field. In that case, add one record for each RN3 field to the Geometry Fields table, and give them the same **[field_SQL_Geometry]** value.  
 
 #### How to
 
@@ -626,8 +626,8 @@ VALUES
 
 In the standard model, the Harvesting Parameters table is placed in the **RN3 database**.  
 
-It contains the core parameters used by the data harvesting process, one record for each RN3 data collection we want to harvest. 
-The majority of the parameters identify the other metadata tables (Harvesting Jobs, RN3 metadata, Dataflow tables) the harvesting process must use to harvest data from the given RN3 dataflow and its data collections.
+It contains the core parameters used by the data harvesting process, one record for each RN3 data collection we want to harvest.  
+The majority of the parameters identify the other metadata tables (Harvesting Jobs, RN3 metadata, Dataflow tables) the harvesting process must use to harvest data from the given RN3 dataflow and its data collections.  
 
  <ins>**Schema and name**</ins>  
 
@@ -640,17 +640,17 @@ The [RN3].[metadata].[HarvestingParameters] table contains columns for five para
 1. **Dataflow-related** parameters  
 	- [obligationId], [dataflowId], [dataflowName], [dataCollectionId]  
 
-2. **RN3 metadata tables** parameters
-	- [metadata_DatabaseConnection], [metadata_Database], [metadata_Schema], [metadata_Table_Dataflow], [metadata_Table_DataCollection], [metadata_Table_HistoricRelease], [metadata_Table_ReportingDataset]
+2. **RN3 metadata tables** parameters  
+	- [metadata_DatabaseConnection], [metadata_Database], [metadata_Schema], [metadata_Table_Dataflow], [metadata_Table_DataCollection], [metadata_Table_HistoricRelease], [metadata_Table_ReportingDataset]  
 
 3. **Dataflow Tables table** parameters  
-	- [dataflowTables_DatabaseConnection], [dataflowTables_Database], [dataflowTables_Schema], [dataflowTables_Table]
+	- [dataflowTables_DatabaseConnection], [dataflowTables_Database], [dataflowTables_Schema], [dataflowTables_Table]  
 
 4. **Harvesting Jobs table** parameters  
-	- [harvestingJobs_DatabaseConnection], [harvestingJobs_Database], [harvestingJobs_Schema], [harvestingJobs_Table] 
+	- [harvestingJobs_DatabaseConnection], [harvestingJobs_Database], [harvestingJobs_Schema], [harvestingJobs_Table]  
 
 5. The **attachment** related parameters  
-	- [attachmentParentPath]
+	- [attachmentParentPath]  
 
 
 (RN3_Generic_Harvesting_Data.md-tables-harvesting-parameters-reference)=
@@ -669,25 +669,25 @@ The [RN3].[metadata].[HarvestingParameters] table contains columns for five para
 - **[metadata_Table_ReportingDataset]** - Name of the table containing RN3 reporting dataset metadata (standard is 'ReportingDataset').  
 - **[dataflowTables_DatabaseConnection]** - Name of the FME Database connection linked to the MS SQL database containing the Dataflow Tables table.  
 - **[dataflowTables_Database]** - Name of the MS SQL database containing the Dataflow Tables table (standard is 'RN3').  
-- **[dataflowTables_Schema]** - Name of the Dataflow Tables table schema (standard is 'metadata'). 
-- **[dataflowTables_Table]** - Name of the Dataflow Tables table (standard is 'DataflowTables').
+- **[dataflowTables_Schema]** - Name of the Dataflow Tables table schema (standard is 'metadata').  
+- **[dataflowTables_Table]** - Name of the Dataflow Tables table (standard is 'DataflowTables').  
 - **[harvestingJobs_DatabaseConnection]** - Name of the FME Database connection linked to the MS SQL database containing the Harvesting Jobs table.  
-- **[harvestingJobs_Database]** - Name of the MS SQL database containing the Harvesting Jobs table (standardly it is the dataflow-specific Import table).  
-- **[harvestingJobs_Schema]** - Name of the Harvesting Jobs table schema (standard is 'metadata'). 
-- **[harvestingJobs_Table]** - Name of the Harvesting Jobs table (standard is 'HarvestingJobs').
+- **[harvestingJobs_Database]** - Name of the MS SQL database containing the Harvesting Jobs table (standardly it is the dataflow-specific Import database).  
+- **[harvestingJobs_Schema]** - Name of the Harvesting Jobs table schema (standard is 'metadata').  
+- **[harvestingJobs_Table]** - Name of the Harvesting Jobs table (standard is 'HarvestingJobs').  
 - **[attachmentParentPath]** - Optional. Full path to the parent directory where attachment files are stored.  
 
 
 (RN3_Generic_Harvesting_Data.md-tables-harvesting-parameters-explanation)=
 #### Explanation
 
-- If the [RN3].[metadata].[HarvestingParameters] table doesn't exist yet, a responsible data manager must create it.
+- If the [RN3].[metadata].[HarvestingParameters] table doesn't exist yet, a responsible data manager must create it.  
 	```{seealso}
-	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-create-harvesting-parameters-table` for an example.
+	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-create-harvesting-parameters-table` for an example.  
 	```
-- The data manager needs to add a record for each RN3 data collection they want to harvest data from and provide all mandatory values.
+- The data manager needs to add a record for each RN3 data collection they want to harvest data from and provide all mandatory values.  
 	```{seealso}
-	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-populate-harvesting-parameters-table` for an example.
+	See How to {ref}`RN3_Generic_Harvesting_Data.md-tables-how-to-populate-harvesting-parameters-table` for an example.  
 	```
 - It is in this table that we specify the databases, table schemas and names of metadata tables, whether they follow the standard or differ from it.  
 
@@ -709,12 +709,12 @@ Be careful not to delete the [RN3].[metadata].[HarvestingParameters] table if it
 
 Attachments will be harvested only if the **[attachmentParentPath]** value is provided and the data download format is *CSV* or *parquet*.  
 ```{seealso}
-See **etlExportVersion** in FME workspace {ref}`RN3_Generic_Harvesting_Data.md-fme-workspace-user-parameters` for how to decide and specify the download file format.
+See **etlExportVersion** in FME workspace {ref}`RN3_Generic_Harvesting_Data.md-fme-workspace-user-parameters` for how to decide and specify the download file format.  
 ```
 
 Standard **[attachmentParentPath]** value is:  
 ```
-'\\cwsfileserver.eea.dmz1\projects\ReportnetResources\RN3_GenericHarvesting_data\RN3_attachments\'
+'\\cwsfileserver.eea.dmz1\projects\ReportnetResources\RN3_GenericHarvesting_data\RN3_attachments\'  
 ```
 
 We suggest using it, as the FME Flow server already has proper permissions to this CWS folder. If you use a different folder, ensure FME has permission to create subfolders and add files.  
@@ -725,25 +725,25 @@ The RN3 data collection with the [attachmentParentPath] field populated must not
 
 The attachment files will be imported as zip files into the following directory structure under the parent folder specified in the [attachmentParentPath]:  
 ```
-\<obligationId>\<dataflowId>\<dataProviderCode>\<dataCollectionId>\<snapshotId>\<rn3TableName>\<fieldName>\<recordId>.zip
+\<obligationId>\<dataflowId>\<dataProviderCode>\<dataCollectionId>\<snapshotId>\<rn3TableName>\<fieldName>\<recordId>.zip  
 ```
 
-The name of the file in the zip file will match the value in the respective attachment field (the name of the file the data provider uploaded to RN3).
+The name of the file in the zip file will match the value in the respective attachment field (the name of the file the data provider uploaded to RN3).  
 
-The data harvesting process will create a metadata table **[AttachmentFilesMapping]** (if it doesn't already exist) in the same database and under the same table schema as the Harvesting Jobs table.  It adds a record for each harvested and stored attachment file. This information can be used in relevant SQL queries and to locate the specific files in the folder structure.
+The data harvesting process will create a metadata table **[AttachmentFilesMapping]** (if it doesn't already exist) in the same database and under the same table schema as the Harvesting Jobs table.  It adds a record for each harvested and stored attachment file. This information can be used in relevant SQL queries and to locate the specific files in the folder structure.  
 The table contains these columns:  
-- **[obligationId]**
-- **[dataflowId]** 
-- **[dataflowName]**
-- **[dataCollectionId]**
-- **[attachment_tableName_rn3]** - Name of the RN3 table the attachment file was harvested from.
-- **[attachment_tableName_sql]** - Name of the corresponding Harvested Data table.
-- **[attachment_fieldName]** - Name of the corresponding attachment field/column.
-- **[rn3_dataProviderCode]** - Code of the data provider.
-- **[rn3_snapshotId]** - Identifier of the release snapshot.
-- **[rn3_recordId]** - The RN3 identifier of the record the harvested file was attached to.
-- **[attachment_fileName]** - Name of the attachment file.
-- **[attachment_zipFilePath]** - Full path of the zip file with the attachment, except for the attachmentParentPath part.
+- **[obligationId]**  
+- **[dataflowId]**  
+- **[dataflowName]**  
+- **[dataCollectionId]**  
+- **[attachment_tableName_rn3]** - Name of the RN3 table the attachment file was harvested from.  
+- **[attachment_tableName_sql]** - Name of the corresponding Harvested Data table.  
+- **[attachment_fieldName]** - Name of the corresponding attachment field/column.  
+- **[rn3_dataProviderCode]** - Code of the data provider.  
+- **[rn3_snapshotId]** - Identifier of the release snapshot.  
+- **[rn3_recordId]** - The RN3 identifier of the record the harvested file was attached to.  
+- **[attachment_fileName]** - Name of the attachment file.  
+- **[attachment_zipFilePath]** - Full path of the zip file with the attachment, except for the attachmentParentPath part.  
 
 #### How to
 
@@ -860,7 +860,7 @@ VALUES
 (RN3_Generic_Harvesting_Data.md-fme-workspace)=
 ## FME workspace 
 
-The metadata harvesting FME workspace does the following: 
+The metadata harvesting FME workspace does the following:  
 - Processes user parameters and selects relevant records from the **Harvesting Parameters** table.  
 - Creates JDBC versions of database connections if the parameters provide non-JDBC versions.  
 - Selects relevant records from the **Dataflow Tables** and **Geometry Fields** tables.  
@@ -871,13 +871,13 @@ The metadata harvesting FME workspace does the following:
 - Selects release snapshot records from the **Harvesting Jobs** table that have not been harvested.  
 - Downloads the latest RN3 Data collections data from the data providers whose release snapshots have been selected.  
 - Reads the downloaded data and inserts it into the **Harvested Data** tables using the dynamic data schema.  
-- Processes the downloaded **attachment files** and stores them in the folder structure under the specified parent folder, if specified. Creates and updates the [AttachmentFilesMapping] table as needed.
-- Converts the **geometry data**, if specified, and uploads it to the **Harvested Data** tables.
-- Documents the result of the data harvesting in the **Harvesting Jobs** table.
+- Processes the downloaded **attachment files** and stores them in the folder structure under the specified parent folder, if specified. Creates and updates the [AttachmentFilesMapping] table as needed.  
+- Converts the **geometry data**, if specified, and uploads it to the **Harvested Data** tables.  
+- Documents the result of the data harvesting in the **Harvesting Jobs** table.  
 
 
 **Latest version:**  
-<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Harvesting_Data_v3a.fmw>
+<https://fme.discomap.eea.europa.eu/fmeserver/workspaces/run/Dataflows_RN3_Generic_Processes/RN3_Generic_Harvesting_Data_v3a.fmw>  
 
 (RN3_Generic_Harvesting_Data.md-fme-workspace-user-parameters)=
 ### User parameters
@@ -888,24 +888,24 @@ The metadata harvesting FME workspace does the following:
 - **obligationIds** - A comma-separated list of reporting obligation identifiers for which the latest RN3 dataflow should be checked for new releases and harvested.  
 - **dataflowIds** - A comma-separated list of all RN3 dataflows that are supposed to be checked for new releases, in all their data collections, and harvested.  
 - **dataCollectionIds** -  A comma-separated list of selected RN3 data collections that should be harvested.  
-- **HP_databaseConnection** - Name of the FME Database connection linked to the MS SQL database containing the Harvesting Parameters table. It must be a **JDBC** MSSQL connection.
- - **HP_database** - Name of the MS SQL database containing the Harvesting Parameters table (standard is 'RN3'). 
- - **HP_schema** - Name of the Harvesting Parameters table schema (standard is 'metadata'). 
- - **HP_table** - Name of the Harvesting Parameters table (standard is 'HarvestingParameters').
-- **baseUrl** - The base URL of the specific Reportnet 3 platform's API service (e.g., https://api.reportnet.europa.eu).
-- **etlExportVersion** - The 'version' identifier of the etlexport API endpoint used to download the data collection data from the RN3. Allowed values: 'v3', 'v4', 'v5'.
+- **HP_databaseConnection** - Name of the FME Database connection linked to the MS SQL database containing the Harvesting Parameters table. It must be a **JDBC** MSSQL connection.  
+ - **HP_database** - Name of the MS SQL database containing the Harvesting Parameters table (standard is 'RN3').  
+ - **HP_schema** - Name of the Harvesting Parameters table schema (standard is 'metadata').  
+ - **HP_table** - Name of the Harvesting Parameters table (standard is 'HarvestingParameters').  
+- **baseUrl** - The base URL of the specific Reportnet 3 platform's API service (e.g., https://api.reportnet.europa.eu).  
+- **etlExportVersion** - The 'version' identifier of the etlexport API endpoint used to download the data collection data from the RN3. Allowed values: 'v3', 'v4', 'v5'.  
 
 **Optional parameters:**  
-- **snapshotId** - The identifier of a single release snapshot that should be harvested.
+- **snapshotId** - The identifier of a single release snapshot that should be harvested.  
 
 #### Explanation
 
-- Only one of the **obligationIds**, **dataflowIds**, or **dataCollectionIds** parameters need to be provided. If more than one is provided, the dataflowIds takes precedence over obligationIds, and dataCollectionIds over dataflowIds. 
-- If **dataCollectionIds** is the only parameter of the three provided, the process will harvest data only from the latest of the dataflows with the specific obligationId. It will ignore older dataflows with the same obligationId.
-- The **dataflowIds** parameter is the one used most. However, it needs to be used instead of the obligationIds only in cases when an obligation has multiple dataflows in RN3, and we want to harvest data from an older dataflow instead of the latest one, or if multiple dataflows of the same obligation should be harvested at the same time.
-- The **dataCollectionIds** is to be used if a dataflow contains more data collections, and only some of them should be harvested by this workspace. If it's left empty, the workspace will harvest data from all data collections of all specified dataflows. If the list is provided, the workspace will harvest only data from the listed collections.
+- Only one of the **obligationIds**, **dataflowIds**, or **dataCollectionIds** parameters need to be provided. If more than one is provided, the dataflowIds takes precedence over obligationIds, and dataCollectionIds over dataflowIds.  
+- If **dataCollectionIds** is the only parameter of the three provided, the process will harvest data only from the latest of the dataflows with the specific obligationId. It will ignore older dataflows with the same obligationId.  
+- The **dataflowIds** parameter is the one used most. However, it needs to be used instead of the obligationIds only in cases when an obligation has multiple dataflows in RN3, and we want to harvest data from an older dataflow instead of the latest one, or if multiple dataflows of the same obligation should be harvested at the same time.  
+- The **dataCollectionIds** is to be used if a dataflow contains more data collections, and only some of them should be harvested by this workspace. If it's left empty, the workspace will harvest data from all data collections of all specified dataflows. If the list is provided, the workspace will harvest only data from the listed collections.  
 - If **snapshotId** is provided, it must be from a dataflow and a collection listed in the **dataflowIds** and **dataCollectionIds** parameters. The snapshot that has already been successfully harvested will be re-harvested,  and the **[harvestDate]** and **[jobSummary]** of the corresponding Harvesting Job record will be updated. The main purpose of this parameter is to test and analyse why a specific snapshot fails harvesting and import.  
-- In the **HP_** paramaters we specify the name and location of the **Harvesting Parameters table**. This is where we can identify whether the location, schema or name is non-standard.
+- In the **HP_** parameters we specify the name and location of the **Harvesting Parameters table**. This is where we can identify whether the location, schema or name is non-standard.  
 - If the database connection referred to in the **HP_databaseConnection** parameter is not a JDBC connection, the harvesting process will fail.  
 - The FME connection referred to in the **HP_databaseConnection** parameter must exist in the EEA's FME Flow server. The connection must be non-JDBC. The FME Flow server needs *db_ddladmin* or *db_owner* permissions on the linked database to access it and write to the metadata tables.  
 
@@ -926,7 +926,7 @@ The metadata harvesting FME workspace does the following:
 
 The data harvesting processes are commonly run on a regular schedule. This can be achieved by creating an FME Schedule (or Automation) that triggers the FME workspace at specified intervals and supplies it with corresponding user parameters.  
 The most commonly used frequency for RN3 metadata harvesting is once a day. It's highly recommended to run it late at night.  
-The generic metadata harvesting should run about 10-15 minutes before the data harvesting so it has time to finish.
+The generic metadata harvesting should run about 10-15 minutes before the data harvesting so it has time to finish.  
 
 ```{seealso}
 How to {ref}`RN3_Generic_Harvesting_Data.md-how-to-create-fme-schedule`  
@@ -939,18 +939,19 @@ How to {ref}`RN3_Generic_Harvesting_Data.md-how-to-create-fme-schedule`
 (RN3_Generic_Harvesting_Data.md-how-to-create-database-connection)=
 #### Create a database connection on FME Flow
 
-- Follow <https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow>.
-- If you don't have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you.
+- Follow <https://support.safe.com/hc/en-us/articles/25407463461517-FAQ-Database-Connections-on-FME-Flow>.  
+- If you don't have permissions to add a connection, or are not confident enough to create it, ask EEA Service Desk to create it for you.  
 
 (RN3_Generic_Harvesting_Data.md-how-to-add-fme-database-user)=
 #### Add FME Flow server as a user to an MS SQL database
 
 - Follow <https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-ssms>.
-- Add a user with eeadmz1\fmeservice as the user name and login name.
-- Select appropriate permission options on the Membership page.
-- If you don't have permissions to add users to the database, ask EEA Service Desk to add it.
+- Add a user with eeadmz1\fmeservice as the user name and login name.  
+- Select appropriate permission options on the Membership page.  
+- If you don't have permissions to add users to the database, ask EEA Service Desk to add it.  
 
 (RN3_Generic_Harvesting_Data.md-how-to-create-fme-schedule)=
 #### Create a Schedule on FME Flow.
-- Follow <https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm>.
-- If you don't have permissions to create a Schedule, or are not confident enough to create it, ask the EEA Service Desk or a colleague with appropriate permissions and experience to create it for you.
+
+- Follow <https://docs.safe.com/fme/html/FME-Flow/WebUI/schedules.htm>.  
+- If you don't have permissions to create a Schedule, or are not confident enough to create it, ask the EEA Service Desk or a colleague with appropriate permissions and experience to create it for you.  

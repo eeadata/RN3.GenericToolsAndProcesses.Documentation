@@ -14,7 +14,7 @@ Metadata harvesting is an FME-orchestrated process that downloads **metadata** o
 The process can be triggered manually or, more commonly, scheduled to run regularly.
 
 The harvested dataflow metadata can be used for multiple purposes, but the main one is for use in RN3 data harvesting. 
-It is a **prerequisite** for the **RN3 Generic Harvesting - Data** process.  
+It is a **prerequisite** for the **{ref}`rn3-generic-harvesting-data`** process.  
 
 <hr class="thick">
 
